@@ -1,0 +1,46 @@
+﻿<!-- Start Latest Works -->
+<section id="latest-blog">
+	<div class="container">
+    
+    	<div class="row">
+        	<div class="span12">
+        		<h3>Последние записи блога</h3>
+        	</div>
+        </div>
+            
+        <div class="row">
+
+get "/blog" do
+	foreach $children[:3] do
+		<article class="post span4">
+		if @thumb do
+                <div class="post-thumb">
+                    <a class="hover-post" href="@url">
+                        <img src="@thumb" alt="@title" />
+                        <div class="overlay"></div>
+                        <i class="font-icon-link"></i>
+                    </a>
+                </div>
+		endif
+                
+                <h2 class="entry-title">
+                    <a href="@url">@title</a>
+                </h2>
+                    
+                <div class="entry-content">
+		@short-content
+                </div>
+                    
+                <div class="entry-meta">
+                    <span class="published">@updated</span>
+                </div>
+                <div class="separator"></div>
+            </article>
+	endforeach                  
+end
+
+        </div>
+        
+    </div>
+</section>
+<!-- End Latest Works -->

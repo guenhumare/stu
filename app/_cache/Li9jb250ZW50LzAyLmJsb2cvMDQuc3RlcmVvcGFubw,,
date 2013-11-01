@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if (IE 9)]><html class="no-js ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en-US"> <!--<![endif]-->
+<head>
+
+<!-- Meta Tags -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>Съёмка стереопанорамы</title>   
+
+<meta name="description" content="smile to us, smiletous, виртуальный тур" /> 
+
+<!-- Mobile Specifics -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="MobileOptimized" content="320"/>   
+
+<!-- Mobile Internet Explorer ClearType Technology -->
+<!--[if IEMobile]>  <meta http-equiv="cleartype" content="on">  <![endif]-->
+
+<!-- Bootstrap -->
+<link href="../../public/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Revolution Slider -->
+<link href="../../public/rs-plugin/css/settings.css" rel="stylesheet">
+
+<!-- Main Style -->
+<link href="../../public/css/main.css" rel="stylesheet">
+
+<!-- FancyBox -->
+<link href="../../public/css/fancybox/jquery.fancybox.css" rel="stylesheet">
+
+<!-- Font Icons -->
+<link href="../../public/css/fonts.css" rel="stylesheet">
+
+<!-- Shortcodes -->
+<link href="../../public/css/shortcodes.css" rel="stylesheet">
+
+<!-- Responsive -->
+<link href="../../public/css/responsive.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="../../public/css/custom.css" rel="stylesheet">
+
+<!-- Google Font --> 
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,300,400,600,700&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
+
+
+<!-- Modernizr -->
+<script src="../../public/js/modernizr.js"></script>
+
+<!-- Js -->
+<script src="../../public/js/jquery-1.9.1.min.js"></script> <!-- jQuery Core -->
+<script src="../../public/js/jquery.mousewheel-min.js"></script> <!-- Reel -->
+<script src="../../public/js/jquery.reel-min.js"></script> <!-- Reel -->
+<script src="../../public/js/bootstrap.min.js"></script> <!-- Bootstrap -->
+<script src="../../public/rs-plugin/js/jquery.themepunch.revolution.min.js"></script> <!-- Revolution Slider -->
+<script src="../../public/rs-plugin/js/jquery.themepunch.plugins.min.js"></script> <!-- Revolution Slider -->
+<script src="../../public/js/jquery.superfish.min.js"></script> <!-- Superfish -->
+<script src="../../public/js/jquery.supersubs.min.js"></script> <!-- Supersubs -->
+<script src="../../public/js/jquery.isotope.js"></script> <!-- Isotope Filter -->
+<script src="../../public/js/jquery.fancybox.pack.js"></script> <!-- Fancybox -->
+<script src="../../public/js/jquery.fancybox-media.js"></script> <!-- Fancybox for Media -->
+<script src="../../public/js/jquery.tweet.js"></script> <!-- Tweet -->
+<script src="../../public/js/jquery.flickr.min.js"></script> <!-- Flickr -->
+<script src="../../public/js/plugins.js"></script> <!-- Contains: jQuery Easing, jQuery ScrollTo -->
+<script src="../../public/js/main.js"></script> <!-- Default JS -->
+<!-- End Js -->
+
+
+<!-- Fav Icon -->
+<link rel="shortcut icon" href="#">
+
+<link rel="apple-touch-icon" href="#">
+<link rel="apple-touch-icon" sizes="114x114" href="#">
+<link rel="apple-touch-icon" sizes="72x72" href="#">
+<link rel="apple-touch-icon" sizes="144x144" href="#">
+
+</head>
+
+
+<body>
+
+<!-- Header -->
+<header>
+	<div class="container">
+    	<div class="row">
+        	<div class="span2">
+            	<div id="logo">
+        			<a href="http://annamuratova.com" title="Smiletous.studio">Smiletous.studio</a>
+        		</div>
+            </div>
+
+			<div class="span10">
+				<!-- Mobile Menu -->
+				<a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
+				
+				<!-- Standard Menu -->
+				<nav id="menu">
+					<ul id="menu-nav">					
+									<li>
+					  <a href="../../gallery/">Галерея</a>
+					</li>
+				  					<li>
+					  <a href="../../tours/">Виртуальные туры</a>
+					</li>
+				  					<li>
+					  <a href="../../blog/">Блог</a>
+					</li>
+				  					<li>
+					  <a href="../../contact/">Контакты</a>
+					</li>
+				  
+					</ul>
+				</nav>
+			</div>
+			</div>
+    </div>
+</header>
+<!-- End Header -->
+
+
+
+<!-- Start Image Static Post Thumb -->
+<section id="image-static">
+    <div class="fullimage-container">
+    	<div class="pattern"></div>
+        <img src="../../content/02.blog/04.stereopano/thumb.jpg" alt="Съёмка стереопанорамы" />
+    </div>
+</section>
+<!-- End Image Static Post Thumb -->
+
+
+<!-- Start Intro Box -->
+<section id="intro-box" class="single-post">
+	<div class="container">
+    	<div class="row">
+        	<div class="span12">
+            	<h2 class="entry-title">Съёмка стереопанорамы</h2>
+                
+                <div class="entry-meta">
+                    <span class="author">Алексей Пушкарёв</span>
+                    <span class="divider">/</span>
+                    <span class="published">30 октября 2013</span>
+                </div>
+                    
+                <span class="arrow"></span>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Intro Box -->
+
+<div id="content">
+    <!-- Start Blog Single Page -->
+    <section id="blog" class="container single-post">
+    	<div class="row">
+        
+        	<div class="span9">   
+            	<!-- Start Post --> 
+            	<article class="post">
+                    
+                    <div class="entry-content">
+			<p>Создание объёмных изображений это идея, которая никогда не теряла актуальности. Уже в античное фремя люди знали, что восприятие объёма возможно, так как два глаза видят немного отличающиеся картинки. Логичной была бы мысль искусственно создавать такие изображения, чтобы передать ощущение объёма. Сейчас уже никто не скажет, когда и для чего впервые было создано стереоизображение, но свой взлёт эта технология начала уже в эпоху фотографии.</p>
+
+<p>За полтора века было придумано множество способов создания и рассматривания стереоизображений, которые получили распространение — стереоскоп, стереограмма, анаглиф и другие технологии, связанные с очками. Свою долю известности получили шлемы виртуальной реальности. Несмотря на различную популярность, все эти технологии объединяет одно качество: трудоёмкость применения. Создание стереоизображений обходится дороже, а со стороны конечных операторов или пользователей требуются вложения в средства просмотра, поэтому объёмные картинки до сих пор остаются предметом одноразового развлечения.</p>
+
+<p>Можно привести примеры современных технологий, у которых этот недостаток наименее проявлен:<br />
+· анаглиф, появившийся ещё в 19 веке и с тех пор представленный в десятке разновидностей. Несмотря на трудности с передачей цвета и повышенное напряжение для глаз, получать такие изображения сейчас очень легко, а для просмотра нужны простые очки с двумя светофильтрами,<br />
+· технология 3D Vision от Nvidia для компьютерных игр, в которой используются затворные стереоочки,<br />
+· поляризованные стереоочки в индустрии кино,<br />
+· лентикулярные дисплеи, которые уже устанавливают в смартфоны и видеокамеры. Эта технология наиболее близка к идеалу пользовательского устройства, так как не требует кроме экрана больше никаких приспособлений для просмотра. Её главный недостаток — низкое разрешение получаемого изображения (вдвое меньшее, чем у аналогичного дисплея без матрицы линз). Но эта технология ближе остальных приблизилась к потребительскому идеалу и не требует ничего, кроме минимально модифицированного экрана.<br /></p>
+
+<p>Можно надеяться, что в недалёком будущем какая-то из технологий станет по-настоящему массовой, войдёт в каждый дом и придаст новое качество всем медиа, к которым мы уже привыкли: видео, фото, игры, User Experience и кто знает, чему ещё. :)</p>
+
+<p>С появлением технологии виртуальных панорам, стереоизображения отметились и там, однако до настоящего времени их создание оставалось забавным опытом для профессионалов и отдано на откуп любителям. Всё потому, что современные инструменты демонстрации позволяют работать только с анаглифными изображениями, по сути одной панорамой, подготовленной заранее. А значит, применение такие панорамы найдут там, где без неудобных цветных очков никак не обойтись.</p>
+
+<p>И всё же, при просмотре стереопанорамы рождается впечатление зрителя, который впервые увидел виртуальную панораму — ВАУ! Поэтому желание создавать стереопанорамы не переводится в любителях и профессионалах панорамной съёмки. Тем удивительнее практически полное отсутствие систематизированного опыта в этой области как в английском, так и в русском сегментах интернета.</p>
+
+<p>Для опытного панорамного фотографа, уже владеющего навыками быстрой, качественной съёмки, сшивки и ретуши панорам перед созданием анаглифа встаёт вопрос: как получать параллакс? Хорошо, когда есть возможность установить две камеры на одно основание, настроить базу параллакса и снять две панорамы сразу, однако такой набор оборудования дорогой и тяжелый. Теоретически можно обойтись одной камерой и обычной панорамной головой.</p>
+
+<p>Для простоты представим, что делается панорама замкнутого помещения, например, комнаты. С первой попытки можно просто взять и сместить штатив на расстояние базы, но тогда окажется, что в при сравнении финальных панорам база изменяется! Пояснение дано на рисунке 1.
+Здесь О1 и О2, а так же белые кресты это проекции нодальных точек на вид сверху(как раз смещённый штатив),
+Стрелки L1, L2, R1, R2 и так далее указывают направление взгляда камеры при повороте в азимутальной плоскости,
+b — база.</p>
+
+<p>Можно заметить, что при повороте от первого ракурса ко второму база начинает уменьшаться, при дальнейшем повороте обнуляется, а затем левое и правое меняются местами. Исправить изменение базы в зависимости от азимута невозможно без дополнительных больших трудностей в обработке(теоретически можно попытатся собирать панорамы по половинкам, снятых в точках О1 и О2). Да и само по себе изменение базы будет влиять на восприятие объёма.</p>
+
+<p>Выход видится в нарушении правил съёмки, которые гласят, что нодальная точка объектива должна оставаться неподвижной в пространстве. Действительно, можно получить параллакс за счёт смещения настроек панорамной головы. Сделать это можно двумя способами: вперёд-назад относительно плоскости сенсора и влево-вправо в пределах этой плоскости. Сразу скажу, что смещение вперёд-назад значительно снижает качество сшивки панорамы, поэтому использовать его нет смысла, а вот к смещению влево-вправо качество сшивки практически нечувствительно. Более того, база съёмки сохранится неизменной.
+Объяснение дано на рисунке 2:</p>
+
+<p>Здесь показаны два положения нодальной точки: в точках А и B относительно оси О вращения головы. Горизонтальная синяя линия обозначает базу стереосъёмки. Изначально нодальная точка находилась в О. Стрелки обозначают направление взгляда камеры. При повороте от ракурса L1R1 к ракурсу L2R2 можно видеть, что база не изменяется. Таким образом будут получены две панорамы, которые не составит трудностей совместить. Нужно заметить, что такой способ съёмки может потребовать подгона панорам друг к другу, причём труднее всего такой подгон сделать для выправления горизонта. Так что выставление уровня лучше делать при съёмке. Зенит и надир полученной стереопанорамы будут выглядеть объёмно только в одном направлении, и полностью «антиобъёмно» в противоположном. Надир достаточно снять один раз.</p>
+
+<p>Наконец, бывают съёмки, в которых можно пренебречь смещением нодальной точки, а базы должны быть большими, порядка метра. Я имею ввиду аэросъёмку. На неё хорошо ложится схема, показанная на рисунке 3:</p>
+
+<p>Дистанция до объектов съёмки в этом случае намного превышает базу, поэтому для создания двух панорам можно брать ракурсы из каждой точки, они названы L1..L6 и R1..R6. База в идеальном случае сохраняется неизменной и некритичной к погрешностям.</p>
+
+<p>Какая нужна база? В приведённых к статье примерах база составила всего 4см. Эффект кулисности при такой базе начинает проявлять себя с расстояния 6-8 метров. Наиболее близкий объект должен быть примерно в 10 раз больше базы, получается 40см, вплотную к камере. При сшивке панорам, снятых с отклонением от оси в 2 см трудностей даже с близкими объектами не возникает. Можно считать базу в 4-5см оптимальной при съёмке в помещениях.</p>
+
+<p>Хорошие статьи по теме: <br />
+1. Геометрия стереосъёмки, http://www.ixbt.com/digimage/stereogeometry.shtml <br />
+2. История создания стереоизображений, http://fakturno.ru/a-znaete-li-vi-chto/istoriya-sozdaniya-stereoizobrazhenij.html <br />
+3. Техника съемки сферической стерео панорамы, http://www.airpano.ru/Articles-AirPano.php?article=103407 <br /></p>
+
+<p>Примеры стереопанорам даны ниже.</p>
+
+                    </div>
+                    
+                </article>
+                <!-- End Post -->
+                
+            </div>
+		
+		</div>
+    </section>
+    <!-- End Blog Single Page -->
+</div>
+
+<!-- Start Twitter Feed -->
+<section id="twitter-feed">
+<span class="arrow-down"></span>
+	<div class="container">
+    	<div class="row">
+        	<div class="span12">
+            	<div class="twitter-list" data-count="1"></div>
+            </div>
+        </div>
+    </div>	
+</section>
+<!-- End Twitter Feed -->
+
+<!-- Start Credits -->
+<section id="footer-credits">
+	<div class="container">
+    	<div class="row">
+        	<div class="span3">
+            </div>
+			<div class="span6">
+				<p class="credits"><br />+7 926 102-07-92<br /><a href="mailto:mail@smiletous.com">mail@smiletous.com</a></p>
+			</div>
+			<div class="span3" id="social-footer">               
+				<nav id="social-footer">
+					<ul>
+						<li><a href="https://twitter.com/smiletous" title=""><i class="font-icon-social-twitter"></i></a></li>
+						<li><a href="#" title=""><i class="font-icon-social-facebook"></i></a></li>
+					</ul>
+				</nav>
+               
+			</div>
+        </div>
+    </div>
+</section>
+<!-- End Credits -->
+
+<!-- Back To Top -->
+<a id="back-to-top" href="#">
+	<i class="font-icon-arrow-simple-up"></i>
+</a>
+<!-- End Back to Top -->
+
+</body>
+</html>
+
+<!-- Stacey(2.3.0-smiletous): f7c60f27cc824643b7f8b5d43b542dd1 -->

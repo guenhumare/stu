@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if (IE 9)]><html class="no-js ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en-US"> <!--<![endif]-->
+<head>
+
+<!-- Meta Tags -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>@title</title>   
+
+<meta name="description" content="@seo-description" /> 
+
+:css
+
+:js
+
+:icons
+
+</head>
+
+
+<body>
+
+:navigation
+
+if @thumb do
+<!-- Start Image Static Post Thumb -->
+<section id="image-static">
+    <div class="fullimage-container">
+    	<div class="pattern"></div>
+        <img src="@thumb" alt="@title" />
+    </div>
+</section>
+<!-- End Image Static Post Thumb -->
+endif
+
+<!-- Start Intro Box -->
+<section id="intro-box" class="single-post">
+	<div class="container">
+    	<div class="row">
+        	<div class="span12">
+            	<h2 class="entry-title">@title</h2>
+                
+                <div class="entry-meta">
+                    <span class="author">@author</span>
+                    <span class="divider">/</span>
+                    <span class="published">@updated</span>
+                </div>
+                    
+                <span class="arrow"></span>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Intro Box -->
+
+<div id="content">
+    <!-- Start Blog Single Page -->
+    <section id="blog" class="container single-post">
+    	<div class="row">
+        
+        	<div class="span9">   
+            	<!-- Start Post --> 
+            	<article class="post">
+                    
+                    <div class="entry-content">
+			@content
+                    </div>
+                    
+                </article>
+                <!-- End Post -->
+                
+            </div>
+		
+		</div>
+    </section>
+    <!-- End Blog Single Page -->
+</div>
+
+:twitter-feed
+
+:credits
+
+:back-to-top
+
+</body>
+</html>

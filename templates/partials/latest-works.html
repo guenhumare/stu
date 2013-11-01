@@ -1,0 +1,77 @@
+<!-- Start Latest Works -->
+<section id="latest-work">
+	<span class="arrow-down"></span>
+    <span class="arrow"></span>
+	
+    <div class="container">
+            <div class="row">
+            	<div class="span12">
+                	<h3>Последние работы</h3>
+                </div>
+            </div>
+            
+            <div class="row">
+            
+                <ul id="latest-work-thumbs">     
+
+get "/gallery" do
+	foreach $children[:3] do  
+                    
+                    <li class="work-item-thumbs span4">
+                    	<h5>
+                            <a href="@url">@title</a>
+                            <span class="arrow-port"></span>
+                        </h5>
+                        
+                        <a class="hover-wrap fancybox" href="@url" data-fancybox-group="gallery" title="@title">
+                            <img src="@thumb" alt="@title" />
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+         endforeach
+end     
+
+get "/tours" do
+	foreach $children[:3] do  
+                    
+                    <li class="work-item-thumbs span4">
+                    	<h5>
+                            <a href="@url">@title</a>
+                            <span class="arrow-port"></span>
+                        </h5>
+                        
+                        <a class="hover-wrap fancybox" href="@url" data-fancybox-group="gallery" title="@title">
+                            <img src="@thumb" alt="@title" />
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+         endforeach
+end    
+
+get "/3d" do
+	foreach $children[:3] do  
+                    
+                    <li class="work-item-thumbs span4">
+                    	<h5>
+                            <a href="@url">@title</a>
+                            <span class="arrow-port"></span>
+                        </h5>
+                        
+                        <a class="hover-wrap fancybox" href="@url" data-fancybox-group="gallery" title="@title">
+                            <img src="@thumb" alt="@title" />
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+         endforeach
+end    
+                </ul>
+                
+            </div>
+            
+
+    </div>
+</section>
+<!-- End Latest Works -->

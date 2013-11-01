@@ -1,0 +1,725 @@
+@media (min-width: 980px) and (max-width: 1199px) {
+	
+	#portfolio-projects .item-project.span3 {
+		width: 300px;
+		margin-left: 20px;
+		margin-bottom: 20px;
+	}
+	
+	/* Latest Work */
+	
+	#latest-work-thumbs li {
+		margin-bottom: 20px;	
+	}
+	
+	/* Portfolio */
+
+	#portfolio-projects li {
+		margin-bottom: 20px;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+	
+	header {
+		position: relative;	
+	}
+	
+	#title-page,
+	#slider,
+	#image-static,
+	#map-area {
+		margin-top: 0;
+	}
+	
+	/* Header */
+	
+	header {
+		height: 60px;	
+	}
+	
+	header #logo a {
+		font-size: 24px;
+		line-height: 60px;	
+	}
+	
+	.menu-nav {
+		margin-top: 22px;	
+	}
+	
+	#menu {
+		display: none;	
+	}
+	
+	#mobile-nav {
+    	display: block;
+		float: right;
+	}
+	
+	/* Intro Box */
+	
+	#intro-box h3 {
+		font-size: 28px;	
+	}
+	
+	/* Latest Work */
+	
+	#latest-work-thumbs .work-item-thumbs.span4 {
+		width: 352px;
+		margin-left: 20px;
+		margin-bottom: 20px;
+	}
+	
+	/* Latest Blog */
+	
+	#latest-blog .span4 {
+		width: 724px;
+	}
+	
+	#latest-blog .post .separator {
+		display: block;	
+	}
+	
+	/* Team */
+	
+	#people .single-people.span3 {
+		width: 228px;
+		margin-left: 20px;
+		margin-bottom: 20px;
+	}
+	
+	#single-team .span6 {
+		width: 724px;	
+	}
+	
+	/* Portfolio */
+	
+	#portfolio-projects .item-project.span3 {
+		width: 352px;
+		margin-left: 20px;
+		margin-bottom: 20px;
+	}
+	
+	#portfolio-projects .item-project.span4 {
+		width: 352px;
+		margin-left: 20px;
+		margin-bottom: 20px;
+	}
+	
+	.project-navigation {
+		margin-top: 40px;	
+	}
+	
+	/* Blog Full Width */
+	
+	.blog-post-full .post .span6 {
+		width: 476px;	
+	}
+	
+	.blog-post-full .post .offset3 {
+		margin-left: 144px;	
+	}
+	
+	/* Blog Single Post */
+	
+	.single-post .span9,
+	.single-post .span3 {
+		width: 724px;
+	}
+	
+	/* Comments */
+	
+	#commentform p {
+		margin-bottom: 20px;	
+	}
+	
+	#commentform label {
+		top: 0;
+		margin-bottom: 12px;
+	}
+	
+	#commentform span.required {
+		top: 0;	
+	}
+	
+	#commentform input,
+	#commentform #submit {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		
+		width: 100%;
+	}
+	
+	#commentform textarea {
+		margin: 20px 0;	
+	}
+	
+	/* Sidebar */
+	
+	#sidebar {
+		border-top: 2px solid #FFB5AF;
+		margin-top: 50px;
+    	padding-top: 50px;
+	}
+	
+	/* Map */
+	
+	.map {
+		height: 500px;	
+	}
+	
+	/* Contact */
+	
+	#contact .span9,
+	#contact .span3 {
+		width: 724px;
+	}
+	
+	#contact-form input,
+	#contact-form .submit {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		
+		width: 100%;
+	}
+	
+	.contact-details {
+    	border-top: 2px solid #FFB5AF;
+		margin-top: 20px;
+    	padding-top: 30px;
+    	text-align: center;
+	}
+	
+	/* Social Footer */
+	
+	#social-footer ul li a {
+		width: 50px;
+		height: 50px;	
+	}
+	
+	#social-footer ul li a i {
+		font-size: 24px;
+		line-height: 50px;	
+	}
+	
+	/* Shortcodes */
+	
+	.dropmenu,
+	.dropmenu-active {
+		width: 228px;	
+	}
+	
+	.info-block .info-text {
+    	padding-right: 0;
+	}
+	
+	.info-block a.button-main {
+		position: relative;
+		display: block;
+    	margin-top: 20px;
+	}
+
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+	
+	header {
+		position: relative;	
+	}
+	
+	#title-page,
+	#slider,
+	#image-static,
+	#map-area {
+		margin-top: 0;
+	}
+	
+	/* Common Fix */
+	
+	#slider,
+	#image-static,
+	.map {
+		margin-left: -20px;
+		margin-right: -20px;	
+	}
+	
+	header,
+	#navigation-mobile,
+	#intro-box,
+	#latest-work,
+	#title-page,
+	#twitter-feed,
+	footer,
+	#footer-credits {
+		margin-left: -20px;
+    	margin-right: -20px;
+    	padding-left: 20px;
+    	padding-right: 20px;	
+	}
+	
+	/* Header */
+	
+	header {
+		height: 60px;	
+	}
+	
+	header #logo a {
+		font-size: 24px;
+		line-height: 60px;	
+	}
+	
+	.menu-nav {
+		margin-top: 22px;	
+	}
+	
+	header .span2 {
+		float: left;
+		width: 80%;	
+	}
+	
+	header .span10 {
+		float: left;
+		width: 20%;	
+	}
+	
+	#menu {
+		display: none;	
+	}
+	
+	#mobile-nav {
+    	display: block;
+		float: right;
+	}
+	
+	/* Intro Box */
+	
+	#intro-box h3 {
+		font-size: 28px;	
+	}
+	
+	/* Latest Blog */
+	
+	#latest-blog .post .separator {
+		display: block;
+		margin-bottom: 50px;	
+	}
+	
+	/* Map */
+	
+	.map {
+		height: 400px;	
+	}
+	
+	/* Portfolio */
+	
+	.project-navigation {
+		margin-top: 40px;	
+	}
+	
+	/* Contact */
+	
+	#contact-form input,
+	#contact-form .submit {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		
+		width: 100%;
+	}
+	
+	.contact-details {
+    	border-top: 2px solid #FFB5AF;
+		margin-top: 40px;
+    	padding-top: 30px;
+    	text-align: center;
+	}
+	
+	/* Comments */
+	
+	#commentform p {
+		margin-bottom: 20px;	
+	}
+	
+	#commentform label {
+		top: 0;
+		margin-bottom: 12px;
+	}
+	
+	#commentform span.required {
+		top: 0;	
+	}
+	
+	#commentform input,
+	#commentform #submit {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		
+		width: 100%;
+	}
+	
+	#commentform textarea {
+		margin: 20px 0;	
+	}
+	
+	/* Sidebar */
+	
+	#sidebar {
+		border-top: 2px solid #FFB5AF;
+		margin-top: 50px;
+    	padding-top: 50px;
+	}
+	
+	/* Tweet Feed */
+	
+	#twitter-feed .tweet_list li .tweet_text {
+		font-size: 22px;	
+	}
+	
+	/* Footer Widgets */
+	
+	footer.footer-widgets .widget {
+		margin-bottom: 30px;	
+	}
+	
+	footer.footer-widgets .widget:last-child {
+		margin-bottom: 0;	
+	}
+	
+	/* Social Footer */
+	
+	#social-footer ul li a {
+		width: 50px;
+		height: 50px;	
+	}
+	
+	#social-footer ul li a i {
+		font-size: 24px;
+		line-height: 50px;	
+	}
+	
+	/* Shortcodes */
+	
+	#team-filter .dropdown,
+	#portfolio-filter .dropdown,
+	.dropdown {
+		float: none;	
+	}
+	
+	.dropmenu,
+	.dropmenu-active {
+		width: 100%;	
+	}
+	
+	.info-block .info-text {
+    	padding-right: 0;
+	}
+	
+	.info-block a.button-main {
+		position: relative;
+		display: block;
+    	margin-top: 20px;
+	}
+	
+	#back-to-top {
+    	display: none !important;
+	}
+}
+
+@media (max-width: 480px) {
+	
+	header {
+		position: relative;	
+	}
+	
+	#title-page,
+	#slider,
+	#image-static,
+	#map-area {
+		margin-top: 0;
+	}
+	
+	/* Common Fix */
+	
+	#slider,
+	#image-static,
+	.map {
+		margin-left: -20px;
+		margin-right: -20px;	
+	}
+	
+	header,
+	#navigation-mobile,
+	#intro-box,
+	#latest-work,
+	#title-page,
+	#twitter-feed,
+	footer,
+	#footer-credits {
+		margin-left: -20px;
+    	margin-right: -20px;
+    	padding-left: 20px;
+    	padding-right: 20px;	
+	}
+	
+	/* Header */
+	
+	header {
+		height: 60px;	
+	}
+	
+	header #logo a {
+		font-size: 24px;
+		line-height: 60px;	
+	}
+	
+	.menu-nav {
+		margin-top: 22px;	
+	}
+	
+	header .span2 {
+		float: left;
+		width: 80%;	
+	}
+	
+	header .span10 {
+		float: left;
+		width: 20%;	
+	}
+	
+	#menu {
+		display: none;	
+	}
+	
+	#mobile-nav {
+    	display: block;
+		float: right;
+	}
+	
+	/* Slider */
+	
+	.blog-post-full .tp-bullets {
+		display: none;	
+	}
+	
+	/* Intro Box */
+	
+	#intro-box h3 {
+		font-size: 24px;	
+	}
+	
+	#intro-box h4 {
+		font-size: 16px;	
+	}
+	
+	/* Latest Blog */
+	
+	#latest-blog .post .separator {
+		display: block;
+		margin-bottom: 50px;	
+	}
+	
+	/* Portfolio */
+	
+	.project-navigation {
+		margin-top: 40px;	
+	}
+	
+	/* Map */
+	
+	.map {
+		height: 400px;	
+	}
+	
+	/* Blog */
+	
+	#intro-box.single-post .entry-title {
+		font-size: 28px;	
+	}
+	
+	#intro-box.single-post .entry-meta, 
+	#intro-box.single-post .entry-meta a {
+		font-size: 16px;	
+	}
+	
+	.blog-post-full .post-thumb {
+		margin-bottom: -30px;	
+	}
+	
+	.blog-post-full .entry-type {
+		width: 60px;
+	}
+	
+	.blog-post-full .entry-type a{
+		width: 60px;
+		height: 60px;
+	}
+	
+	.blog-post-full .entry-type a i{
+		font-size: 16px;
+		margin: -8px 0 0 -8px;
+	}
+	
+	/* Contact */
+	
+	#contact-form input,
+	#contact-form .submit {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		
+		width: 100%;
+	}
+	
+	.contact-details {
+    	border-top: 2px solid #FFB5AF;
+		margin-top: 40px;
+    	padding-top: 30px;
+    	text-align: center;
+	}
+	
+	/* Comments */
+	
+	#commentform p {
+		margin-bottom: 20px;	
+	}
+	
+	#commentform label {
+		top: 0;
+		margin-bottom: 12px;
+	}
+	
+	#commentform span.required {
+		top: 0;	
+	}
+	
+	#commentform input,
+	#commentform #submit {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		
+		width: 100%;
+	}
+	
+	#commentform textarea {
+		margin: 20px 0;	
+	}
+	
+	/* Comments Children */
+	
+	.children .comment {
+		padding-left: 0;	
+	}
+	
+	.badge {
+		top: 6px;	
+	}
+	
+	/* Sidebar */
+	
+	#sidebar {
+		border-top: 2px solid #FFB5AF;
+		margin-top: 50px;
+    	padding-top: 50px;
+	}
+	
+	/* Tweet Feed */
+	
+	#twitter-feed .tweet_list li .tweet_text {
+		font-size: 20px;	
+	}
+	
+	/* Footer Widgets */
+	
+	footer.footer-widgets .widget {
+		margin-bottom: 30px;	
+	}
+	
+	footer.footer-widgets .widget:last-child {
+		margin-bottom: 0;	
+	}
+	
+	/* Social Footer */
+	
+	#social-footer ul li a {
+		width: 50px;
+		height: 50px;	
+	}
+	
+	#social-footer ul li a i {
+		font-size: 24px;
+		line-height: 50px;	
+	}
+	
+	/* Shortcodes */
+	
+	#team-filter .dropdown,
+	#portfolio-filter .dropdown,
+	.dropdown {
+		float: none;	
+	}
+	
+	.dropmenu,
+	.dropmenu-active {
+		width: 100%;
+	}
+	
+	.info-block .info-text {
+    	padding-right: 0;
+	}
+	
+	.info-block a.button-main {
+		position: relative;
+		display: block;
+    	margin-top: 20px;
+	}
+	
+	#back-to-top {
+    	display: none !important;
+	}
+}
+
+@media (max-width: 320px) {
+	
+	/* Intro Box */
+	
+	#intro-box {
+		padding-top: 50px;
+		padding-bottom: 60px;	
+	}
+	
+	#intro-box h3 {
+		font-size: 20px;	
+	}
+	
+	#intro-box h4 {
+		font-size: 14px;	
+	}
+
+	/* Tweet */
+	
+	#twitter-feed .tweet_list li .tweet_text {
+		font-size: 18px;	
+	}
+}
+
+
+/* Retina Display */
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+ 	only screen and (-moz-min-device-pixel-ratio: 2),
+  	only screen and (-o-min-device-pixel-ratio: 2/1),
+  	only screen and (min-device-pixel-ratio: 2),
+  	only screen and (min-resolution: 2dppx) {
+		
+		.menu-nav {
+			background-image: url(../img/menu-mobile__402x.png);
+			background-size: 16px 32px;
+		}
+		
+	}
+
+

@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if (IE 9)]><html class="no-js ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en-US"> <!--<![endif]-->
+<head>
+
+<!-- Meta Tags -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>События</title>
+
+<meta name="description" content="smile to us, smiletous, виртуальный тур" />
+
+<!-- Mobile Specifics -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="MobileOptimized" content="320"/>   
+
+<!-- Mobile Internet Explorer ClearType Technology -->
+<!--[if IEMobile]>  <meta http-equiv="cleartype" content="on">  <![endif]-->
+
+<!-- Bootstrap -->
+<link href="../../public/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Revolution Slider -->
+<link href="../../public/rs-plugin/css/settings.css" rel="stylesheet">
+
+<!-- Main Style -->
+<link href="../../public/css/main.css" rel="stylesheet">
+
+<!-- FancyBox -->
+<link href="../../public/css/fancybox/jquery.fancybox.css" rel="stylesheet">
+
+<!-- Font Icons -->
+<link href="../../public/css/fonts.css" rel="stylesheet">
+
+<!-- Shortcodes -->
+<link href="../../public/css/shortcodes.css" rel="stylesheet">
+
+<!-- Responsive -->
+<link href="../../public/css/responsive.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="../../public/css/custom.css" rel="stylesheet">
+
+<!-- Google Font --> 
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,300,400,600,700&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
+
+
+<!-- Modernizr -->
+<script src="../../public/js/modernizr.js"></script>
+
+<!-- Js -->
+<script src="../../public/js/jquery-1.9.1.min.js"></script> <!-- jQuery Core -->
+<script src="../../public/js/jquery.mousewheel-min.js"></script> <!-- Reel -->
+<script src="../../public/js/jquery.reel-min.js"></script> <!-- Reel -->
+<script src="../../public/js/bootstrap.min.js"></script> <!-- Bootstrap -->
+<script src="../../public/rs-plugin/js/jquery.themepunch.revolution.min.js"></script> <!-- Revolution Slider -->
+<script src="../../public/rs-plugin/js/jquery.themepunch.plugins.min.js"></script> <!-- Revolution Slider -->
+<script src="../../public/js/jquery.superfish.min.js"></script> <!-- Superfish -->
+<script src="../../public/js/jquery.supersubs.min.js"></script> <!-- Supersubs -->
+<script src="../../public/js/jquery.isotope.js"></script> <!-- Isotope Filter -->
+<script src="../../public/js/jquery.fancybox.pack.js"></script> <!-- Fancybox -->
+<script src="../../public/js/jquery.fancybox-media.js"></script> <!-- Fancybox for Media -->
+<script src="../../public/js/jquery.tweet.js"></script> <!-- Tweet -->
+<script src="../../public/js/jquery.flickr.min.js"></script> <!-- Flickr -->
+<script src="../../public/js/plugins.js"></script> <!-- Contains: jQuery Easing, jQuery ScrollTo -->
+<script src="../../public/js/main.js"></script> <!-- Default JS -->
+<!-- End Js -->
+
+
+<!-- Fav Icon -->
+<link rel="shortcut icon" href="#">
+
+<link rel="apple-touch-icon" href="#">
+<link rel="apple-touch-icon" sizes="114x114" href="#">
+<link rel="apple-touch-icon" sizes="72x72" href="#">
+<link rel="apple-touch-icon" sizes="144x144" href="#">
+
+</head>
+
+
+<body>
+
+<!-- Header -->
+<header>
+	<div class="container">
+    	<div class="row">
+        	<div class="span2">
+            	<div id="logo">
+        			<a href="http://smiletous.com" title="Smiletous.studio">Smiletous.studio</a>
+        		</div>
+            </div>
+
+			<div class="span10">
+				<!-- Mobile Menu -->
+				<a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
+				
+				<!-- Standard Menu -->
+				<nav id="menu">
+					<ul id="menu-nav">					
+									<li>
+					  <a href="../../gallery/">Галерея</a>
+					</li>
+				  					<li>
+					  <a href="../../tours/">Виртуальные туры</a>
+					</li>
+				  					<li>
+					  <a href="../../blog/">Блог</a>
+					</li>
+				  					<li>
+					  <a href="../../contact/">Контакты</a>
+					</li>
+				  
+					</ul>
+				</nav>
+			</div>
+			</div>
+    </div>
+</header>
+<!-- End Header -->
+
+
+<!-- Start Section Title -->
+<section id="title-page">
+	<h2>События</h2>
+    <span class="arrow"></span>
+</section>
+<!-- End Section Title -->
+
+<div id="content">
+    <!-- Start Section Portfolio Projects -->
+    <section id="portfolio" class="container">
+        <div class="row">
+
+            <div id="portfolio-projects">
+                <ul id="projects">
+
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/048.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/048_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/047.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/047_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/046.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/046_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/045.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/045_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/044.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/044_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/043.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/043_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/042.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/042_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/041.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/041_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/040.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/040_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/039.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/039_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/038.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/038_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/037.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/037_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/036.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/036_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/035.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/035_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/034.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/034_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/030.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/030_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/029.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/029_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/028.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/028_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/027.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/027_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/026.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/026_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/025.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/025_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/024.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/024_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/023.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/023_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/022.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/022_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/021.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/021_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/020.JPG" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/020_sml.JPG"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/019.JPG" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/019_sml.JPG"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/018.JPG" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/018_sml.JPG"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/017.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/017_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/016.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/016_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/015.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/015_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/014.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/014_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/013.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/013_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/012.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/012_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/011.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/011_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/010.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/010_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/009.JPG" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/009_sml.JPG"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/008.JPG" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/008_sml.JPG"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/007.JPG" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/007_sml.JPG"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/006.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/006_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/005.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/005_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/004.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/004_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/003.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/003_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/002.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/002_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="../../content/05.gallery/05.events/001.jpg" data-fancybox-group="gallery">
+                            <img src="../../content/05.gallery/05.events/001_sml.jpg"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+	        <!-- Start Navigation -->
+        <div class="row">
+        	<div class="span12">
+            	<div class="project-navigation">
+                
+                    <a class="prev-btn pull-left" href="../../gallery/sports/"><i class="font-icon-arrow-simple-left"></i>Спорт</a>
+
+                    
+                    <a class="right-btn pull-right" href="../../gallery/portraits/"><i class="font-icon-arrow-simple-right"></i>Люди</a>
+
+                    
+                    <a href="../../gallery/"><i class="font-icon-grid"></i>Галерея</a>
+
+                </div>
+            </div>
+        </div>
+        <!-- End Navigation -->
+
+        </div>
+    </section>
+    <!-- End Section Portfolio Projects -->
+</div>
+
+<!-- Start Twitter Feed -->
+<section id="twitter-feed">
+<span class="arrow-down"></span>
+	<div class="container">
+    	<div class="row">
+        	<div class="span12">
+            	<div class="twitter-list" data-count="1"></div>
+            </div>
+        </div>
+    </div>	
+</section>
+<!-- End Twitter Feed -->
+
+<!-- Start Credits -->
+<section id="footer-credits">
+	<div class="container">
+    	<div class="row">
+        	<div class="span3">
+            </div>
+			<div class="span6">
+				<p class="credits"><br />+7 926 102-07-92<br /><a href="mailto:mail@smiletous.com">mail@smiletous.com</a></p>
+			</div>
+			<div class="span3" id="social-footer">               
+				<nav id="social-footer">
+					<ul>
+						<li><a href="https://twitter.com/smiletous" title=""><i class="font-icon-social-twitter"></i></a></li>
+						<li><a href="#" title=""><i class="font-icon-social-facebook"></i></a></li>
+					</ul>
+				</nav>
+               
+			</div>
+        </div>
+    </div>
+</section>
+<!-- End Credits -->
+
+<!-- Back To Top -->
+<a id="back-to-top" href="#">
+	<i class="font-icon-arrow-simple-up"></i>
+</a>
+<!-- End Back to Top -->
+
+</body>
+</html>
+
+<!-- Stacey(2.3.0-smiletous): f7c60f27cc824643b7f8b5d43b542dd1 -->

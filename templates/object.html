@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if (IE 9)]><html class="no-js ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en-US"> <!--<![endif]-->
+<head>
+
+<!-- Meta Tags -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>@title</title>   
+
+<meta name="description" content="@seo-description" /> 
+
+:css
+
+:js
+
+:icons
+
+</head>
+
+
+<body>
+
+:navigation
+
+:section-title
+
+<!-- Start Portfolio Content -->
+<section id="portfolio-content" class="margin-80">
+	<div class="container">
+	
+	foreach $images[:1] do
+	<div class="row margin-40">
+        <div class="span12">
+            <center>
+                <img src="@thumb" id="reelimage" data-fullwidthcentering="on" style="height: @heightpx; width: @widthpx;">
+	endforeach
+				<script type="text/javascript">
+					$(function(){ // when DOM ready
+						jQuery('#reelimage').reel({
+						if @frames do
+							frames:@frames, 
+						endif
+						if @footage do
+							footage:@footage,
+						endif
+						if @orbital do
+							orbital:@orbital,
+						endif
+						if @rows do
+							rows:@rows, 
+						endif
+						if @frame do
+							frame:@frame, 
+						endif
+						if @row do
+							row:@row, 
+						endif
+							path:'@images-path',
+							images:'@images',
+						if @cw do
+							cw:@cw,
+						endif
+						if @inversed do
+							inversed:@inversed,
+						endif
+						if @speed do
+							speed:@speed,
+						endif
+						if @timeout do
+							timeout:@timeout,
+						endif
+						if @brake do
+							brake:@brake,
+						endif
+							steppable: false,
+						}).bind('loaded', function(ev){
+							m = jQuery('#reelimage').parent();
+							// Now we fill it with buttons
+							m.append('<img id="reelbuttondown" src="@root_path/public/img/3d-buttons/zoom.gif" onclick=\'m=jQuery("#reelimage"); m.reel("pause");m.reel("row", m.reel("row")+1);return true;\'>');
+							m.append('<img id="reelbuttonup" src="@root_path/public/img/3d-buttons/zoom.gif" onclick=\'m=jQuery("#reelimage"); m.reel("pause");m.reel("row", m.reel("row")-1);return true;\'>');
+							m.append('<img id="reelbuttonleft" src="@root_path/public/img/3d-buttons/left.gif" onclick=\'m=jQuery("#reelimage"); m.reel("pause");m.reel("frame", m.reel("frame")+1);return true;\'>');
+							m.append('<img id="reelbuttonright" src="@root_path/public/img/3d-buttons/right.gif" onclick=\'m=jQuery("#reelimage"); m.reel("pause");m.reel("frame", m.reel("frame")-1);return true;\'>');
+						});
+					  });
+				</script>
+			</center>
+        </div>
+    </div>
+    
+    <div class="row">
+	   	<div class="span12">
+			@content		            	
+		</div>
+    </div>
+   
+	:prev-next-navigation
+        
+    </div>
+</section>
+<!-- End Portfolio Content -->
+
+:twitter-feed
+
+:credits
+
+:back-to-top
+
+</body>
+</html>

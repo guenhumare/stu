@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if (IE 9)]><html class="no-js ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en-US"> <!--<![endif]-->
+<head>
+
+<!-- Meta Tags -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>Smile to us!</title>   
+
+<meta name="description" content="smile to us, smiletous, виртуальный тур" /> 
+
+<!-- Mobile Specifics -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="MobileOptimized" content="320"/>   
+
+<!-- Mobile Internet Explorer ClearType Technology -->
+<!--[if IEMobile]>  <meta http-equiv="cleartype" content="on">  <![endif]-->
+
+<!-- Bootstrap -->
+<link href="../public/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Revolution Slider -->
+<link href="../public/rs-plugin/css/settings.css" rel="stylesheet">
+
+<!-- Main Style -->
+<link href="../public/css/main.css" rel="stylesheet">
+
+<!-- FancyBox -->
+<link href="../public/css/fancybox/jquery.fancybox.css" rel="stylesheet">
+
+<!-- Font Icons -->
+<link href="../public/css/fonts.css" rel="stylesheet">
+
+<!-- Shortcodes -->
+<link href="../public/css/shortcodes.css" rel="stylesheet">
+
+<!-- Responsive -->
+<link href="../public/css/responsive.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="../public/css/custom.css" rel="stylesheet">
+
+<!-- Google Font --> 
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,300,400,600,700&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
+
+
+<!-- Modernizr -->
+<script src="../public/js/modernizr.js"></script>
+
+<!-- Js -->
+<script src="../public/js/jquery-1.9.1.min.js"></script> <!-- jQuery Core -->
+<script src="../public/js/jquery.mousewheel-min.js"></script> <!-- Reel -->
+<script src="../public/js/jquery.reel-min.js"></script> <!-- Reel -->
+<script src="../public/js/bootstrap.min.js"></script> <!-- Bootstrap -->
+<script src="../public/rs-plugin/js/jquery.themepunch.revolution.min.js"></script> <!-- Revolution Slider -->
+<script src="../public/rs-plugin/js/jquery.themepunch.plugins.min.js"></script> <!-- Revolution Slider -->
+<script src="../public/js/jquery.superfish.min.js"></script> <!-- Superfish -->
+<script src="../public/js/jquery.supersubs.min.js"></script> <!-- Supersubs -->
+<script src="../public/js/jquery.isotope.js"></script> <!-- Isotope Filter -->
+<script src="../public/js/jquery.fancybox.pack.js"></script> <!-- Fancybox -->
+<script src="../public/js/jquery.fancybox-media.js"></script> <!-- Fancybox for Media -->
+<script src="../public/js/jquery.tweet.js"></script> <!-- Tweet -->
+<script src="../public/js/jquery.flickr.min.js"></script> <!-- Flickr -->
+<script src="../public/js/plugins.js"></script> <!-- Contains: jQuery Easing, jQuery ScrollTo -->
+<script src="../public/js/main.js"></script> <!-- Default JS -->
+<!-- End Js -->
+
+
+<!-- Fav Icon -->
+<link rel="shortcut icon" href="#">
+
+<link rel="apple-touch-icon" href="#">
+<link rel="apple-touch-icon" sizes="114x114" href="#">
+<link rel="apple-touch-icon" sizes="72x72" href="#">
+<link rel="apple-touch-icon" sizes="144x144" href="#">
+
+</head>
+
+
+<body>
+
+<!-- Header -->
+<header>
+	<div class="container">
+    	<div class="row">
+        	<div class="span2">
+            	<div id="logo">
+        			<a href="http://annamuratova.com" title="Smiletous.studio">Smiletous.studio</a>
+        		</div>
+            </div>
+
+			<div class="span10">
+				<!-- Mobile Menu -->
+				<a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
+				
+				<!-- Standard Menu -->
+				<nav id="menu">
+					<ul id="menu-nav">					
+									<li>
+					  <a href="../gallery/">Галерея</a>
+					</li>
+				  					<li>
+					  <a href="../tours/">Виртуальные туры</a>
+					</li>
+				  					<li>
+					  <a href="../blog/">Блог</a>
+					</li>
+				  					<li>
+					  <a href="../contact/">Контакты</a>
+					</li>
+				  
+					</ul>
+				</nav>
+			</div>
+			</div>
+    </div>
+</header>
+<!-- End Header -->
+
+
+<!-- Start Slider -->
+<section id="slider">
+    <div class="fullwidthbanner-container">
+        <div class="fullwidthbanner">
+            
+        	<ul>
+            
+            	<!-- THE FIRST SLIDE -->
+                <li data-transition="slideleft" data-slotamount="1" data-masterspeed="300">
+                    <img src="../public/img/slider-images/image-01.jpg" alt="Image" data-fullwidthcentering="on">
+                    
+            		<div class="caption very_big_custom_text lfl stl"
+                         data-x="center"
+                         data-y="255"
+                         data-speed="300"
+                         data-start="500"
+                         data-easing="easeOutExpo" data-endspeed="300" data-endeasing="easeInSine" >Smiletous</div>
+
+                    <div class="caption custom_text lfl stl"
+                         data-x="center"
+                         data-y="324"
+                         data-speed="300"
+                         data-start="800"
+                         data-easing="easeOutExpo" data-endspeed="300" data-endeasing="easeInSine" >Более пяти лет опыта</div>
+                         
+                     <div class="caption custom_text_link lfl stl"
+                         data-x="center"
+                         data-y="379"
+                         data-speed="300"
+                         data-start="1200"
+                         data-easing="easeOutExpo" data-endspeed="300" data-endeasing="easeInSine" ><span class="color-text"></span>рекламных фотосъемок</div>
+                </li>
+                
+                <!-- THE SECOND SLIDE -->
+                <li data-transition="slideleft" data-slotamount="1" data-masterspeed="300">
+                    <img src="../public/img/slider-images/image-02.jpg" alt="Image" data-fullwidthcentering="on">
+                    
+                    <div class="caption very_big_custom_text sfb"
+                         data-x="center"
+                         data-y="255"
+                         data-speed="300"
+                         data-start="500"
+                         data-easing="easeOutExpo" data-endspeed="300" data-endeasing="easeInSine" >3D-фотография</div>
+                
+                    <div class="caption custom_text_link sfb"
+                         data-x="center"
+                         data-y="379"
+                         data-speed="300"
+                         data-start="800"
+                         data-easing="easeOutExpo" data-endspeed="300" data-endeasing="easeInSine" ><a href="http://smiletous.com/tours/">новый, подробный взгляд на предметную фотографию</a></div>
+                </li>
+                
+                <!-- THE THIRD SLIDE -->
+                <li data-transition="slideleft" data-slotamount="1" data-masterspeed="300">
+                    <img src="../public/img/slider-images/image-03.jpg" alt="Image" data-fullwidthcentering="on">
+                    
+                    <div class="caption very_big_custom_text sft"
+                         data-x="center"
+                         data-y="290"
+                         data-speed="300"
+                         data-start="500"
+                         data-easing="easeOutExpo" data-endspeed="300" data-endeasing="easeInSine" >Виртуальные туры</div>
+                         
+                   
+                    <div class="caption custom_text_link sfb"
+                         data-x="center"
+                         data-y="360"
+                         data-speed="300"
+                         data-start="800"
+                         data-easing="easeOutExpo" data-endspeed="300" data-endeasing="easeInSine" >любых помещений, любой сложности</div>
+                </li>
+                            
+            </ul>
+            
+        </div>
+    </div>
+</section>
+<!-- End Slider -->
+
+<!-- Start Intro Box -->
+<section id="intro-box" class="margin-80">
+	<div class="container">
+    	<div class="row">
+        	<div class="span12">
+            	<h3><blockquote>Нельзя изобразить мысль, но можно изображением ее вызвать.</blockquote></h3>
+                <span class="arrow"></span>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Intro Box -->
+
+<!-- Start Latest Works -->
+<section id="latest-work">
+	<span class="arrow-down"></span>
+    <span class="arrow"></span>
+	
+    <div class="container">
+            <div class="row">
+            	<div class="span12">
+                	<h3>Последние работы</h3>
+                </div>
+            </div>
+            
+            <div class="row">
+            
+                <ul id="latest-work-thumbs">     
+
+	 
+                    
+                    <li class="work-item-thumbs span4">
+                    	<h5>
+                            <a href="../gallery/jewelry/">Ювелирные украшения</a>
+                            <span class="arrow-port"></span>
+                        </h5>
+                        
+                        <a class="hover-wrap fancybox" href="../gallery/jewelry/" data-fancybox-group="gallery" title="Ювелирные украшения">
+                            <img src="../content/05.gallery/09.jewelry/thumb.jpg" alt="Ювелирные украшения" />
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+          
+                    
+                    <li class="work-item-thumbs span4">
+                    	<h5>
+                            <a href="../gallery/objects/">Объекты</a>
+                            <span class="arrow-port"></span>
+                        </h5>
+                        
+                        <a class="hover-wrap fancybox" href="../gallery/objects/" data-fancybox-group="gallery" title="Объекты">
+                            <img src="../content/05.gallery/08.objects/thumb.jpg" alt="Объекты" />
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+          
+                    
+                    <li class="work-item-thumbs span4">
+                    	<h5>
+                            <a href="../gallery/animals/">Животные</a>
+                            <span class="arrow-port"></span>
+                        </h5>
+                        
+                        <a class="hover-wrap fancybox" href="../gallery/animals/" data-fancybox-group="gallery" title="Животные">
+                            <img src="../content/05.gallery/07.animals/thumb.jpg" alt="Животные" />
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+         
+     
+
+	 
+                    
+                    <li class="work-item-thumbs span4">
+                    	<h5>
+                            <a href="../tours/bmw/">BMW 135i</a>
+                            <span class="arrow-port"></span>
+                        </h5>
+                        
+                        <a class="hover-wrap fancybox" href="../tours/bmw/" data-fancybox-group="gallery" title="BMW 135i">
+                            <img src="../content/04.tours/014.bmw/thumb.jpg" alt="BMW 135i" />
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+          
+                    
+                    <li class="work-item-thumbs span4">
+                    	<h5>
+                            <a href="../tours/elbor/">Выставочный стенд «Эльбор»</a>
+                            <span class="arrow-port"></span>
+                        </h5>
+                        
+                        <a class="hover-wrap fancybox" href="../tours/elbor/" data-fancybox-group="gallery" title="Выставочный стенд «Эльбор»">
+                            <img src="../content/04.tours/013.elbor/thumb.jpg" alt="Выставочный стенд «Эльбор»" />
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+          
+                    
+                    <li class="work-item-thumbs span4">
+                    	<h5>
+                            <a href="../tours/yp/">Музей-усадьба «Ясная поляна»</a>
+                            <span class="arrow-port"></span>
+                        </h5>
+                        
+                        <a class="hover-wrap fancybox" href="../tours/yp/" data-fancybox-group="gallery" title="Музей-усадьба «Ясная поляна»">
+                            <img src="../content/04.tours/012.yp/thumb.jpg" alt="Музей-усадьба «Ясная поляна»" />
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+         
+    
+
+    
+                </ul>
+                
+            </div>
+            
+
+    </div>
+</section>
+<!-- End Latest Works -->
+
+
+﻿<!-- Start Latest Works -->
+<section id="latest-blog">
+	<div class="container">
+    
+    	<div class="row">
+        	<div class="span12">
+        		<h3>Последние записи блога</h3>
+        	</div>
+        </div>
+            
+        <div class="row">
+
+			<article class="post span4">
+		                <div class="post-thumb">
+                    <a class="hover-post" href="../blog/stereopano/">
+                        <img src="../content/02.blog/04.stereopano/thumb.jpg" alt="Съёмка стереопанорамы" />
+                        <div class="overlay"></div>
+                        <i class="font-icon-link"></i>
+                    </a>
+                </div>
+		
+                
+                <h2 class="entry-title">
+                    <a href="../blog/stereopano/">Съёмка стереопанорамы</a>
+                </h2>
+                    
+                <div class="entry-content">
+		Создание объёмных изображений это идея, которая никогда не теряла актуальности. Уже в античное фремя люди знали, что восприятие объёма возможно, так как два глаза видят немного отличающиеся картинки.
+                </div>
+                    
+                <div class="entry-meta">
+                    <span class="published">30 октября 2013</span>
+                </div>
+                <div class="separator"></div>
+            </article>
+			<article class="post span4">
+		                <div class="post-thumb">
+                    <a class="hover-post" href="../blog/nk/">
+                        <img src="../content/02.blog/03.nk/thumb.jpg" alt="Виртуальный тур по Северной Корее. Интервью с фотографом." />
+                        <div class="overlay"></div>
+                        <i class="font-icon-link"></i>
+                    </a>
+                </div>
+		
+                
+                <h2 class="entry-title">
+                    <a href="../blog/nk/">Виртуальный тур по Северной Корее. Интервью с фотографом.</a>
+                </h2>
+                    
+                <div class="entry-content">
+		Люди часто находятся во власти стереотипов, и лишь единицы стремятся понять, чему стоит верить, а чему нет. Таким вопросом задался Арам Пан, фотограф из Сингапура, специализирующийся на панорамной съёмке.
+                </div>
+                    
+                <div class="entry-meta">
+                    <span class="published">27 октября 2013</span>
+                </div>
+                <div class="separator"></div>
+            </article>
+			<article class="post span4">
+		                <div class="post-thumb">
+                    <a class="hover-post" href="../blog/customer-manual/">
+                        <img src="../content/02.blog/02.customer-manual/thumb.jpg" alt="Виртуальные туры. Часть II. Руководство заказчика" />
+                        <div class="overlay"></div>
+                        <i class="font-icon-link"></i>
+                    </a>
+                </div>
+		
+                
+                <h2 class="entry-title">
+                    <a href="../blog/customer-manual/">Виртуальные туры. Часть II. Руководство заказчика</a>
+                </h2>
+                    
+                <div class="entry-content">
+		Любая панорама — презентация пространства или места, в котором мы предлагаем побывыть зрителю. Так как панорама охватывает всё вокруг зрителя, ему будут доступны все направления и детали, поэтому круговая панорама должна быть заполнена со всех направлений. Впоследствии она станет лицом того места, которое нужно показать.
+                </div>
+                    
+                <div class="entry-meta">
+                    <span class="published">13 октября 2013</span>
+                </div>
+                <div class="separator"></div>
+            </article>
+	                  
+
+
+        </div>
+        
+    </div>
+</section>
+<!-- End Latest Works -->
+
+
+<!-- Start Twitter Feed -->
+<section id="twitter-feed">
+<span class="arrow-down"></span>
+	<div class="container">
+    	<div class="row">
+        	<div class="span12">
+            	<div class="twitter-list" data-count="1"></div>
+            </div>
+        </div>
+    </div>	
+</section>
+<!-- End Twitter Feed -->
+
+<!-- Start Credits -->
+<section id="footer-credits">
+	<div class="container">
+    	<div class="row">
+        	<div class="span3">
+            </div>
+			<div class="span6">
+				<p class="credits"><br />+7 926 102-07-92<br /><a href="mailto:mail@smiletous.com">mail@smiletous.com</a></p>
+			</div>
+			<div class="span3" id="social-footer">               
+				<nav id="social-footer">
+					<ul>
+						<li><a href="https://twitter.com/smiletous" title=""><i class="font-icon-social-twitter"></i></a></li>
+						<li><a href="#" title=""><i class="font-icon-social-facebook"></i></a></li>
+					</ul>
+				</nav>
+               
+			</div>
+        </div>
+    </div>
+</section>
+<!-- End Credits -->
+
+<!--:back-to-top-->
+<!-- BEGIN JIVOSITE CODE {literal} -->
+<script type='text/javascript'>
+(function(){ var widget_id = '93777';
+var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = '//code.jivosite.com/script/widget/'+widget_id; var ss = document.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss);})();</script>
+<!-- {/literal} END JIVOSITE CODE -->
+</body>
+</html>
+
+<!-- Stacey(2.3.0-smiletous): f7c60f27cc824643b7f8b5d43b542dd1 -->

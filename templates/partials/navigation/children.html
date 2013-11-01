@@ -1,0 +1,10 @@
+if $children do
+  <ul class="sub-menu arrow-up">
+  foreach $children do
+    <li>
+      <a href="@url">@title</a>
+      :children
+    </li>
+  endforeach
+  </ul>
+endif

@@ -1,0 +1,20 @@
+        <!-- Start Navigation -->
+        <div class="row">
+        	<div class="span12">
+            	<div class="project-navigation">
+                
+foreach $previous_sibling do
+                    <a class="prev-btn pull-left" href="@url"><i class="font-icon-arrow-simple-left"></i>@title</a>
+endforeach
+                    
+foreach $next_sibling do
+                    <a class="right-btn pull-right" href="@url"><i class="font-icon-arrow-simple-right"></i>@title</a>
+endforeach
+                    
+foreach $parent do
+                    <a href="@url"><i class="font-icon-grid"></i>@title</a>
+endforeach
+                </div>
+            </div>
+        </div>
+        <!-- End Navigation -->

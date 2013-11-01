@@ -1,0 +1,29 @@
+<!-- Header -->
+<header>
+	<div class="container">
+    	<div class="row">
+        	<div class="span2">
+            	<div id="logo">
+        			<a href="http://@base_url" title="@menutitle">@menutitle</a>
+        		</div>
+            </div>
+
+			<div class="span10">
+				<!-- Mobile Menu -->
+				<a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
+				
+				<!-- Standard Menu -->
+				<nav id="menu">
+					<ul id="menu-nav">					
+				foreach $root do
+					<li>
+					  <a href="@url">@title</a>
+					</li>
+				  endforeach
+					</ul>
+				</nav>
+			</div>
+			</div>
+    </div>
+</header>
+<!-- End Header -->
