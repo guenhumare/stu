@@ -2608,7 +2608,7 @@ footer {
     cursor: pointer;
     display: inline-block;
     list-style: none;
-    margin: 15px;
+    margin: 15px 10px;
 }
 
 #social-footer ul li a {
