@@ -368,7 +368,7 @@ ANUBIS.fancyBox = function(){
 ANUBIS.contactForm = function(){
 	$("#contact-submit").on('click',function() {
 		$contact_form = $('#contact-form');
-		
+		$('#response').text('Отправляем...')
 		
 		var fields = $contact_form.serialize();
 
@@ -377,8 +377,8 @@ ANUBIS.contactForm = function(){
 			type: "POST",
 			url: "/app/feedback.php",
 			data: fields,
-			dataType: 'json',
-			success: function(response) {
+			//dataType: 'json',
+			done: function(response) {
 				debugger;
 				
 				if (response.status) {

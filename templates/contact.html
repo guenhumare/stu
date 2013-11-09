@@ -41,12 +41,15 @@
         <div class="row margin-50">
             <div class="span9">
                 <h4>Связаться с нами</h4>
-                <form id="contact-form" class="contact-form" action="/feedback.php">
+                <form id="contact-form" class="contact-form" action="/app/feedback.php">
                     <p class="contact-name">
                         <input id="contact_name" type="text" placeholder="Имя" value="" name="name" />
                     </p>
                     <p class="contact-email">
                         <input id="contact_email" type="text" placeholder="E-mail" value="" name="email" />
+                    </p>
+                    <p class="contact-email">
+                        <input id="contact_tel" type="text" placeholder="Контактный телефон" value="" name="telephone" />
                     </p>
                     <p class="contact-message">
                         <textarea id="contact_message" placeholder="Сообщение" name="message" rows="15" cols="30"></textarea>
@@ -55,9 +58,7 @@
                         <a id="contact-submit" class="submit" href="#">Отправить</a>
                     </p>
                     
-                    <div id="response">
-                    
-                    </div>
+                    <div id="response"></div>
                 </form>
             </div>
             <!-- <div class="span1"></div> -->
