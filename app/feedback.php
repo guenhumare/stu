@@ -1,5 +1,5 @@
 <?php
-$myemail = "shvedov89@gmail.com";
+$myemail = "guenhumare@gmail.com";
 $subject = "Новое сообщение контактной формы smiletous.com";
 
 $name = check_input($_POST['name'], "Вы не ввели свое имя");
