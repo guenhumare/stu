@@ -377,16 +377,12 @@ ANUBIS.contactForm = function(){
 			type: "POST",
 			url: "/app/feedback.php",
 			data: fields,
-			//dataType: 'json',
-			done: function(response) {
-				debugger;
-				
-				if (response.status) {
-					$('#contact-form input').val('');
-					$('#contact-form textarea').val('');
-				}
-				
-				$('#response').empty().html(response.html);
+			success: function () {
+				$('#contact-form input').val('');
+				$('#contact-form textarea').val('');
+			},
+			complete: function (response) {
+				$('#response').empty().html(response.responseText);
 			}
 		});
 
