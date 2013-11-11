@@ -1,5 +1,4 @@
 <?php
-$myemail = "guenhumare@gmail.com";
 $subject = "Новое сообщение контактной формы smiletous.com";
 
 $name = check_input($_POST['name'], "Вы не ввели свое имя");
@@ -9,9 +8,9 @@ $message = check_input($_POST['message'], "Вы не указали текст �
 
 if ($email == '') {
   if ($telephone == '') {
-    show_error('Вы не указали ни контактного номера телефона, ни адреса электронной почты');
+    show_error('Вы не указали ваших контактов');
   }
-
+} else {
   if (!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/", $email)) {
    show_error("Указанный адрес электронной почты не корректен");
   }
@@ -28,7 +27,8 @@ $message
 
 ";
 
-mail($myemail, $subject, $message);
+mail("guenhumare@gmail.com", $subject, $message);
+mail("mail@smiletous.com",   $subject, $message);
 
 //header('Location: thanks.html');
 echo "Ваше сообщение успешно отправлено";
