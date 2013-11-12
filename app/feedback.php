@@ -25,10 +25,16 @@ E-mail: $email
 Message:
 $message
 
+Meow.
 ";
 
-mail("guenhumare@gmail.com", $subject, $message);
-mail("mail@smiletous.com",   $subject, $message);
+$targetMail = "guenhumare@gmail.com;mail@smiletous.com";
+$headerFields = array(
+  "From: contact_form@smiletous.com",
+  "MIME-Version: 1.0",
+  "Content-Type: text/html;charset=utf-8");
+
+mail($targetMail, $subject, $message, implode("\r\n", $headerFields));
 
 //header('Location: thanks.html');
 echo "Ваше сообщение успешно отправлено";
