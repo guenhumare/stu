@@ -1,0 +1,12 @@
+# For domain: http://smiletous.com
+
+# main section
+User-agent:*
+# End of main section
+
+# Images section
+# End of images section
+
+Host: smiletous.com
+
+Sitemap: http://smiletous.com/sitemap.xml
