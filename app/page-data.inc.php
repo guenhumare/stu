@@ -128,10 +128,15 @@ Class PageData {
     $en_months = array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
     $ru_months = array('января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря');
 
-    # @site_updated
-    $page->site_updated = str_replace($en_months, $ru_months, strval(date('j F Y', Helpers::site_last_modified())));
-    # @updated
-    $page->updated = str_replace($en_months, $ru_months, strval(date('j F Y', Helpers::last_modified($page->file_path))));
+    # page.site_updated
+    $page->site_updated = strval(date('c', Helpers::site_last_modified()));
+    # page.updated
+    $page->updated = strval(date('c', Helpers::last_modified($page->file_path)));
+
+    # @site_ru_updated
+    $page->site_ru_updated = str_replace($en_months, $ru_months, strval(date('j F Y', Helpers::site_last_modified())));
+    # @ru_updated
+    $page->ru_updated = str_replace($en_months, $ru_months, strval(date('j F Y', Helpers::last_modified($page->file_path))));
 
     # @siblings_count
     $page->siblings_count = strval(count($page->data['$siblings_and_self']));
