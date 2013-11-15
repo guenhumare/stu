@@ -1453,7 +1453,7 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 }
 
 #blog .post img {
-	width: auto;		
+	width: 100%;		
 }
 
 /* Full Width Post */
