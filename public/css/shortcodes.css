@@ -513,9 +513,9 @@ blockquote {
 }
 
 blockquote p {
-  	color: #FFFFFF;
-    font-size: 28px;
-	font-weight: 200;
+  	color: #AEAEAE;
+    font-size: 18px;
+	font-weight: 400;
     font-style: italic;
     line-height: 30px;
 }
