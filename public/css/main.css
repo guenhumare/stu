@@ -1455,7 +1455,11 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 }
 
 #blog .post img {
-	width: 100%;		
+	width: auto;		
+}
+
+#blog .post .post-thumb img {
+	width: 100%;
 }
 
 /* Full Width Post */
