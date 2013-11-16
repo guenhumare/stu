@@ -12,11 +12,15 @@ Version: 1.0
    Basic Styles
 ================================================== */
 
-html, hmtl a{
+html, hmtl a {
 	width:100%;
 	font-size: 100%; 
 	-webkit-text-size-adjust: 100%; 
 	-ms-text-size-adjust: 100%;
+}
+
+html {
+	background-color: #23282F;
 }
 
 body{
