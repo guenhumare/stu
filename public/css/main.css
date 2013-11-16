@@ -12,7 +12,7 @@ Version: 1.0
    Basic Styles
 ================================================== */
 
-html, hmtl a{
+html, hmtl a {
 	width:100%;
 	font-size: 100%; 
 	-webkit-text-size-adjust: 100%; 
@@ -1453,7 +1453,8 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 }
 
 #blog .post img {
-	width: auto;		
+	width: auto;
+	max-width: 100%;		
 }
 
 #blog .post .post-thumb img {
