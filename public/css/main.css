@@ -1457,9 +1457,7 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 	max-width: 100%;		
 }
 
-#blog .post h3,h4,h5,h6 {
-	font-weight:400;
-}
+#blog .post h3,#blog .post h4,#blog .post h5,#blog .post h6 {  font-weight:400;}
 
 #blog .post .post-thumb img {
 	width: 100%;
