@@ -808,12 +808,12 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 }
 
 .tp-caption.custom_text_link a {
-	color: #F97E76;	
-	font-weight: 300;
+	color:#FFFFFF;	
+	font-weight: 200;
 }
 
 .tp-caption.custom_text_link a:hover {
-	color: #FFFFFF;	
+	color:#F97E76;	
 }
 					
 /* ==================================================
