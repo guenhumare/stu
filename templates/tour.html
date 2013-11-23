@@ -33,30 +33,52 @@
 <!-- Start Portfolio Content -->
 <section id="portfolio-content" class="margin-80">
 	<div class="container">
-
-	  foreach $js do
-      <script type="text/javascript" src="@url"></script>
-      endforeach
-      foreach $swf do
-      <div class="row margin-40">
-        <div class="span12">
-          <section id="pano" style="height: 600px; width: 100%">
-            <script>
-              embedpano({swf:"@url", xml:"@url.xml", target:"pano", html5:"auto", passQueryParameters:true, onready:krpanoReady});
-
-				function krpanoReady(krpano)
-				{
-				    // try to determine if running on a mobile device...
-					if(krpano.get("device.mobile") || krpano.get("device.tablet"))
-				    {
-				    	krpano.set("fullscreen", true);
-				    }
+	
+		<script>
+			$(document).ready(
+				function() {			 
+					// Output to Canvas, taking into account devices such as iPhone 4 with Retina Display
+					var hidefCanvas = $('#pano')[0];
+					var hidefContext = hidefCanvas.getContext('2d');
+					 
+					if (window.devicePixelRatio) {
+						var hidefCanvasWidth = $(hidefCanvas).attr('width');
+						var hidefCanvasHeight = $(hidefCanvas).attr('height');
+						var hidefCanvasCssWidth = hidefCanvasWidth;
+						var hidefCanvasCssHeight = hidefCanvasHeight;
+						$(hidefCanvas).attr('width', hidefCanvasWidth * window.devicePixelRatio);
+						$(hidefCanvas).attr('height', hidefCanvasHeight * window.devicePixelRatio);
+						$(hidefCanvas).css('width', hidefCanvasCssWidth);
+						$(hidefCanvas).css('height', hidefCanvasCssHeight);
+						hidefContext.scale(window.devicePixelRatio, window.devicePixelRatio);
+					}			
 				}
-            </script>
-          </section>
-        </div>
-      </div>
-      endforeach
+			);
+		</script>
+
+		foreach $js do
+			<script type="text/javascript" src="@url"></script>
+		endforeach
+		foreach $swf do
+			<div class="row margin-40">
+				<div class="span12">
+					<section id="pano" style="height: 600px; width: 100%">
+						<script>
+							embedpano({swf:"@url", xml:"@url.xml", target:"pano", html5:"prefer", passQueryParameters:true, onready:krpanoReady});
+
+							function krpanoReady(krpano)
+							{
+								// try to determine if running on a mobile device...
+								if(krpano.get("device.mobile"))
+								{
+									krpano.set("fullscreen", true);
+								}
+							}
+						</script>
+					</section>
+				</div>
+			</div>
+		endforeach
 
     	<div class="row margin-40">
 		    <div class="span8" style="border-right: 1px solid #757e89; margin-right: -1px">
