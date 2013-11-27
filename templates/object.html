@@ -29,7 +29,7 @@
 :section-title
 
 <!-- Start Portfolio Content -->
-<section id="portfolio-content" class="margin-80">
+<section id="portfolio-content" class="margin-80" style="margin-top:40px">
 	<div class="container">
 	
 	foreach $images[:1] do
@@ -41,6 +41,7 @@
 				<script type="text/javascript">
 					$(function(){ // when DOM ready
 						jQuery('#reelimage').reel({
+							cursor: "url(@root_path/public/img/3d-buttons/cur.png),default",
 						if @frames do
 							frames:@frames, 
 						endif
@@ -80,10 +81,10 @@
 						}).bind('loaded', function(ev){
 							m = jQuery('#reelimage').parent();
 							// Now we fill it with buttons
-							m.append('<img id="reelbuttondown" src="@root_path/public/img/3d-buttons/zoom.gif" onclick=\'m=jQuery("#reelimage"); m.reel("pause");m.reel("row", m.reel("row")+1);return true;\'>');
-							m.append('<img id="reelbuttonup" src="@root_path/public/img/3d-buttons/zoom.gif" onclick=\'m=jQuery("#reelimage"); m.reel("pause");m.reel("row", m.reel("row")-1);return true;\'>');
-							m.append('<img id="reelbuttonleft" src="@root_path/public/img/3d-buttons/left.gif" onclick=\'m=jQuery("#reelimage"); m.reel("pause");m.reel("frame", m.reel("frame")+1);return true;\'>');
-							m.append('<img id="reelbuttonright" src="@root_path/public/img/3d-buttons/right.gif" onclick=\'m=jQuery("#reelimage"); m.reel("pause");m.reel("frame", m.reel("frame")-1);return true;\'>');
+							m.append('<img id="reelbuttondown" style="cursor:pointer" src="@root_path/public/img/3d-buttons/down.png" onclick=\'m=jQuery("#reelimage"); m.reel("pause");m.reel("row", m.reel("row")+1);return true;\'>');
+							m.append('<img id="reelbuttonup" style="cursor:pointer" src="@root_path/public/img/3d-buttons/up.png" onclick=\'m=jQuery("#reelimage"); m.reel("pause");m.reel("row", m.reel("row")-1);return true;\'>');
+							m.append('<img id="reelbuttonleft" style="cursor:pointer" src="@root_path/public/img/3d-buttons/left.png" onclick=\'m=jQuery("#reelimage"); m.reel("pause");m.reel("frame", m.reel("frame")+1);return true;\'>');
+							m.append('<img id="reelbuttonright" style="cursor:pointer" src="@root_path/public/img/3d-buttons/right.png" onclick=\'m=jQuery("#reelimage"); m.reel("pause");m.reel("frame", m.reel("frame")-1);return true;\'>');
 						});
 					  });
 				</script>
@@ -91,11 +92,20 @@
         </div>
     </div>
     
-    <div class="row">
-	   	<div class="span12">
-			@content		            	
-		</div>
-    </div>
+  <div class="row margin-40">
+		    <div class="span8" style="border-right: 1px solid #757e89; margin-right: -1px">
+          @content
+        </div>
+		    <div class="span4">
+          @client
+        </div>
+        
+	<div class="span12">
+	<div style="height: 30px"></div>
+	:share-buttons
+	    </div>
+
+      </div>
    
 	:prev-next-navigation
         
