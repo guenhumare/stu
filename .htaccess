@@ -1,4 +1,11 @@
+# Attempt to use output compression
+php_flag zlib.output_compression on
+php_value zlib.output_compression_level 5
+
 RewriteEngine on
+
+RewriteCond %{HTTP_HOST} ^smiletous\.com$ [NC]
+RewriteRule ^(.*)$ http://www.smiletous.com/$1 [R=301,L]
 
 # Some hosts require a rewritebase rule, if so, uncomment the RewriteBase line below. If you are running from a subdirectory, your rewritebase should match the name of the path to where stacey is stored.
 # ie. if in a folder named 'stacey', RewriteBase /stacey
