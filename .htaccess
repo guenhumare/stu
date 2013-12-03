@@ -42,7 +42,7 @@ RewriteCond %{REQUEST_URI} !public/
 RewriteRule ^(.+)$ public/$1 [L]
 
 <IfModule mod_deflate.c>
-AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml application/xhtml+xml text/javascript text/css application/x-javascript
+AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml application/xhtml+xml text/javascript text/css application/x-javascript application/javascript
 BrowserMatch ^Mozilla/4 gzip-only-text/html
 BrowserMatch ^Mozilla/4.0[678] no-gzip
 BrowserMatch bMSIE !no-gzip !gzip-only-text/html
@@ -50,5 +50,4 @@ BrowserMatch bMSIE !no-gzip !gzip-only-text/html
 mod_gzip_on Yes
 mod_gzip_item_include file \.js$
 mod_gzip_item_include file \.css$ </IfModule>
-application/javascript
 </IfModule>
