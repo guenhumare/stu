@@ -50,4 +50,5 @@ BrowserMatch bMSIE !no-gzip !gzip-only-text/html
 mod_gzip_on Yes
 mod_gzip_item_include file \.js$
 mod_gzip_item_include file \.css$ </IfModule>
+application/javascript
 </IfModule>
