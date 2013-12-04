@@ -1,4 +1,4 @@
 User-agent:*
 Disallow: /blog/example
-Host: smiletous.com
+Host: www.smiletous.com
 Sitemap: http://www.smiletous.com/sitemap.xml
