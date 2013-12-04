@@ -15,7 +15,7 @@
 
 :css
 
-:js
+:js-modernizr
 
 :icons
 
@@ -38,56 +38,6 @@
             <center>
                 <img src="@thumb" id="reelimage" data-fullwidthcentering="on" style="height: @heightpx; width: @widthpx;">
 	endforeach
-				<script type="text/javascript">
-					$(function(){ // when DOM ready
-						jQuery('#reelimage').reel({
-							cursor: "url(@root_path/public/img/3d-buttons/cur.png),default",
-						if @frames do
-							frames:@frames, 
-						endif
-						if @footage do
-							footage:@footage,
-						endif
-						if @orbital do
-							orbital:@orbital,
-						endif
-						if @rows do
-							rows:@rows, 
-						endif
-						if @frame do
-							frame:@frame, 
-						endif
-						if @row do
-							row:@row, 
-						endif
-							path:'@images-path',
-							images:'@images',
-						if @cw do
-							cw:@cw,
-						endif
-						if @inversed do
-							inversed:@inversed,
-						endif
-						if @speed do
-							speed:@speed,
-						endif
-						if @timeout do
-							timeout:@timeout,
-						endif
-						if @brake do
-							brake:@brake,
-						endif
-							steppable: false,
-						}).bind('loaded', function(ev){
-							m = jQuery('#reelimage').parent();
-							// Now we fill it with buttons
-							m.append('<img id="reelbuttondown" style="cursor:pointer" src="@root_path/public/img/3d-buttons/down.png" onclick=\'m=jQuery("#reelimage"); m.reel("pause");m.reel("row", m.reel("row")+1);return true;\'>');
-							m.append('<img id="reelbuttonup" style="cursor:pointer" src="@root_path/public/img/3d-buttons/up.png" onclick=\'m=jQuery("#reelimage"); m.reel("pause");m.reel("row", m.reel("row")-1);return true;\'>');
-							m.append('<img id="reelbuttonleft" style="cursor:pointer" src="@root_path/public/img/3d-buttons/left.png" onclick=\'m=jQuery("#reelimage"); m.reel("pause");m.reel("frame", m.reel("frame")+1);return true;\'>');
-							m.append('<img id="reelbuttonright" style="cursor:pointer" src="@root_path/public/img/3d-buttons/right.png" onclick=\'m=jQuery("#reelimage"); m.reel("pause");m.reel("frame", m.reel("frame")-1);return true;\'>');
-						});
-					  });
-				</script>
 			</center>
         </div>
     </div>
@@ -100,10 +50,12 @@
           @client
         </div>
         
-	<div class="span12">
+
+	<div class="span12">
 	<div style="height: 30px"></div>
 	:share-buttons
-	    </div>
+	    </div>
+
 
       </div>
    
@@ -124,6 +76,59 @@
 :analytics
 
 :jivosite
+
+:js
+
+<script type="text/javascript">
+	$(function(){ // when DOM ready
+		jQuery('#reelimage').reel({
+			cursor: "url(@root_path/public/img/3d-buttons/cur.png),default",
+			if @frames do
+				frames:@frames, 
+			endif
+			if @footage do
+				footage:@footage,
+			endif
+			if @orbital do
+				orbital:@orbital,
+			endif
+			if @rows do
+				rows:@rows, 
+			endif
+			if @frame do
+				frame:@frame, 
+			endif
+			if @row do
+				row:@row, 
+			endif
+			path:'@images-path',
+			images:'@images',
+			if @cw do
+				cw:@cw,
+			endif
+			if @inversed do
+				inversed:@inversed,
+			endif
+			if @speed do
+				speed:@speed,
+			endif
+			if @timeout do
+				timeout:@timeout,
+			endif
+			if @brake do
+				brake:@brake,
+			endif
+			steppable: false,
+		}).bind('loaded', function(ev){
+			m = jQuery('#reelimage').parent();
+			// Now we fill it with buttons
+			m.append('<img id="reelbuttondown" style="cursor:pointer" src="@root_path/public/img/3d-buttons/down.png" onclick=\'m=jQuery("#reelimage"); m.reel("pause");m.reel("row", m.reel("row")+1);return true;\'>');
+			m.append('<img id="reelbuttonup" style="cursor:pointer" src="@root_path/public/img/3d-buttons/up.png" onclick=\'m=jQuery("#reelimage"); m.reel("pause");m.reel("row", m.reel("row")-1);return true;\'>');
+			m.append('<img id="reelbuttonleft" style="cursor:pointer" src="@root_path/public/img/3d-buttons/left.png" onclick=\'m=jQuery("#reelimage"); m.reel("pause");m.reel("frame", m.reel("frame")+1);return true;\'>');
+			m.append('<img id="reelbuttonright" style="cursor:pointer" src="@root_path/public/img/3d-buttons/right.png" onclick=\'m=jQuery("#reelimage"); m.reel("pause");m.reel("frame", m.reel("frame")-1);return true;\'>');
+		});
+	  });
+</script>
 
 </body>
 </html>
