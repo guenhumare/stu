@@ -211,32 +211,28 @@
 
 <form id="calculator" onsubmit="return false;">
     <div class="row margin-50" style="margin-top: 30px">
+        <div class="span3"></div>
         <div class="span6">
             <h4>Виртуальный тур</h4>
             <div class="row">
                 <div class="span4"><p class="input-row">Количество панорам:</p></div>
-                <div class="span1"><input id="tour-pano-count" type="text" value="10" name="tour-pano-count"></div>
+                <div class="span2"><input id="tour-pano-count" type="text" value="10" name="tour-pano-count"></div>
             </div>
             <div class="row">
                 <div class="span4"><p class="input-row" style="margin-bottom: 20px">Количество фотографий:</p></div>
-                <div class="span1"><input id="tour-photo-count" type="text" value="20" name="tour-photo-count"></div>
+                <div class="span2"><input id="tour-photo-count" type="text" value="20" name="tour-photo-count"></div>
             </div>
             <div class="row">
                 <div class="span4"><p>Стоимость одной панорамы:</p></div>
                 <div class="span1"><p>1000&nbsp;р.</p></div>
             </div>
-
             <div class="row">
                 <div class="span4"><p>Салон автомобиля:</p></div>
-                <div class="span2">
-                    <p><label><input type="checkbox"> 2x</label></p>
-                </div>
+                <div class="span2"><p><label><input type="checkbox"> 2x</label></p></div>
             </div>
             <div class="row">
                 <div class="span4"><p>Анаглиф:</p></div>
-                <div class="span2">
-                    <p><label><input type="checkbox"> 2x</label></p>
-                </div>
+                <div class="span2"><p><label><input type="checkbox"> 2x</label></p></div>
             </div>
             <div class="row">
                 <div class="span4"><p>Выезд:</p></div>
@@ -247,14 +243,16 @@
                 <div class="span4" style="border-top: 1px solid #E0E0E0; padding-top: 15px"><p><b>Сумма:</b></p></div>
                 <div class="span2" style="border-top: 1px solid #E0E0E0; padding-top: 15px"><b>10 000 р.</b>*</div>
             </div>
-            <div style="font-size: x-small">
+            <div style="font-size: small">
                 * Второй такой тур обойдется вам на 30% дешевле
             </div>
         </div>
+    </div>
+</form>
 
-
-
-        <div class="span6">
+<form id="calculator" onsubmit="return false;">
+    <div class="row margin-50" style="margin-top: 30px">
+        <div class="span8">
             <h4>3D-объекты</h4>
             <div class="row">
                 <div class="span4"><p class="input-row">Количество объектов:</p></div>
