@@ -3,7 +3,8 @@
 <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
 <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
 <!--[if (IE 9)]><html class="no-js ie9" lang="en"><![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en-US"> <!--<![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en-US" xmlns="http://www.w3.org/1999/html"> <!--<![endif]-->
 <head>
 
     <!-- Meta Tags -->
@@ -102,8 +103,6 @@
         font-size: 16px;
         height: auto;
         padding: 10px;
-        margin: 0;
-        margin-top: -10px;
 
         resize: none;
         width: 100%;
@@ -115,7 +114,20 @@
     }
 
     #calculator p {
-        margin-bottom: 10px;
+        margin-bottom: 15px;
+    }
+
+    #calculator input[type="checkbox"] {
+        -webkit-appearance: checkbox !important;
+        width: auto;
+        vertical-align: baseline;
+    }
+
+    #calculator label {
+        font-weight: 300;
+        font-size: 16px;
+        font-family: 'Open Sans', sans-serif;
+        line-height: 25px;
     }
 </style>
 
@@ -181,17 +193,17 @@
             <div class="span12">
 
 <form id="calculator" onsubmit="return false;">
-    <div class="row margin-50" style="margin-top: 20px">
+    <div class="row margin-50" style="margin-top: 30px">
         <div class="span6">
             <h4>Виртуальный тур</h4>
             <div class="row">
-                <div class="span4"><p style="margin-bottom: 30px">Количество панорам:</p></div>
+                <div class="span4"><p style="margin-bottom: 25px; margin-top: 5px">Количество панорам:</p></div>
                 <div class="span1">
                     <input id="tour-pano-count" type="text" placeholder="10" value="" name="tour-pano-count">
                 </div>
             </div>
             <div class="row">
-                <div class="span4"><p style="margin-bottom: 30px">Количество фотографий:</p></div>
+                <div class="span4"><p style="margin-bottom: 25px; margin-top: 5px">Количество фотографий:</p></div>
                 <div class="span1">
                     <input id="tour-photo-count" type="text" value="" placeholder="20" name="tour-photo-count"
                            style="width: 100%">
@@ -199,34 +211,70 @@
             </div>
             <div class="row">
                 <div class="span4"><p>Стоимость одной панорамы:</p></div>
-                <div class="span1">1000 р.</div>
+                <div class="span1"><p>1000&nbsp;р.</p></div>
             </div>
             <div class="row">
                 <div class="span4"><p>Включение одной фотографии:</p></div>
-                <div class="span2">500 р.</div>
+                <div class="span2"><p>500 р.</p></div>
             </div>
             <div class="row">
                 <div class="span4"><p>Сборка виртуального тура:</p></div>
-                <div class="span2">1500 р.</div>
+                <div class="span2"><p>1500&nbsp;р.</p></div>
             </div>
             <div class="row">
                 <div class="span4"><p>Салон автомобиля:</p></div>
-                <div class="span2">2 x</div>
+                <div class="span2">
+                    <p><label><input type="checkbox"> 2x</label></p>
+                </div>
             </div>
             <div class="row">
-                <div class="span4" style="margin-top: 15px; border-top: 1px solid #E0E0E0; padding-top: 15px; "><p><b>Сумма</b></p></div>
-                <div class="span2" style="margin-top: 15px; border-top: 1px solid #E0E0E0; padding-top: 15px; "><b>10 000 р.</b>*</div>
+                <div class="span4"><p>Анаглиф:</p></div>
+                <div class="span2">
+                    <p><label><input type="checkbox"> 2x</label></p>
+                </div>
             </div>
-            <span style="font-size: small">
+            <div class="row">
+                <div class="span4"><p>Выезд:</p></div>
+                <div class="span2"><p>бесплатно</p>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 15px">
+                <div class="span4" style="border-top: 1px solid #E0E0E0; padding-top: 15px"><p><b>Сумма</b></p></div>
+                <div class="span2" style="border-top: 1px solid #E0E0E0; padding-top: 15px"><b>10 000 р.</b>*</div>
+            </div>
+            <div style="font-size: small; text-align: right">
                 <br/>
-                * Второй такой тур обойдется вам на 30% дешевле.
-            </span>
+                * Второй такой тур обойдется вам на 30% дешевле
+            </div>
         </div>
         <div class="span6">
             <h4>3D-объекты</h4>
-            <p style="width: 100%">
-                <input id="ddd-count" type="text" placeholder="Количество" value="" name="ddd-count" />
-            </p>
+            <div class="row">
+                <div class="span4"><p style="margin-bottom: 20px">Количество объектов:</p></div>
+                <div class="span1">
+                    <p><input id="tour-pano-count" type="text" placeholder="10" value="" name="tour-pano-count"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span4"><p>Стоимость одной панорамы:</p></div>
+                <div class="span1"><p>1000&nbsp;р.</p></div>
+            </div>
+            <div class="row">
+                <div class="span4"><p>Включение одной фотографии:</p></div>
+                <div class="span2"><p>500 р.</p></div>
+            </div>
+            <div class="row">
+                <div class="span4"><p>Что-то еще очень важное:</p></div>
+                <div class="span2"><p>1500&nbsp;р.</p></div>
+            </div>
+            <div class="row" style="margin-top: 15px">
+                <div class="span4" style="border-top: 1px solid #E0E0E0; padding-top: 15px"><p><b>Сумма</b></p></div>
+                <div class="span2" style="border-top: 1px solid #E0E0E0; padding-top: 15px"><b>10 000 р.</b>*</div>
+            </div>
+            <div style="font-size: small; text-align: right">
+                <br/>
+                * Второй такой тур обойдется вам на 30% дешевле
+            </div>
         </div>
     </div>
 </form>
