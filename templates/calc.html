@@ -88,7 +88,8 @@
 
 <style type="text/css">
     #calculator input,
-    #calculator textarea {
+    #calculator textarea,
+    #calculator select {
         border: 1px solid #E9F0F4;
         -webkit-border-radius: 2px;
         -moz-border-radius: 2px;
@@ -99,7 +100,7 @@
         box-shadow: none;
 
         background: #FFFFFF;
-        color: #000000;
+        color: #606060;
         font-size: 16px;
         height: auto;
         padding: 5px;
@@ -114,7 +115,7 @@
     }
 
     #calculator p {
-        margin-bottom: 15px;
+        margin-bottom: 20px;
     }
 
     #calculator input[type="checkbox"] {
@@ -123,11 +124,27 @@
         vertical-align: baseline;
     }
 
+    #calculator select {
+        /*-webkit-appearance: menulist !important;*/
+        width: auto;
+        padding: 0 10px 0 10px;
+    }
+
+    #calculator select option {
+        margin: 0;
+        padding: 0;
+    }
+
     #calculator label {
         font-weight: 300;
         font-size: 16px;
         font-family: 'Open Sans', sans-serif;
         line-height: 25px;
+    }
+
+    #calculator .input-row {
+        margin-bottom: 15px;
+        margin-top: 5px;
     }
 </style>
 
@@ -197,30 +214,18 @@
         <div class="span6">
             <h4>Виртуальный тур</h4>
             <div class="row">
-                <div class="span4"><p style="margin-bottom: 15px; margin-top: 5px">Количество панорам:</p></div>
-                <div class="span1">
-                    <input id="tour-pano-count" type="text" placeholder="10" value="" name="tour-pano-count">
-                </div>
+                <div class="span4"><p class="input-row">Количество панорам:</p></div>
+                <div class="span1"><input id="tour-pano-count" type="text" value="10" name="tour-pano-count"></div>
             </div>
             <div class="row">
-                <div class="span4"><p style="margin-bottom: 15px; margin-top: 5px">Количество фотографий:</p></div>
-                <div class="span1">
-                    <input id="tour-photo-count" type="text" value="" placeholder="20" name="tour-photo-count"
-                           style="width: 100%">
-                </div>
+                <div class="span4"><p class="input-row" style="margin-bottom: 20px">Количество фотографий:</p></div>
+                <div class="span1"><input id="tour-photo-count" type="text" value="20" name="tour-photo-count"></div>
             </div>
             <div class="row">
                 <div class="span4"><p>Стоимость одной панорамы:</p></div>
                 <div class="span1"><p>1000&nbsp;р.</p></div>
             </div>
-            <div class="row">
-                <div class="span4"><p>Включение одной фотографии:</p></div>
-                <div class="span2"><p>500 р.</p></div>
-            </div>
-            <div class="row">
-                <div class="span4"><p>Сборка виртуального тура:</p></div>
-                <div class="span2"><p>1500&nbsp;р.</p></div>
-            </div>
+
             <div class="row">
                 <div class="span4"><p>Салон автомобиля:</p></div>
                 <div class="span2">
@@ -242,38 +247,103 @@
                 <div class="span4" style="border-top: 1px solid #E0E0E0; padding-top: 15px"><p><b>Сумма:</b></p></div>
                 <div class="span2" style="border-top: 1px solid #E0E0E0; padding-top: 15px"><b>10 000 р.</b>*</div>
             </div>
-            <div style="font-size: small; text-align: right">
-                <br/>
+            <div style="font-size: x-small">
                 * Второй такой тур обойдется вам на 30% дешевле
             </div>
         </div>
+
+
+
         <div class="span6">
             <h4>3D-объекты</h4>
             <div class="row">
-                <div class="span4"><p style="margin-bottom: 20px">Количество объектов:</p></div>
-                <div class="span1">
-                    <p><input id="obj-pano-count" type="text" placeholder="10" value="" name="tour-pano-count"></p>
+                <div class="span4"><p class="input-row">Количество объектов:</p></div>
+                <div class="span1"><input id="obj-pano-count" type="text" value="200" name="tour-pano-count"></div>
+            </div>
+            <div class="row">
+                <div class="span4"><p>Минимальное количество объектов в одной партии:</p></div>
+                <div class="span2">
+                    <select>
+                        <option value="2.0">от 1 до 3</option>
+                        <option value="1.5">от 4 до 10</option>
+                        <option value="1.25">от 10 до 20</option>
+                        <option value="1">от 20 до 40</option>
+                        <option value="0.9">свыше 40</option>
+                    </select>
                 </div>
             </div>
             <div class="row">
-                <div class="span4"><p>Стоимость одной панорамы:</p></div>
-                <div class="span1"><p>1000&nbsp;р.</p></div>
+                <div class="span4"><p>Количество кадров на один объект<sup style="font-size: x-small"> ** </sup>:</p></div>
+                <div class="span2">
+                    <select>
+                        <option value="1.0">30 кадров</option>
+                        <option value="1.125">45 кадров</option>
+                        <option value="1.25">60 кадров</option>
+                        <option value="1.5">90 кадров</option>
+                    </select>
+                </div>
             </div>
             <div class="row">
-                <div class="span4"><p>Включение одной фотографии:</p></div>
-                <div class="span2"><p>500 р.</p></div>
+                <div class="span4"><p>Количество плоскостей вращения:</p></div>
+                <div class="span2">
+                    <select>
+                        <option value="1.0">1 плоскость</option>
+                        <option value="1.75">2 плоскости</option>
+                        <option value="2.5">3 плоскости</option>
+                    </select>
+                </div>
             </div>
             <div class="row">
-                <div class="span4"><p>Что-то еще очень важное:</p></div>
-                <div class="span2"><p>1500&nbsp;р.</p></div>
+                <div class="span4"><p>Максимальные габариты предмета:</p></div>
+                <div class="span2">
+                    <select>
+                        <option value="1.0">до 30см</option>
+                        <option value="1.125">от 30см до 1м</option>
+                        <option value="1.5">свыше 1м</option>
+                    </select>
+                </div>
             </div>
+            <div class="row">
+                <div class="span3"><p>Требуемый фон:</p></div>
+                <div class="span2">
+                    <select style="font-size: small">
+                        <option value="1.0">белый с эффектом "мокрого пола"</option>
+                        <option value="1.125">белый безтеневой</option>
+                        <option value="1.5">обтравка на любой фон ***</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span3"><p>Где производится съёмка:</p></div>
+                <div class="span2">
+                    <select style="font-size: small">
+                        <option value="1.0">привоз предметов в нашу студию</option>
+                        <option value="1.125">выезд в пределах МКАД</option>
+                        <option value="1.25">выезд за пределы МКАД</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span4"><p>Стоимость одного объекта:</p></div>
+                <div class="span2"><p>1200&nbsp;р.</p></div>
+            </div>
+            <div class="row">
+                <div class="span4"><p>Выезд (при стоимости от 20 000р.):</p></div>
+                <div class="span2"><p>бесплатно</p></div>
+            </div>
+            <div class="row">
+                <div class="span4"><p>Скидка (при стоимости от 40 000 р.):</p></div>
+                <div class="span2"><p>15%</p></div>
+            </div>
+
             <div class="row" style="margin-top: 15px">
                 <div class="span4" style="border-top: 1px solid #E0E0E0; padding-top: 15px"><p><b>Сумма</b></p></div>
-                <div class="span2" style="border-top: 1px solid #E0E0E0; padding-top: 15px"><b>10 000 р.</b>*</div>
+                <div class="span2" style="border-top: 1px solid #E0E0E0; padding-top: 15px"><b>100 000 р.</b>*</div>
             </div>
-            <div style="font-size: small; text-align: right">
-                <br/>
-                * Второй такой тур обойдется вам на 30% дешевле
+            <div style="font-size: x-small">
+                * При повторном обращении к нам, клиент получает дополнительную скидку 10%.<br/>
+                ** Уточняйте возможность выполнения желаемого числа кадров для конкретных габаритов предмета.<br/>
+                *** Услуга может не предоставляться для предметов, содержащих прозрачные либо зеркальные поверхности.
             </div>
         </div>
     </div>
