@@ -620,7 +620,7 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 ================================================== */
 
 #slider {
-	margin-top: 68px;	
+	margin-top: 43px;	
 }
 
 .fullwidthbanner-container{
@@ -821,7 +821,7 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 ================================================== */
 
 #image-static {
-	margin-top: 67px;
+	margin-top: 43px;
 }
 
 .fullimage-container{
@@ -853,7 +853,7 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 #title-page {
 	position: relative;
 	background-color: #E9F0F4;
-	margin-top: 68px;
+	margin-top: 53px;
 }
 
 #title-page h2 {
@@ -890,7 +890,7 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 #intro-box {
 	position: relative;
 	background: #F97E76;
-	padding: 40px 0 50px;
+	padding: 30px 0 50px;
 }
 
 #intro-box h3 {
@@ -919,7 +919,7 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 ================================================== */
 
 #content {
-	padding: 80px 0 90px;
+	padding: 40px 0 40px;
     position: relative;
 }
 
@@ -2429,7 +2429,7 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 
 #latest-blog {
 	position: relative;
-	padding: 80px 0 90px;
+	padding: 0px 0 90px;
 }
 
 #latest-blog h3 {
