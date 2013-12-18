@@ -49,25 +49,12 @@
             </div>
         </div>
         <div class="row">
-            <div class="span4"><p>Стоимость одной панорамы:</p></div>
-            <div class="span1"><p><span id="tourcalc-single-price">2500</span>&nbsp;р.</p></div>
-        </div>
-        <div class="row">
             <div class="span4"><p>Салон автомобиля:</p></div>
-            <div class="span2"><p><label><input id="tourcalc-is-car" type="checkbox"> 2x</label></p></div>
+            <div class="span2"><p><label><input id="tourcalc-is-car" type="checkbox"></label></p></div>
         </div>
         <div class="row">
             <div class="span4"><p>Анаглиф:</p></div>
-            <div class="span2"><p><label><input id="tourcalc-is-anaglyph" type="checkbox"> 2x</label></p></div>
-        </div>
-        <div class="row">
-            <div class="span4"><p>Сборка виртуального тура:</p></div>
-            <div class="span1"><p><span id="tourcalc-tour-price">1500</span>&nbsp;р.</p></div>
-        </div>
-        <div class="row">
-            <div class="span4"><p>Выезд:</p></div>
-            <div class="span2"><p>бесплатно</p>
-            </div>
+            <div class="span2"><p><label><input id="tourcalc-is-anaglyph" type="checkbox"></label></p></div>
         </div>
         <div id="tourcalc-results" class="row" style="margin-top: 15px">
             <div class="span4 sum-line"><p><b>Сумма:</b></p></div>
@@ -122,10 +109,6 @@
 
         var sumSpan = jQuery('#tourcalc-sum');
         sumSpan.text('\u2014');
-        var singlePriceSpan = jQuery('#tourcalc-single-price');
-        singlePriceSpan.text('\u2014');
-        var tourPriceSpan = jQuery('#tourcalc-tour-price');
-        tourPriceSpan.text('\u2014');
 
         var panoCountError = jQuery('#tourcalc-pano-count-error');
         if (isNaN(panoCount) || panoCount <= 0) {
@@ -147,11 +130,7 @@
         }
 
         var singlePanoPrice = panoPrice(panoCount);
-        singlePriceSpan.text(singlePanoPrice);
-
         var tourWorkPrice = tourPrice(panoCount);
-        tourPriceSpan.text(tourWorkPrice);
-
         var sum = (panoCount * singlePanoPrice) + (photoCount * 500) + tourWorkPrice;
 
         if (isCarPano) sum *= 2;
