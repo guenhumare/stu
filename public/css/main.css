@@ -3005,3 +3005,15 @@ footer.footer-widgets .flickr-list ul li a:hover i {
     margin-bottom: 15px;
     margin-top: 5px;
 }
+
+#calculator .validation-error {
+    color: darkred;
+    margin-top: -10px;
+    font-size: small;
+    display: none;
+}
+
+#calculator .sum-line {
+    border-top: 1px solid #E0E0E0;
+    padding-top: 15px;
+}

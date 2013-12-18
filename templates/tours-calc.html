@@ -36,15 +36,21 @@
         <h4>Виртуальный тур</h4>
         <div class="row">
             <div class="span4"><p class="input-row">Количество панорам:</p></div>
-            <div class="span2"><input id="tourcalc-pano-count" type="text" value="" name="tourcalc-pano-count"></div>
+            <div class="span2">
+                <input id="tourcalc-pano-count" type="text" value="5" name="tourcalc-pano-count">
+                <div id="tourcalc-pano-count-error" class="validation-error">Некорректное количество</div>
+            </div>
         </div>
         <div class="row">
             <div class="span4"><p class="input-row" style="margin-bottom: 20px">Количество фотографий:</p></div>
-            <div class="span2"><input id="tourcalc-photo-count" type="text" value="" name="tourcalc-photo-count"></div>
+            <div class="span2">
+                <input id="tourcalc-photo-count" type="text" value="" name="tourcalc-photo-count">
+                <div id="tourcalc-photo-count-error" class="validation-error">Некорректное количество</div>
+            </div>
         </div>
         <div class="row">
             <div class="span4"><p>Стоимость одной панорамы:</p></div>
-            <div class="span1"><p><span id="tourcalc-single-price">1000</span>&nbsp;р.</p></div>
+            <div class="span1"><p><span id="tourcalc-single-price">2500</span>&nbsp;р.</p></div>
         </div>
         <div class="row">
             <div class="span4"><p>Салон автомобиля:</p></div>
@@ -55,14 +61,17 @@
             <div class="span2"><p><label><input id="tourcalc-is-anaglyph" type="checkbox"> 2x</label></p></div>
         </div>
         <div class="row">
+            <div class="span4"><p>Сборка виртуального тура:</p></div>
+            <div class="span1"><p><span id="tourcalc-tour-price">1500</span>&nbsp;р.</p></div>
+        </div>
+        <div class="row">
             <div class="span4"><p>Выезд:</p></div>
             <div class="span2"><p>бесплатно</p>
             </div>
         </div>
         <div id="tourcalc-results" class="row" style="margin-top: 15px">
-            <div id="tourcalc-errors" style="color: #8b0000"></div>
-            <div class="span4" style="border-top: 1px solid #E0E0E0; padding-top: 15px"><p><b>Сумма:</b></p></div>
-            <div class="span2" style="border-top: 1px solid #E0E0E0; padding-top: 15px"><b><span id="tourcalc-sum">10 000</span> р.</b>*</div>
+            <div class="span4 sum-line"><p><b>Сумма:</b></p></div>
+            <div class="span2 sum-line"><b><span id="tourcalc-sum">10 000</span> р.</b>*</div>
         </div>
 
         <div style="font-size: small; margin-top: 20px">
@@ -94,26 +103,69 @@
         return 1800;
     }
 
-    function recalculate() {
-        var panoCount = parseInt($('#tourcalc-pano-count').val());
-        var panoPhotos = parseInt($('#tourcalc-photo-count').val());
-        var isCarPano = $('#tourcalc-is-car').attr('checked');
-        var isAnaglyph = $('#tourcalc-is-anaglyph').attr('checked');
-
-        if (isNaN(panoCount)) {
-            $('#tourcalc-errors').text('Некорректно введено количество панорам');
-            $('#tourcalc-sum').text('-');
-            return;
+    function tourPrice(count) {
+        var price = 1500;
+        if (count > 5) {
+            var magic = ~~((count - 5) / 5) + 1;
+            price += 1000 * magic;
         }
 
-        $('#tourcalc-sum').text('123');
+        return price;
     }
 
-    $(document).ready(function() {
-        $('#tourcalc-pano-count').keyup(recalculate);
-        $('#tourcalc-photo-count').keyup(recalculate);
-        $('#tourcalc-is-car').change(recalculate);
-        $('#tourcalc-is-anaglyph').change(recalculate);
+    function recalculate() {
+        var panoCount = parseInt(jQuery('#tourcalc-pano-count').val());
+        var photoCountText = jQuery('#tourcalc-photo-count').val();
+        var photoCount = parseInt(photoCountText);
+        var isCarPano = jQuery('#tourcalc-is-car').prop('checked');
+        var isAnaglyph = jQuery('#tourcalc-is-anaglyph').prop('checked');
+
+        var sumSpan = jQuery('#tourcalc-sum');
+        sumSpan.text('\u2014');
+        var singlePriceSpan = jQuery('#tourcalc-single-price');
+        singlePriceSpan.text('\u2014');
+        var tourPriceSpan = jQuery('#tourcalc-tour-price');
+        tourPriceSpan.text('\u2014');
+
+        var panoCountError = jQuery('#tourcalc-pano-count-error');
+        if (isNaN(panoCount) || panoCount <= 0) {
+            panoCountError.show();
+            return;
+        } else {
+            panoCountError.hide();
+        }
+
+        var photoCountError = jQuery('#tourcalc-photo-count-error');
+        if (photoCountText.trim() === '') {
+            photoCountError.hide();
+            photoCount = 0;
+        } else if (isNaN(photoCount) || photoCount < 0) {
+            photoCountError.show();
+            return;
+        } else {
+            photoCountError.hide();
+        }
+
+        var singlePanoPrice = panoPrice(panoCount);
+        singlePriceSpan.text(singlePanoPrice);
+
+        var tourWorkPrice = tourPrice(panoCount);
+        tourPriceSpan.text(tourWorkPrice);
+
+        var sum = (panoCount * singlePanoPrice) + (photoCount * 500) + tourWorkPrice;
+
+        if (isCarPano) sum *= 2;
+        if (isAnaglyph) sum *= 2;
+
+        sumSpan.text(sum);
+    }
+
+    jQuery(document).ready(function() {
+        jQuery('#tourcalc-pano-count').keyup(recalculate);
+        jQuery('#tourcalc-photo-count').keyup(recalculate);
+        jQuery('#tourcalc-is-car').change(recalculate);
+        jQuery('#tourcalc-is-anaglyph').change(recalculate);
+        recalculate();
     });
 </script>
 
