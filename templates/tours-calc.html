@@ -49,12 +49,24 @@
             </div>
         </div>
         <div class="row">
-            <div class="span4"><p>Салон автомобиля:</p></div>
-            <div class="span2"><p><label><input id="tourcalc-is-car" type="checkbox"></label></p></div>
+            <div class="span4"><p class="input-row">Салон автомобиля:</p></div>
+            <div class="span2">
+                <select id="tourcalc-is-car">
+                    <option value="true">да</option>
+                    <option value="false" selected>нет</option>
+                </select>
+                <!--<label><input id="tourcalc-is-car" type="checkbox"></label>-->
+            </div>
         </div>
         <div class="row">
-            <div class="span4"><p>Анаглиф:</p></div>
-            <div class="span2"><p><label><input id="tourcalc-is-anaglyph" type="checkbox"></label></p></div>
+            <div class="span4"><p class="input-row">Анаглиф:</p></div>
+            <div class="span2">
+                <select id="tourcalc-is-anaglyph">
+                    <option value="true">да</option>
+                    <option value="false" selected>нет</option>
+                </select>
+                 <!--<label><input id="tourcalc-is-anaglyph" type="checkbox"></label>-->
+            </div>
         </div>
         <div id="tourcalc-results" class="row" style="margin-top: 15px">
             <div class="span4 sum-line"><p><b>Сумма:</b></p></div>
@@ -104,8 +116,8 @@
         var panoCount = parseInt(jQuery('#tourcalc-pano-count').val());
         var photoCountText = jQuery('#tourcalc-photo-count').val();
         var photoCount = parseInt(photoCountText);
-        var isCarPano = jQuery('#tourcalc-is-car').prop('checked');
-        var isAnaglyph = jQuery('#tourcalc-is-anaglyph').prop('checked');
+        var isCarPano = jQuery('#tourcalc-is-car').val() === 'true';
+        var isAnaglyph = jQuery('#tourcalc-is-anaglyph').val() === 'true';
 
         var sumSpan = jQuery('#tourcalc-sum');
         sumSpan.text('\u2014');

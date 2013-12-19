@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if (IE 9)]><html class="no-js ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en-US"> <!--<![endif]-->
+<head>
+
+<!-- Meta Tags -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>@title</title>   
+
+:meta
+
+:open-graph
+
+:css
+
+:js-modernizr 
+
+:icons
+
+</head>
+<body>
+
+:navigation
+
+:section-title
+
+<div class="container">
+<form id="calculator" onsubmit="return false;">
+<div class="row margin-50" style="margin-top: 30px">
+    <div class="span3"></div>
+    <div class="span6">
+        <h4>Виртуальный тур</h4>
+        <div class="row">
+            <div class="span4"><p class="input-row">Количество панорам:</p></div>
+            <div class="span2">
+                <input id="tourcalc-pano-count" type="text" value="5" name="tourcalc-pano-count">
+                <div id="tourcalc-pano-count-error" class="validation-error">Некорректное количество</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span4"><p class="input-row" style="margin-bottom: 20px">Количество фотографий:</p></div>
+            <div class="span2">
+                <input id="tourcalc-photo-count" type="text" value="" name="tourcalc-photo-count">
+                <div id="tourcalc-photo-count-error" class="validation-error">Некорректное количество</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span4"><p>Салон автомобиля:</p></div>
+            <div class="span2"><p><label><input id="tourcalc-is-car" type="checkbox"></label></p></div>
+        </div>
+        <div class="row">
+            <div class="span4"><p>Анаглиф:</p></div>
+            <div class="span2"><p><label><input id="tourcalc-is-anaglyph" type="checkbox"></label></p></div>
+        </div>
+        <div id="tourcalc-results" class="row" style="margin-top: 15px">
+            <div class="span4 sum-line"><p><b>Сумма:</b></p></div>
+            <div class="span2 sum-line"><b><span id="tourcalc-sum">10 000</span> р.</b>*</div>
+        </div>
+
+        <div style="font-size: small; margin-top: 20px">
+            * Второй такой тур обойдется вам на 30% дешевле
+        </div>
+    </div>
+</div>
+</form>
+</div>
+
+:twitter-feed
+
+:credits
+
+:back-to-top
+
+:metrika
+
+:analytics
+
+:jivosite
+
+:js
+
+<script type="text/javascript">
+    function panoPrice(count) {
+        if (count <= 9)  return 2500;
+        if (count <= 19) return 2000;
+        return 1800;
+    }
+
+    function tourPrice(count) {
+        var price = 1500;
+        if (count > 5) {
+            var magic = ~~((count - 5) / 5) + 1;
+            price += 1000 * magic;
+        }
+
+        return price;
+    }
+
+    function recalculate() {
+        var panoCount = parseInt(jQuery('#tourcalc-pano-count').val());
+        var photoCountText = jQuery('#tourcalc-photo-count').val();
+        var photoCount = parseInt(photoCountText);
+        var isCarPano = jQuery('#tourcalc-is-car').prop('checked');
+        var isAnaglyph = jQuery('#tourcalc-is-anaglyph').prop('checked');
+
+        var sumSpan = jQuery('#tourcalc-sum');
+        sumSpan.text('\u2014');
+
+        var panoCountError = jQuery('#tourcalc-pano-count-error');
+        if (isNaN(panoCount) || panoCount <= 0) {
+            panoCountError.show();
+            return;
+        } else {
+            panoCountError.hide();
+        }
+
+        var photoCountError = jQuery('#tourcalc-photo-count-error');
+        if (photoCountText.trim() === '') {
+            photoCountError.hide();
+            photoCount = 0;
+        } else if (isNaN(photoCount) || photoCount < 0) {
+            photoCountError.show();
+            return;
+        } else {
+            photoCountError.hide();
+        }
+
+        var singlePanoPrice = panoPrice(panoCount);
+        var tourWorkPrice = tourPrice(panoCount);
+        var sum = (panoCount * singlePanoPrice) + (photoCount * 500) + tourWorkPrice;
+
+        if (isCarPano) sum *= 2;
+        if (isAnaglyph) sum *= 2;
+
+        sumSpan.text(sum);
+    }
+
+    jQuery(document).ready(function() {
+        jQuery('#tourcalc-pano-count').keyup(recalculate);
+        jQuery('#tourcalc-photo-count').keyup(recalculate);
+        jQuery('#tourcalc-is-car').change(recalculate);
+        jQuery('#tourcalc-is-anaglyph').change(recalculate);
+        recalculate();
+    });
+</script>
+
+</body>
+</html>

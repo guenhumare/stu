@@ -2949,6 +2949,7 @@ footer.footer-widgets .flickr-list ul li a:hover i {
 #calculator input,
 #calculator textarea,
 #calculator select {
+    box-sizing: border-box;
     border: 1px solid #E9F0F4;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
@@ -2985,7 +2986,7 @@ footer.footer-widgets .flickr-list ul li a:hover i {
 
 #calculator select {
     /*-webkit-appearance: menulist !important;*/
-    width: auto;
+    width: 100%;
     padding: 0 10px 0 10px;
 }
 
