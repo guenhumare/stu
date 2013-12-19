@@ -71,11 +71,11 @@
 
         <div id="tourcalc-results" class="row" style="margin-top: 15px">
             <div class="span4 sum-line"><p><b>Сумма:</b></p></div>
-            <div class="span2 sum-line"><b><span id="tourcalc-sum">10 000</span> р.</b>*</div>
+            <div class="span2 sum-line"><b><span id="tourcalc-sum">&mdash;</span> р.</b>*</div>
         </div>
 
         <div style="font-size: small; margin-top: 20px">
-            * Второй такой тур обойдется вам на 30% дешевле
+            <sup>*</sup> Второй такой тур обойдется вам на 30% дешевле
         </div>
     </div>
 </div>
@@ -97,6 +97,12 @@
 :js
 
 <script type="text/javascript">
+    jQuery.fn.digits = function() {
+        return this.each(function() {
+            jQuery(this).text(jQuery(this).text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+        })
+    };
+
     function panoPrice(count) {
         if (count <= 9)  return 2500;
         if (count <= 19) return 2000;
@@ -150,6 +156,7 @@
         if (isAnaglyph) sum *= 2;
 
         sumSpan.text(sum);
+        sumSpan.digits();
     }
 
     jQuery(document).ready(function() {

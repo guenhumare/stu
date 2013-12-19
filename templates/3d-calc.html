@@ -33,16 +33,19 @@
 <div class="row margin-50" style="margin-top: 30px">
     <div class="span2"></div>
     <div class="span8">
-        <h4>3D - объекты</h4>
+        <h4>3D-объекты</h4>
         <div class="row">
             <div class="span5"><p class="input-row">Количество объектов:</p></div>
-            <div class="span3"><input id="obj-pano-count" type="text" value="200" name="tour-pano-count"></div>
+            <div class="span3">
+                <input id="objcalc-count" type="text" value="10" name="tour-pano-count">
+                <div id="objcalc-count-error" class="validation-error">Некорректное количество</div>
+            </div>
         </div>
         <div class="row">
             <div class="span5"><p class="input-row">Минимальное количество объектов в одной партии:</p></div>
             <div class="span3">
-                <select>
-                    <option value="2.0">от 1 до 3</option>
+                <select id="objcalc-series-count">
+                    <option value="2.0" selected>от 1 до 3</option>
                     <option value="1.5">от 4 до 10</option>
                     <option value="1.25">от 10 до 20</option>
                     <option value="1">от 20 до 40</option>
@@ -51,10 +54,10 @@
             </div>
         </div>
         <div class="row">
-            <div class="span5"><p class="input-row">Количество кадров на один объект<sup style="font-size: x-small"> ** </sup>:</p></div>
+            <div class="span5"><p class="input-row">Количество кадров на один объект<sup style="font-size: x-small"> 1 </sup>:</p></div>
             <div class="span3">
-                <select>
-                    <option value="1.0">30 кадров</option>
+                <select id="objcalc-photos-count">
+                    <option value="1.0" selected>30 кадров</option>
                     <option value="1.125">45 кадров</option>
                     <option value="1.25">60 кадров</option>
                     <option value="1.5">90 кадров</option>
@@ -62,10 +65,10 @@
             </div>
         </div>
         <div class="row">
-            <div class="span5"><p class="input-row">Количество плоскостей вращения:</p></div>
+            <div class="span5"><p class="input-row">Количество плоскостей вращения<sup style="font-size: x-small"> 2 </sup>:</p></div>
             <div class="span3">
-                <select>
-                    <option value="1.0">1 плоскость</option>
+                <select id="objcalc-dimensions">
+                    <option value="1.0" selected>1 плоскость</option>
                     <option value="1.75">2 плоскости</option>
                     <option value="2.5">3 плоскости</option>
                 </select>
@@ -74,7 +77,7 @@
         <div class="row">
             <div class="span5"><p class="input-row">Максимальные габариты предмета:</p></div>
             <div class="span3">
-                <select>
+                <select id="objcalc-sizes">
                     <option value="1.0">до 30см</option>
                     <option value="1.125">от 30см до 1м</option>
                     <option value="1.5">свыше 1м</option>
@@ -84,17 +87,17 @@
         <div class="row">
             <div class="span5"><p class="input-row">Требуемый фон:</p></div>
             <div class="span3">
-                <select style="font-size: small">
+                <select id="objcalc-background" style="font-size: small">
                     <option value="1.0">белый с эффектом "мокрого пола"</option>
                     <option value="1.125">белый безтеневой</option>
-                    <option value="1.5">обтравка на любой фон ***</option>
+                    <option value="1.5">обтравка на любой фон <sup>(3)</sup></option>
                 </select>
             </div>
         </div>
         <div class="row">
-            <div class="span5"><p class="input-row">Где производится съёмка:</p></div>
+            <div class="span5"><p class="input-row">Где производится съёмка<sup style="font-size: x-small"> 4 </sup>:</p></div>
             <div class="span3">
-                <select style="font-size: small">
+                <select id="objcalc-location" style="font-size: small">
                     <option value="1.0">привоз предметов в нашу студию</option>
                     <option value="1.125">выезд в пределах МКАД</option>
                     <option value="1.25">выезд за пределы МКАД</option>
@@ -104,13 +107,19 @@
 
         <div class="row" style="margin-top: 15px">
             <div class="span5 sum-line"><p><b>Сумма</b></p></div>
-            <div class="span3 sum-line"><b>100000 р.</b>*</div>
+            <div class="span3 sum-line"><b><span id="objcalc-sum">&mdash;</span> р.</b>*</div>
         </div>
 
         <div style="font-size: small; margin-top: 20px">
-            * При повторном обращении к нам, клиент получает дополнительную скидку 10%.<br/>
-            ** Уточняйте возможность выполнения желаемого числа кадров для конкретных габаритов предмета.<br/>
-            *** Услуга может не предоставляться для предметов, содержащих прозрачные либо зеркальные поверхности.
+            <sup>*</sup> При повторном обращении к нам, клиент получает дополнительную скидку 10%.<br/>
+            <sup>1</sup> Уточняйте возможность выполнения желаемого числа кадров для конкретных габаритов предмета.<br/>
+            <sup>2</sup> Возможность закрепления предмета для вращения в дополнительных плоскостях обсуждается отдельно.<br/>
+            <sup>3</sup> Услуга может не предоставляться для предметов, содержащих прозрачные либо зеркальные поверхности.<br/>
+            <sup>4</sup> Выезд осуществляется при заказе от 20,000 р., либо оплачивается отдельно.<br/>
+            <br/>
+            Программа лояльности:<br/>
+            При совокупной стоимости работ от 25,000 р., мы предоставляем нашим клиентам скидку 10%.<br/>
+            При совокупной стоимости работ от 40,000 p., мы предоставляем нашим клиентам скидку 15%.<br/>
         </div>
     </div>
 </div>
@@ -132,17 +141,49 @@
 :js
 
 <script type="text/javascript">
-
+    jQuery.fn.digits = function() {
+        return this.each(function() {
+            jQuery(this).text(jQuery(this).text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+        })
+    };
 
     function recalculate() {
+        var objCountN = parseInt(jQuery('#objcalc-count').val());
+        var objSeriesCountK1 = parseFloat(jQuery('#objcalc-series-count').val());
+        var objPhotosCountK2 = parseFloat(jQuery('#objcalc-photos-count').val());
+        var objDimensionsK3 = parseFloat(jQuery('#objcalc-dimensions').val());
+        var objSizesK4 = parseFloat(jQuery('#objcalc-sizes').val());
+        var objBackgroundK5 = parseFloat(jQuery('#objcalc-background').val());
+        var objLocationK6 = parseFloat(jQuery('#objcalc-location').val());
 
-    }
+        var sumSpan = jQuery('#objcalc-sum');
+        sumSpan.text('\u2014');
+
+        var objCountError = jQuery('#objcalc-count-error');
+        if (isNaN(objCountN) || objCountN <= 0) {
+            objCountError.show();
+            return;
+        } else {
+            objCountError.hide();
+        }
+
+        var P0 = 800;
+        var sum = P0 * objCountN
+                * objSeriesCountK1 * objPhotosCountK2 * objDimensionsK3
+                * objSizesK4 * objBackgroundK5 * objLocationK6;
+
+        sumSpan.text(sum);
+        sumSpan.digits();
+     }
 
     jQuery(document).ready(function() {
-        jQuery('#tourcalc-pano-count').keyup(recalculate);
-        jQuery('#tourcalc-photo-count').keyup(recalculate);
-        jQuery('#tourcalc-is-car').change(recalculate);
-        jQuery('#tourcalc-is-anaglyph').change(recalculate);
+        jQuery('#objcalc-count').keyup(recalculate);
+        jQuery('#objcalc-series-count').change(recalculate);
+        jQuery('#objcalc-photos-count').change(recalculate);
+        jQuery('#objcalc-dimensions').change(recalculate);
+        jQuery('#objcalc-sizes').change(recalculate)
+        jQuery('#objcalc-background').change(recalculate)
+        jQuery('#objcalc-location').change(recalculate);
         recalculate();
     });
 </script>
