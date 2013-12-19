@@ -90,7 +90,7 @@
                 <select id="objcalc-background" style="font-size: small">
                     <option value="1.0">белый с эффектом "мокрого пола"</option>
                     <option value="1.125">белый безтеневой</option>
-                    <option value="1.5">обтравка на любой фон <sup>(3)</sup></option>
+                    <option value="1.5">обтравка на любой фон (3)</option>
                 </select>
             </div>
         </div>
@@ -115,11 +115,11 @@
             <sup>1</sup> Уточняйте возможность выполнения желаемого числа кадров для конкретных габаритов предмета.<br/>
             <sup>2</sup> Возможность закрепления предмета для вращения в дополнительных плоскостях обсуждается отдельно.<br/>
             <sup>3</sup> Услуга может не предоставляться для предметов, содержащих прозрачные либо зеркальные поверхности.<br/>
-            <sup>4</sup> Выезд осуществляется при заказе от 20,000 р., либо оплачивается отдельно.<br/>
+            <sup>4</sup> Выезд осуществляется при заказе от 20 000 руб, либо оплачивается отдельно.<br/>
             <br/>
             Программа лояльности:<br/>
-            При совокупной стоимости работ от 25,000 р., мы предоставляем нашим клиентам скидку 10%.<br/>
-            При совокупной стоимости работ от 40,000 p., мы предоставляем нашим клиентам скидку 15%.<br/>
+            При совокупной стоимости работ от 25 000 руб, мы предоставляем нашим клиентам скидку 10%.<br/>
+            При совокупной стоимости работ от 40 000 pуб, мы предоставляем нашим клиентам скидку 15%.<br/>
         </div>
     </div>
 </div>
@@ -143,9 +143,17 @@
 <script type="text/javascript">
     jQuery.fn.digits = function() {
         return this.each(function() {
-            jQuery(this).text(jQuery(this).text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+            jQuery(this).text(jQuery(this).text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1 "));
         })
     };
+
+    function getQueryParameters() {
+        var queryString = location.search.split('+').join(' ').replace(/\/$/, '');
+        var keyValueRegex = /[?&]?([^=]+)=([^&]*)/g, params = {};
+        for (var m; m = keyValueRegex.exec(queryString); )
+            params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+        return params;
+    }
 
     function recalculate() {
         var objCountN = parseInt(jQuery('#objcalc-count').val());
@@ -177,13 +185,20 @@
      }
 
     jQuery(document).ready(function() {
-        jQuery('#objcalc-count').keyup(recalculate);
+        var objCount = jQuery('#objcalc-count');
+        objCount.keyup(recalculate);
         jQuery('#objcalc-series-count').change(recalculate);
         jQuery('#objcalc-photos-count').change(recalculate);
         jQuery('#objcalc-dimensions').change(recalculate);
         jQuery('#objcalc-sizes').change(recalculate)
         jQuery('#objcalc-background').change(recalculate)
         jQuery('#objcalc-location').change(recalculate);
+
+        var params = getQueryParameters();
+        if (typeof params.count !== 'undefined') {
+            objCount.val(params.count);
+        }
+
         recalculate();
     });
 </script>

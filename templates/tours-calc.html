@@ -75,7 +75,7 @@
         </div>
 
         <div style="font-size: small; margin-top: 20px">
-            <sup>*</sup> Второй такой тур обойдется вам на 30% дешевле
+            <sup>*</sup> Второй такой тур обойдется вам на 30% дешевле.
         </div>
     </div>
 </div>
@@ -99,9 +99,17 @@
 <script type="text/javascript">
     jQuery.fn.digits = function() {
         return this.each(function() {
-            jQuery(this).text(jQuery(this).text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-        })
+            jQuery(this).text(jQuery(this).text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1 "));
+        });
     };
+
+    function getQueryParameters() {
+        var queryString = location.search.split('+').join(' ').replace(/\/$/, '');
+        var keyValueRegex = /[?&]?([^=]+)=([^&]*)/g, params = {};
+        for (var m; m = keyValueRegex.exec(queryString); )
+            params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+        return params;
+    }
 
     function panoPrice(count) {
         if (count <= 9)  return 2500;
@@ -160,10 +168,17 @@
     }
 
     jQuery(document).ready(function() {
-        jQuery('#tourcalc-pano-count').keyup(recalculate);
+        var panoCount = jQuery('#tourcalc-pano-count');
+        panoCount.keyup(recalculate);
         jQuery('#tourcalc-photo-count').keyup(recalculate);
         jQuery('#tourcalc-is-car').change(recalculate);
         jQuery('#tourcalc-is-anaglyph').change(recalculate);
+
+        var params = getQueryParameters();
+        if (typeof params.count !== 'undefined') {
+            panoCount.val(params.count);
+        }
+
         recalculate();
     });
 </script>
