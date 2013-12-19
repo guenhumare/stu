@@ -2987,7 +2987,7 @@ footer.footer-widgets .flickr-list ul li a:hover i {
 #calculator select {
     /*-webkit-appearance: menulist !important;*/
     width: 100%;
-    padding: 0 10px 0 10px;
+    padding: 0px 5px;
 }
 
 #calculator select option {
