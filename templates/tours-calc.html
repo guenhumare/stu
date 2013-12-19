@@ -97,20 +97,6 @@
 :js
 
 <script type="text/javascript">
-    jQuery.fn.digits = function() {
-        return this.each(function() {
-            jQuery(this).text(jQuery(this).text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1 "));
-        });
-    };
-
-    function getQueryParameters() {
-        var queryString = location.search.split('+').join(' ').replace(/\/$/, '');
-        var keyValueRegex = /[?&]?([^=]+)=([^&]*)/g, params = {};
-        for (var m; m = keyValueRegex.exec(queryString); )
-            params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
-        return params;
-    }
-
     function panoPrice(count) {
         if (count <= 9)  return 2500;
         if (count <= 19) return 2000;

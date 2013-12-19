@@ -141,20 +141,6 @@
 :js
 
 <script type="text/javascript">
-    jQuery.fn.digits = function() {
-        return this.each(function() {
-            jQuery(this).text(jQuery(this).text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1 "));
-        })
-    };
-
-    function getQueryParameters() {
-        var queryString = location.search.split('+').join(' ').replace(/\/$/, '');
-        var keyValueRegex = /[?&]?([^=]+)=([^&]*)/g, params = {};
-        for (var m; m = keyValueRegex.exec(queryString); )
-            params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
-        return params;
-    }
-
     function recalculate() {
         var objCountN = parseInt(jQuery('#objcalc-count').val());
         var objSeriesCountK1 = parseFloat(jQuery('#objcalc-series-count').val());

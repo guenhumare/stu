@@ -713,3 +713,21 @@ $(window).resize(function(){
 });
 
 });
+
+/* ==================================================
+ Calculators shared
+ ================================================== */
+
+jQuery.fn.digits = function() {
+    return this.each(function() {
+        jQuery(this).text(jQuery(this).text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1 "));
+    })
+};
+
+function getQueryParameters() {
+    var queryString = location.search.split('+').join(' ').replace(/\/$/, '');
+    var keyValueRegex = /[?&]?([^=]+)=([^&]*)/g, params = {};
+    for (var m; m = keyValueRegex.exec(queryString); )
+        params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+    return params;
+}
