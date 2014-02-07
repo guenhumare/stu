@@ -778,10 +778,27 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 	color: #FFFFFF;
 	text-shadow: none;
 	font-weight: 300;
-	font-size: 36px;
-	line-height: 36px;
-	padding: 5px 10px 8px;
-	margin: 0px;
+	font-size: 40px;
+	line-height: 40px;
+	padding: 10px 10px 10px;
+	margin-left:150px;
+	border-width: 0px;
+	border-style: none;
+	white-space:nowrap;
+	
+	
+	background-color: rgba(0,0,0,0.55);
+}
+
+.tp-caption.custom_text_small{
+	position: absolute;
+	color: #FFFFFF;
+	text-shadow: none;
+	font-weight: 300;
+	font-size: 30px;
+	line-height: 30px;
+	padding: 10px 10px 10px;
+	margin-left:150px;
 	border-width: 0px;
 	border-style: none;
 	white-space:nowrap;
@@ -798,13 +815,39 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 	font-size: 36px;
 	line-height: 36px;
 	padding: 5px 10px 8px;
-	margin: 5px 120px 8px;
+	margin-left:150px;
 	border-width: 0px;
 	border-style: none;
 	white-space:nowrap;
 	
 	
 	background-color: rgba(0,0,0,0.55);
+}
+
+.tp-caption.custom_text_link_small {
+	position: absolute;
+	color: #FFFFFF;
+	text-shadow: none;
+	font-weight: 200;
+	font-size: 30px;
+	line-height: 30px;
+	padding: 10px 10px 10px;
+	margin-left:150px;
+	border-width: 0px;
+	border-style: none;
+	white-space:nowrap;
+	
+	
+	background-color: rgba(0,0,0,0.55);
+}
+
+.tp-caption.custom_text_link_small a {
+	color:#F97E76;	
+	font-weight: 200;
+}
+
+.tp-caption.custom_text_link_small a:hover {
+	color:#FFFFFF;	
 }
 
 .tp-caption.custom_text_link a {
@@ -815,6 +858,8 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 .tp-caption.custom_text_link a:hover {
 	color:#F97E76;	
 }
+
+
 					
 /* ==================================================
    Image Static
