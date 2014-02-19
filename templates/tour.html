@@ -80,12 +80,13 @@
         }
     });
 
-    function openPopup(title, linktourl, width, height, type) {
-        jQuery.fancybox({
+   function openPopup(title, linktourl, w, h, type) {
+        jQuery.fancybox.open({
             title: title,
-            width: width, height: height,
-            href: linktourl, type: type,
-            autoScale: 'true',
+            width: w, height: h,
+			content: '<embed src="'+linktourl+'#nameddest=self&page=1&view=FitH,0&zoom=80,0,0" type="application/pdf" height="'+h+'"width="'+w+'"/>',
+			padding : 0,
+			autoResize: 'true',
             overlayColor: '#000000',
             overlayAlpha: '0.35',
             titlePosition: 'outside',
