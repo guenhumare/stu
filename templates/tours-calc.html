@@ -41,13 +41,13 @@
                 <div id="tourcalc-pano-count-error" class="validation-error">Некорректное количество</div>
             </div>
         </div>
-        <div class="row">
+        <!--<div class="row">
             <div class="span4"><p class="input-row" style="margin-bottom: 20px">Количество фотографий:</p></div>
             <div class="span2">
                 <input id="tourcalc-photo-count" type="text" value="" name="tourcalc-photo-count">
                 <div id="tourcalc-photo-count-error" class="validation-error">Некорректное количество</div>
             </div>
-        </div>
+        </div>-->
         <div class="row">
             <div class="span4"><p class="input-row">Салон автомобиля:</p></div>
             <div class="span2">
@@ -115,10 +115,10 @@
 
     function recalculate() {
         var panoCount = parseInt(jQuery('#tourcalc-pano-count').val());
-        var photoCountText = jQuery('#tourcalc-photo-count').val();
+        var photoCountText = (jQuery('#tourcalc-photo-count').val() || '');
         var photoCount = parseInt(photoCountText);
-        var isCarPano = jQuery('#tourcalc-is-car').val() === 'true';
-        var isAnaglyph = jQuery('#tourcalc-is-anaglyph').val() === 'true';
+        var isCarPano = (jQuery('#tourcalc-is-car').val() === 'true');
+        var isAnaglyph = (jQuery('#tourcalc-is-anaglyph').val() === 'true');
 
         var sumSpan = jQuery('#tourcalc-sum');
         sumSpan.text('\u2014');

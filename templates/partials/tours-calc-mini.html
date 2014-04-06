@@ -1,23 +1,10 @@
-<section id="tours-calc-mini">
-    <div class="container" style="margin-bottom: 40px;">
-        <div class="row">
-            <div class="span3"></div>
-            <div class="span6">
-                <h4>Расчет стоимости виртуального тура:</h4>
-            </div>
-        </div>
-        <div class="row">
-            <form id="calculator" onsubmit="return false;">
-                <div class="span3"></div>
-                <div class="span3">
-                    <input id="contact_tel" style="width: 100%; padding: 14px;"
-                           type="text" placeholder="количество панорам" value="" name="telephone" />
-                </div>
-                <div class="span3">
-                    <a id="contact-submit" style="text-align: center; width: 100%; padding: 14px 0;"
-                       class="submit" href="#">Подробнее...</a>
-                </div>
-            </form>
-        </div>
+<form id="calculator" method="GET" action="/tours/calc/">
+    <div class="span3">
+        <input id="contact_tel" style="width: 100%; text-align: center; padding: 6px;"
+               type="text" placeholder="количество панорам" value="" name="count" />
     </div>
-</section>
+    <div class="span2">
+        <a id="contact-submit" style="text-align: center; width: 100%; padding: 6px 0;"
+           class="submit" onclick="jQuery('#calculator').submit()">стоимость…</a>
+    </div>
+</form>
