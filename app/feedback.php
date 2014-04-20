@@ -5,6 +5,7 @@ $name = check_input($_POST['name'], "Вы не ввели свое имя");
 $email = check_input($_POST['email']);
 $telephone = check_input($_POST['telephone']);
 $message = check_input($_POST['message'], "Вы не указали текст сообщения");
+#way = $_POST['way'];
 
 if ($email == '') {
   if ($telephone == '') {
@@ -21,12 +22,10 @@ $message = "
 Имя: $name
 E-mail: $email
 Телефон: $telephone
+Способ связи: $way
 
 Message:
-$message
-
-Meow.
-";
+$message";
 
 $targetMail = "guenhumare@gmail.com;mail@smiletous.com";
 $headerFields = array(

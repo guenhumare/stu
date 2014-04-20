@@ -1376,7 +1376,8 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 }
 
 #contact-form input,
-#contact-form textarea {
+#contact-form textarea,
+#contact-form select {
     border: 1px solid #E9F0F4;
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
@@ -1401,6 +1402,15 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 		    transition: border 0.15s ease-in-out 0s, color 0.15s ease-in-out 0s;
 }
 
+#contact-form select {
+    width: 60%;
+    padding: 10px 15px;
+}
+
+#contact-form option[selected]{
+    background:#ff0000;
+}
+
 #contact-form input:focus,
 #contact-form textarea:focus {
 	border-color: #D0DBE2;
@@ -1408,7 +1418,7 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 }
 
 #contact-form input {
-    width: 50%;
+    width: 60%;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -3098,4 +3108,15 @@ footer.footer-widgets .flickr-list ul li a:hover i {
     -moz-transition: background 0.15s ease-in-out 0s;
     -o-transition: background 0.15s ease-in-out 0s;
     transition: background 0.15s ease-in-out 0s;
+}
+
+/* ==================================================
+   Circle banners
+================================================== */
+
+.circle-banner {
+    border-radius: 50%;
+    text-align: center;
+    width: 200px;
+    height: 200px;
 }
