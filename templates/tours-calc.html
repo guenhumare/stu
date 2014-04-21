@@ -64,15 +64,6 @@
                     </select>
                 </div>
             </div>
-            <div class="row">
-                <div class="span4"><p class="input-row">Анаглиф:</p></div>
-                <div class="span2">
-                    <select id="tourcalc-is-anaglyph">
-                        <option value="true">да</option>
-                        <option value="false" selected>нет</option>
-                    </select>
-                </div>
-            </div>
 
             <div id="tourcalc-results" class="row" style="margin-top: 15px">
                 <div class="span4 sum-line"><p><b>Сумма:</b></p></div>
@@ -157,7 +148,6 @@
         var photoCountText = (jQuery('#tourcalc-photo-count').val() || '');
         var photoCount = parseInt(photoCountText);
         var isCarPano = (jQuery('#tourcalc-is-car').val() === 'true');
-        var isAnaglyph = (jQuery('#tourcalc-is-anaglyph').val() === 'true');
 
         var sumSpan = jQuery('#tourcalc-sum');
         sumSpan.text('\u2014');
@@ -186,7 +176,6 @@
         var sum = (panoCount * singlePanoPrice) + (photoCount * 500) + tourWorkPrice;
 
         if (isCarPano) sum *= 2;
-        if (isAnaglyph) sum *= 2;
 
         sumSpan.text(sum);
         sumSpan.digits();
