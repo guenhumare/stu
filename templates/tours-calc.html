@@ -128,9 +128,9 @@
 
 <script type="text/javascript">
     function panoPrice(count) {
-        if (count <= 9)  return 4000;
-        if (count <= 19) return 3000;
-        return 2500;
+        if (count <= 9)  return 3000;
+        if (count <= 19) return 2500;
+        return 2000;
     }
 
     function tourPrice(count) {
@@ -140,7 +140,7 @@
             price += 1000 * magic;
         }
 
-        return price;
+        return 0;
     }
 
     function recalculate() {
