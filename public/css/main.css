@@ -807,7 +807,7 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 	background-color: rgba(0,0,0,0.55);
 }
 
-.tp-caption.custom_text_small{
+.tp-caption.custom_text_small_with_margin{
 	position: absolute;
 	color: #FFFFFF;
 	text-shadow: none;
@@ -816,6 +816,23 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 	line-height: 30px;
 	padding: 15px 15px 15px;
 	margin-left:150px;
+	border-width: 0px;
+	border-style: none;
+	white-space:nowrap;
+	
+	
+	background-color: rgba(0,0,0,0.55);
+}
+
+.tp-caption.custom_text_small{
+	position: absolute;
+	color: #FFFFFF;
+	text-shadow: none;
+	font-weight: 300;
+	font-size: 30px;
+	line-height: 30px;
+	padding: 15px 15px 15px;
+	margin-left:0px;
 	border-width: 0px;
 	border-style: none;
 	white-space:nowrap;
