@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if (IE 9)]><html class="no-js ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en-US"> <!--<![endif]-->
+<head>
+
+<!-- Meta Tags -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>@title</title>
+
+:meta
+
+:open-graph
+
+:css
+
+:js-modernizr
+
+:icons
+
+</head>
+
+
+<body>
+
+:navigation
+
+:slider-jewelry
+
+<div id="portfolio" class="container">
+        	<div class="span12" style="margin-left:auto; margin-top:40px">
+                <p>@album-text</p>     
+            </div>
+    </div>
+
+<div id="content">
+    <!-- Start Section Portfolio Projects -->
+    <section id="portfolio" class="container">
+  
+        <div class="row">
+
+            <div id="portfolio-projects">
+                <ul id="projects">
+
+foreach $images do
+                    <li class="item-project span4 design">
+                        <a class="fancybox" href="@url" data-fancybox-group="gallery">
+                            <img src="@small"/>
+                            <div class="overlay"></div>
+                            <i class="font-icon-plus"></i>
+                        </a>
+                    </li>
+endforeach
+                </ul>
+            </div>
+        </div>
+
+    :prev-next-navigation
+
+    </section>
+    <!-- End Section Portfolio Projects -->
+</div>
+
+:twitter-feed
+
+:credits
+
+:back-to-top
+
+:metrika
+
+:analytics
+
+:jivosite
+
+:js
+
+</body>
+</html>
