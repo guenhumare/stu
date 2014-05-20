@@ -9,7 +9,7 @@
 <!-- Meta Tags -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-<title>@title</title>   
+<title>@title</title>
 
 :meta
 
@@ -17,7 +17,7 @@
 
 :css
 
-:js-modernizr 
+:js-modernizr
 
 :icons
 
@@ -125,6 +125,43 @@
 </div>
 </form>
 </div>
+<div class="container">
+<div class="row margin-50">
+    <div class="span2"></div>
+    <div class="span8">
+        <h4>Заказать точный расчет</h4>
+        <form id="contact-form" class="contact-form" action="/app/feedback.php">
+            <p>
+                <input id="contact_name" type="text" placeholder="Имя" value="" name="name" />
+            </p>
+            <p>
+                <input id="contact_email" type="text" placeholder="E-mail" value="" name="email" />
+            </p>
+            <p>
+                <input id="contact_tel" type="text" placeholder="Контактный телефон" value="" name="telephone" />
+            </p>
+            <p>
+                <select id="contact_way" name="way">
+                    <option value="" disabled selected>Предпочтительный способ связи</option>
+                    <option value="email">Связаться по e-mail</option>
+                    <option value="telephone">Связаться по телефону</option>
+                </select>
+            </p>
+            <p>
+                <textarea id="contact_message"
+                          placeholder="Опишите детально ваш проект, и мы обязательно свяжемся с вами"
+                          name="message" rows="5" cols="30"></textarea>
+            </p>
+            <p class="contact-submit">
+                <a id="contact-submit" class="submit" href="#">Отправить</a>
+            </p>
+
+            <div id="response"></div>
+        </form>
+    </div>
+</div>
+</div>
+
 
 :twitter-feed
 
