@@ -1,13 +1,16 @@
-<div id="content">
     <!-- Start Blog Page -->
-    <section id="blog" class="container blog-post-full">
+<section id="latest-blog">
+	<div class="container">
+
     	<div class="row">
-        	<div class="span12">
+        	<div class="span12" style="margin-left:auto; margin-top:40px">
+
+            <div class="row">
 
 foreach $children do
-            
-            	<article class="post">
-	if @thumb do
+
+    <article class="post span4">
+  	if @thumb do
                 	<div class="post-thumb">
                     	<a href="@url" class="hover-post">
                     		<img src="@thumb" alt="@title" />
@@ -16,36 +19,24 @@ foreach $children do
                         </a>
                     </div>
 	endif
-                    
-                    <div class="entry-type">
-                    	<a href="@url"><i class="font-icon-align-center"></i></a>
-                    </div>
-                	
-                	<div class="row">
-                    	<div class="span6 offset3">
-                        	<h2 class="entry-title">
-                            	<a href="@url">@title</a>
-                            </h2>
-                            <div class="entry-meta">
-                            	<span class="author">@author</span>
-                    			<span class="divider">/</span>
-                                <span class="published">@ru_updated</span>
-                     	</div>
-                            <div class="entry-content">
-                            	@short-content
-                                <p>
-                                	<a class="more-link" href="@url">Продолжить чтение...</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="separator"></div>
+
+                    <h2 class="entry-title">
+                    <a href="@url">@title</a>
+                    </h2>
+
+                	<div class="entry-content">
+		@short-content
+                </div>
+
+                <div class="entry-meta">
+                    <span class="published">@ru_updated</span>
+                </div>
+                <div class="separator"></div>
                 </article>
 
 endforeach
-                            
+
             </div>
 		</div>
     </section>
     <!-- End Blog Page -->
-</div>
