@@ -1,42 +1,34 @@
     <!-- Start Blog Page -->
-<section id="latest-blog">
+<section id="latest-blog" style="margin-top: 40px">
 	<div class="container">
-
-    	<div class="row">
-        	<div class="span12" style="margin-left:auto; margin-top:40px">
-
-            <div class="row">
+    	<div id="blog-posts" class="row">
 
 foreach $children do
 
     <article class="post span4">
   	if @thumb do
-                	<div class="post-thumb">
-                    	<a href="@url" class="hover-post">
-                    		<img src="@thumb" alt="@title" />
-                            <div class="overlay"></div>
-                            <i class="font-icon-link"></i>
-                        </a>
-                    </div>
+        <div class="post-thumb">
+            <a href="@url" class="hover-post">
+                <img src="@thumb" alt="@title" />
+                <div class="overlay"></div>
+                <i class="font-icon-link"></i>
+            </a>
+        </div>
 	endif
-
-                    <h2 class="entry-title">
-                    <a href="@url">@title</a>
-                    </h2>
-
-                	<div class="entry-content">
-		@short-content
-                </div>
-
-                <div class="entry-meta">
-                    <span class="published">@ru_updated</span>
-                </div>
-                <div class="separator"></div>
-                </article>
+        <h2 class="entry-title">
+        <a href="@url">@title</a>
+        </h2>
+        <div class="entry-content">
+		    @short-content
+        </div>
+        <div class="entry-meta">
+            <span class="published">@ru_updated</span>
+        </div>
+        <div class="separator"></div>
+    </article>
 
 endforeach
 
-            </div>
-		</div>
-    </section>
-    <!-- End Blog Page -->
+        </div>
+    </div>
+</section>

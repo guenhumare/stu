@@ -293,8 +293,25 @@ ANUBIS.portfolio = function (){
 			return false;
 		});
 	}
-}
+};
 
+
+/* ==================================================
+   Blog
+================================================== */
+
+ANUBIS.blog = function (){
+    if($('#latest-blog').length > 0){
+        var $container = $('#blog-posts');
+        $container.imagesLoaded(function() {
+            $container.isotope({
+                animationEngine: 'best-available',
+                itemSelector : 'article.post',
+                layoutMode : 'fitRows'
+            });
+        });
+    }
+};
 
 /* ==================================================
    DropDown 
@@ -695,6 +712,7 @@ $(document).ready(function(){
 	ANUBIS.dropDown();
 	ANUBIS.people();
 	ANUBIS.portfolio();
+	ANUBIS.blog();
 	ANUBIS.accordion();
 	ANUBIS.toggle();
 	ANUBIS.toolTip();
