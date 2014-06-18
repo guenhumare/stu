@@ -79,6 +79,18 @@
             }
         }
     });
+	
+	// Крпано прожорливая штука, если на окне нет фокуса, морозим.
+	window.onblur = function() {
+		var krpano = document.getElementById("krpanoSWFObject");
+		krpano.call("stopall(); set(autorotate.enabled, false);");
+	}
+	
+	// И возвращаем всё на место, если фокус вернулся.
+	window.onfocus = function() {
+		var krpano = document.getElementById("krpanoSWFObject");
+		krpano.call("delayedcall(0.5, set(autorotate.enabled, true));");
+	}
 
    /*function openPopup(title, linktourl, w, h, type) {
         jQuery.fancybox.open({
