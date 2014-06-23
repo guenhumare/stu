@@ -13,6 +13,15 @@ Font-Face Icons
 	font-style: normal;
 }
 
+@font-face {
+	font-family: 'OpenSans';
+	font-style: normal;
+	font-weight: 400;
+	src: local('OpenSans'), url(fonts/OpenSans-Regular.woff) format('woff'),
+		url(fonts/OpenSans-Regular.eot) format('embedded-opentype'), 
+		url(fonts/OpenSans-Regular.ttf) format('truetype');
+}
+
 /* Use the following CSS code if you want to use data attributes for inserting your icons */
 [data-icon]:before {
 	font-family: 'Icons';
