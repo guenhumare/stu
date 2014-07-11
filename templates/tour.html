@@ -89,7 +89,7 @@
 	// И возвращаем всё на место, если фокус вернулся.
 	window.onfocus = function() {
 		var krpano = document.getElementById("krpanoSWFObject");
-		krpano.call("delayedcall(0.5, set(autorotate.enabled, true));");
+		krpano.call("if(started, delayedcall(0.5, set(autorotate.enabled, true)));");
 	}
 
    /*function openPopup(title, linktourl, w, h, type) {
