@@ -22,6 +22,16 @@ Font-Face Icons
 		url(fonts/OpenSans-Regular.ttf) format('truetype');
 }
 
+@font-face {
+	font-family: 'OpenSans-Light';
+	font-style: normal;
+	font-weight: 400;
+	src:local('OpenSans-Light'), 
+		url(fonts/OpenSans-Light.woff)	format('woff'),
+		url(fonts/OpenSans-Light.eot)	format('embedded-opentype'), 
+		url(fonts/OpenSans-Light.ttf)	format('truetype');
+}
+
 /* Use the following CSS code if you want to use data attributes for inserting your icons */
 [data-icon]:before {
 	font-family: 'Icons';

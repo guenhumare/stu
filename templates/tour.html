@@ -83,7 +83,7 @@
 	// Крпано прожорливая штука, если на окне нет фокуса, морозим.
 	window.onblur = function() {
 		var krpano = document.getElementById("krpanoSWFObject");
-		krpano.call("stopall(); set(autorotate.enabled, false);");
+		krpano.call("if(started, stopall(); set(autorotate.enabled, false);)");
 	}
 	
 	// И возвращаем всё на место, если фокус вернулся.
