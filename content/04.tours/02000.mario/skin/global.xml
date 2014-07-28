@@ -1,0 +1,211 @@
+<krpano><!-- AP — default vtour skin: global settings-->
+	
+	<!-- Global Skin settings (can be overridden in the 'outer' xml) -->
+	<skin_settings 
+		bingmaps="false" 
+		bingmaps_key="" 
+		gyro="true"
+		thumbswidth="238" thumbsheight="158" thumbspadding="32" thumbscrop="0|0|240|160"
+		thumbs_scroll="false"
+		
+		ctrl_flag="false"		
+		space_flag="false"		
+		tick_counter="0"		
+		fishflag="false"
+		next_pano_name=""
+		prev_pano_name=""		
+		tour_walkthrough_xml="null.xml"
+		fish_eye_toggle_flag="false"
+		skin_btn_view_visibility_flag="false"
+		skin_btn_desc_visibility_flag="false"
+		show_photo_cap_flag="false"
+		skin_active_photo_layer=""
+		show_photo_mode_flag="false"
+		auto_enable_gyro_flag="true"		
+		
+		skin_background_color="000000"
+		skin_background_alpha="0.4"
+		skin_text_color="ffffff"
+		skin_hs_visible="true"
+		reccurrent_i="0"
+		
+		show_interface_at_startup="true"
+	/>
+	
+	<panoraming_params
+		h="0"
+		v="0"
+		fov="0"
+		duration="0"
+		donecall="0"
+		enabled="true"
+	/>
+	
+	<control     
+         mousetype="drag2d"
+		 mousefriction="0.8"
+         mousefovchange="0.35"
+         fovspeed="1"        
+    />
+	
+	<cursors url="dragcur.png"
+         type="drag"
+         move="0|0|20|20"
+         drag="20|0|20|20"
+	/>
+	
+	<progress 	
+		showload="none"
+		showwait="none"
+		showreloads="false"
+		parent=""
+	/>
+	
+	<autorotate 
+		enabled="false"
+		waittime="0.1"
+		speed="-0.7"
+	/>
+	
+	<textstyle 
+		name="style1"
+		font="Arial"
+		fontsize="14.0"
+		bold="false"	
+		background="true"
+		backgroundcolor="0x202020"
+		border="false"
+		bordercolor="0xffffff"
+		textcolor="0xffffff"
+		alpha="0.85"
+		blendmode="normal"
+
+		origin="cursor"
+		edge="bottom"
+		textalign="center"
+		xoffset="0"
+		yoffset="-15"
+		showtime="0.1"
+		fadetime="0.1"
+		fadeintime="0.1"
+		noclip="true"
+    />
+	
+	<data name="css_title_desktop">
+		text-align:left; 
+		color:#ffffff; 
+		font-family:OpenSans, sans-serif; 
+		font-size:16px;
+	</data>
+	
+	<data name="css_panolist_navigator_desktop">
+		text-align:center; 
+		color:#ffffff; 
+		font-family:OpenSans, sans-serif; 
+		font-size:16px;
+	</data>
+	
+	<contextmenu fullscreen="true" 
+		native="false"
+		versioninfo="true"
+        enterfs="Fullscreen (F11)"
+        exitfs="Exit Fullscreen (Esc)"
+	>
+		<item caption="smiletous.com" onclick="openurl('http://smiletous.com/',_blank);" />
+		<item caption="Включить сверхширокий обзор" onclick="toggle_events_for_fisheye_view()"  />
+	</contextmenu>
+	
+	<plugin name="skin_gyro"
+		keep="true" 
+		url="" 
+		html5_url="%SWFPATH%/plugins/gyro.js" 
+		devices="HTML5" 
+		enabled="false" 
+		camroll="true" 
+		vrelative="true"
+		onavailable="
+			set(layer[skin_btn_gyro].visible,true);
+		"
+	/>
+	
+	<!-- Панорамирование отматывает параметры просмотра к нужной позиции -->
+	<!--
+		%1 — время панорамирования
+		%2 — hlookat
+		%3 — vlookat
+		%4 — fov
+		%5 - donecall, вызов после окончания панорамирования.
+		Используется неблокирующий lookto()
+		Если хочется сделать два панорамирования подряд, в donecall надо запихать второе панорамирование, рекурсивный вызов.
+		Параметры НЕЛЬЗЯ ОПУСКАТЬ, тогда будет передано null и прокрутка сцены покажет чёрный экран.
+		Поставить проверку на не null тоже нельзя, потому что в каждом случае мы не знаем, где ставить параметр сцены вместо числа,
+		Поэтому обязательно передаются все параметры.
+	-->
+	<!-- Сохраняем параметры панорамирования в глобальные переменные, чтобы иметь возможность их запустить после паузы. -->
+	<action name="panoraming">		
+		set(panoraming_params.duration, %1);
+		set(panoraming_params.h, %2);
+		set(panoraming_params.v, %3);
+		set(panoraming_params.fov, %4);
+		set(panoraming_params.donecall, %5);
+		
+		lookto(%2, %3, %4, tween(easeInOutSine,%1), false, true, %5);		
+	</action>
+	
+	<!-- Возобновление просмотра -->
+	<action name="resume">
+		panoraming(
+			get(panoraming_params.duration), 
+			get(panoraming_params.р), 
+			get(panoraming_params.м), 
+			get(panoraming_params.fov), 
+			get(panoraming_params.donecall)
+		);
+	</action>
+	
+	<!-- Кнопка запуска тура -->
+	<layer
+		name="btn_start"
+		keep="true"
+		url="%SWFPATH%/plugins/textfield.swf"
+		background="false"
+		visible="true"
+		enabled="true"
+		html="Смотреть"
+		align="center"
+		x="0" y="0"
+		css="text-align:center; color:#ffffff; opacity: 0.75; font-family:OpenSans-Light, sans-serif; font-size:45px;"
+		onloaded="
+			if(device.mobile,
+				set(css, 'text-align:center; color:#ffffff; opacity: 0.75; font-family:OpenSans-Light, sans-serif; font-size:60px;');
+			);
+		"
+		onclick="
+			set(visible, false);
+			set(layer[loadingpercent_text].visible, true);
+			loadscene(get(scene[0].name), null, MERGE);
+		"
+		zorder="2"
+	/>
+	
+	<layer
+		name="poster"
+		keep="true"
+		url="%SWFPATH%/poster.jpg"
+		align="center"
+		enabled="false"
+		width="800"
+		height="400"
+		x="0" y="0"
+		alpha="1"
+		onloaded="
+			div(ratio, stagewidth, stageheight);
+			if(ratio LT 2,
+				div(scale, stageheight, height);
+			,
+				div(scale, stagewidth, width);
+			);
+		"
+	/>
+	
+</krpano>

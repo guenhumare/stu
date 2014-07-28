@@ -1,0 +1,60 @@
+<krpano><!-- AP — default vtour skin: small screen layout for mobile devices (override/extend settings) -->	
+	
+	<krpano devices="mobile">		
+		<layer name="skin_scroll_window" y="90" y_shown="90" y_hidden="0">
+			<layer name="skin_scroll_layer">
+				<layer name="skin_scroll_container">
+					<layer name="skin_thumbs" height="344" />
+					<layer name="skin_map">
+						<maptypecontrol scale="1.5" />
+					</layer>
+				</layer>
+			</layer>
+		</layer>
+
+		<layer name="skin_control_bar" height="90" y="0" y_shown="0" y_hidden="-68">
+			<layer name="skin_thumbs_scrollindicator" y="-3" height="4" />
+			<layer name="skin_panocounter" css="text-align:center; color:#ffffff; font-family:OpenSans, sans-serif; font-size:28px;" height="30" width="70"  x="91" y="26"  />
+			<layer name="skin_btmborder"  visible="false" />
+			<layer name="skin_btn_prev"   scale="1.1" y="0" align="left" x="33" />
+			<layer name="skin_btn_next"   scale="1.1" y="0" align="left" x="179" />
+			<layer name="skin_btn_thumbs" scale="1.1" y="0.5" align="left" x="258" />
+			<layer name="skin_btn_fs"     x="34" scale="1.1" />
+			<layer name="skin_btn_lt"     visible="false" />
+			<layer name="skin_btn_rt"     visible="false" />
+			<layer name="skin_btn_up"     visible="false" />
+			<layer name="skin_btn_dn"     visible="false" />
+			<layer name="skin_btn_in"     visible="false" />
+			<layer name="skin_btn_ou"     visible="false" />
+			<layer name="skin_btn_gyro"   scale="1" y="-2" align="right" x="106" />
+			<layer name="skin_btn_desc"  css="text-align:center; color:#ffffff; font-family:OpenSans, sans-serif; font-weight:regular; font-size:26px;"   />
+			<layer name="skin_btn_view"  height="60" css="text-align:center; color:#ffffff; font-family:OpenSans, sans-serif; font-weight:regular; font-size:26px;"   />
+		</layer>
+		  
+		<layer name="skin_buttonglow"  scale="2.0" />
+		<layer name="skin_thumbborder" scale="0.75" />
+	</krpano>
+
+
+	<!-- Additional layout changes for Android Flashplayer Mobiles - different fullscreen button layout, zooming buttons, smaller loading text size -->
+	<!--
+	<krpano devices="Mobile+Android+Flash">
+		<layer name="skin_scroll_window">
+			<layer name="skin_scroll_layer">
+				<layer name="skin_title" width="100%" css="text-align:left; color:#ffffff; font-family:OpenSans, sans-serif; font-weight:bold; font-size:20px;" />
+			</layer>
+		</layer>
+
+		<layer name="skin_control_bar">
+			<layer name="skin_btn_fs"     scale="1" align="right" x="70" y="0" />
+			<layer name="skin_btn_show"   x="-10" y="-40" />
+		</layer>
+
+
+		<layer name="skin_androidzoom_buttons" keep="true" type="container" width="60" height="160" align="right">
+			<layer name="skin_androidzoom_in"  url="skin_ap.png" effect="glow(0,0.5);" crop="0|597|46|64"  ondowncrop="46|597|46|64" align="center" x="0" y="-40" zorder="2" ondown="if(layer[skin_map].state == 'hidden',set(fov_moveforce,-1));skin_buttonglow(get(name));" onup="if(layer[skin_map].state == 'hidden',set(fov_moveforce,0),layer[skin_map].zoomin());skin_buttonglow(null);" />
+			<layer name="skin_androidzoom_out" url="skin_ap.png" effect="glow(0,0.5);" crop="94|597|46|64" ondowncrop="140|597|46|64" align="center" x="0" y="+40" zorder="2" ondown="if(layer[skin_map].state == 'hidden',set(fov_moveforce,+1));skin_buttonglow(get(name));" onup="if(layer[skin_map].state == 'hidden',set(fov_moveforce,0),layer[skin_map].zoomout());skin_buttonglow(null);" />
+		</layer>
+	</krpano>
+	-->
+</krpano>

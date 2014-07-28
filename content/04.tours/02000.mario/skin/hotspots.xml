@@ -1,0 +1,734 @@
+<krpano><!-- AP — default vtour skin: hotspot styles -->
+
+	<layer
+		name="hs_thumb_container"
+		type="container" 
+		keep="true" 
+		align="lefttop"
+		bgcolor="0x000000" 
+		bgalpha="0.0" 
+		width="250" 
+		height="160"
+		maskchildren="true" 
+		visible="false"
+		enabled="true"
+		alpha="0"
+		x="0" y="0"
+		active_thumb=""
+	>
+		<layer
+			name="hotspot_thumbborder"
+			url="hotspot_thumbborder.png"
+			keep="true" 
+			scale="0.5"
+			align="center"
+			x="0" y="0"
+			zorder="4"
+			onloaded="
+				if(device.mobile,
+					set(scale, '0.75');
+				);
+			"
+		/>
+		
+		<layer
+			name="hotspot_thumb_caption"
+			keep="true" 
+			url="%SWFPATH%/plugins/textfield.swf"
+			align="leftbottom"
+			background="true"
+			autoheight="true"
+			backgroundcolor="0x000000"
+			backgroundalpha="0.5"
+			border="false"
+			x="10" y="0"
+			width="224"
+			css="text-align:left; color:#ffffff; font-family:OpenSans, sans-serif; font-size:16px; text-indent:14;padding: 6px 8px 6px;"
+			zorder="2"
+			onloaded="
+				if(device.mobile,
+					set(css, 'text-align:left; color:#ffffff; font-family:OpenSans, sans-serif; font-size:26px; text-indent:14;padding: 6px 8px 6px;');
+					set(width, '342');
+				);
+			"
+		/>
+	</layer>
+	
+	<action name="show_hs_thumb">
+		
+		set(layer[hs_thumb_container].parent_hs, %1);
+		
+		set(scn, get(hotspot[%1].linkedscene));
+		
+		set(hs_active_thumb_name, get(layer[hs_thumb_container].active_thumb));
+		set(layer[get(hs_active_thumb_name)].alpha, 0);
+		
+		set(scn_idx, get(scene[get(scn)].index));
+		txtadd(thumb_caption,'skin_thumb_caption', get(scn_idx));
+		txtadd(hs_thumb_caption,'hotspot_thumb',get(scn_idx));
+		copy(layer[hs_thumb_container].active_thumb, hs_thumb_caption);
+
+		set(layer[hotspot_thumb_caption].html, get(layer[get(thumb_caption)].html));
+		set(layer[get(hs_thumb_caption)].alpha, 1);
+		
+		
+		copy(h_ath, hotspot[%1].ath);
+		copy(h_atv, hotspot[%1].atv);
+		
+		spheretoscreen(h_ath, h_atv, tx, ty);
+		
+		mul(hs_width, hotspot[%1].width, 0.5);
+		add(tx, hs_width);
+		add(tx, 5);
+		sub(ty, 80);
+		
+		set(layer[hs_thumb_container].x, get(tx)); 
+		set(layer[hs_thumb_container].y, get(ty)); 
+		
+		set(hs_thumb_container_visible, true);
+		
+		tween(layer[hs_thumb_container].alpha, 1, 0.1, easeInQuad,
+			set(layer[hs_thumb_container].visible, true);
+		);
+	</action>
+	
+	<action name="update_hs_thumb_pos">
+		copy(h_ath, hotspot[get(layer[hs_thumb_container].parent_hs)].ath);
+		copy(h_atv, hotspot[get(layer[hs_thumb_container].parent_hs)].atv);
+	
+		spheretoscreen(h_ath, h_atv, tx, ty);
+		
+		mul(hs_width, hotspot[get(layer[hs_thumb_container].parent_hs)].width, 0.5);
+		add(tx, hs_width);
+		add(tx, 5);
+		sub(ty, 80);
+		
+		set(layer[hs_thumb_container].x, get(tx)); 
+		set(layer[hs_thumb_container].y, get(ty)); 
+	</action>
+	
+	<action name="hide_hs_thumb">
+		ifnot(%1 == false, 			
+			copy(shown_flag, scene[%1].shown);
+			if(shown_flag === null,
+				txtadd(layer[hotspot_thumb_caption].html, get(layer[hotspot_thumb_caption].html), ' [b]✓[/b]');
+			);
+			delayedcall(0.4, 
+				tween(layer[hs_thumb_container].alpha, 0, 0.5, easeOutQuad,
+					set(layer[hs_thumb_container].visible, false);
+					set(hs_thumb_container_visible, false);
+				);
+			);
+		,
+			tween(layer[hs_thumb_container].alpha, 0, 0.1, easeOutQuad,
+				set(layer[hs_thumb_container].visible, false);
+				set(hs_thumb_container_visible, false);
+			);
+		);
+	</action>
+	
+	<!-- Стандартный стиль, нужен для поддержки tour_editor.html -->
+	<style 
+		name="skin_hotspotstyle" 
+		url="vtourskin_hotspot_rtn.png" 
+		hs_type="pano"
+		scale="0.5" 
+		visible="false" 
+		enabled="false"
+		onover="
+			set(layer[skin_title].html, get(scene[get(linkedscene)].title)); 
+		"
+		onhover="
+			showtext(get(scene[get(linkedscene)].title), style1);
+		" 
+		onout="
+			delayedcall(0.5, 
+				set(layer[skin_title].html, get(scene[get(xml.scene)].title));
+			);
+		" 
+		onclick="
+			if(linkedscene, 
+				tween(alpha,0,0.5, easeInOutQuad, skin_showthumbs(false);
+					loadscene(get(linkedscene),null,MERGE,BLEND(1)); 
+				);
+			);
+		" 
+	/>
+	
+	<!-- Стандартный текстовый хотспот -->
+	<style 
+		name="skin_hotspotstyle_signature" 
+		hs_type="pano"
+		url="%SWFPATH%/plugins/textfield.swf"
+		children="false"
+		css="text-align:center; color:#ffffff; font-family:OpenSans, sans-serif; font-weight:regular; font-size:16px; padding: 3px 10px 5px 10px;"
+		vcenter="true"
+				
+		backgroundcolor="0x000000" backgroundalpha="0.5" roundedge="0" border="false"
+		borderwidth="0.71"
+		borderalpha="0.5"
+		bordercolor="0xA0A0A0"
+		handcursor="true" capture="false" 
+		visible="false" 
+		enabled="false"
+		
+		autowidth="true"
+		onover="
+			set(autorotate.enabled, false);
+			if(device.desktop, 
+				show_hs_thumb(get(name));
+			);
+		"
+		onhover="
+			set(layer[skin_title].html, get(scene[get(linkedscene)].title));
+		" 
+		onout="
+			set(autorotate.enabled, true);
+			delayedcall(0.5, 
+				set(layer[skin_title].html, get(scene[get(xml.scene)].title));
+			);
+			if(device.desktop, 
+				hide_hs_thumb(false);
+			);
+		" 
+		onclick="
+			if(linkedscene,
+				if(device.desktop, 
+					hide_hs_thumb(get(linkedscene));
+				);
+				tween(alpha,0,0.5, easeInOutQuad,
+					skin_showthumbs(false);
+					delayedcall(0.3, loadscene(get(linkedscene), null, MERGE, BLEND(1)));
+				);
+			);
+		"
+		onloaded="
+			set(hotspot[get(i)].backgroundcolor, get(color_0x));
+			set(hotspot[get(i)].backgroundalpha, get(skin_settings.skin_background_alpha));	
+			
+			if(device.mobile,
+				set(css, 'text-align:center; color:#ffffff; font-family:OpenSans, sans-serif; font-weight:regular; font-size:26px;padding: 5px 10px 5px;');
+			,
+				if(device.tablet,
+					set(css, 'text-align:center; color:#ffffff; font-family:OpenSans, sans-serif; font-weight:regular; font-size:16px; padding: 7px 10px 3px 10px;');
+				,
+					if(device.mac,
+						ifnot(device.firefox,
+							set(css, 'text-align:center; color:#ffffff; font-family:OpenSans, sans-serif; font-weight:regular; font-size:16px; padding: 7px 10px 3px 10px;');
+						);
+					);
+				);
+			);			
+		" 
+	/>
+	
+	<!-- Хотспот-картинка, показывает предварительно загруженное фото -->
+	<style
+		name="skin_hs_info"	
+		hs_type="photo"
+		alpha="0.75"
+		scale="1"	
+		visible="false" 
+		enabled="false"
+		
+		onover="
+			if(device.desktop, 
+				hide_hs_thumb(false);
+			);
+		"
+		onhover="
+			set(layer[skin_title].html, get(caption));
+			
+			set(flag, get(skin_settings.show_photo_cap_flag));
+			if(flag,
+				showtext(get(caption), style1);
+			);
+		" 
+		onout="
+			delayedcall(0.5, 
+				set(layer[skin_title].html, get(scene[get(xml.scene)].title));
+			);
+		" 		
+		onclick="
+			
+			if(device.desktop, 
+				hide_hs_thumb(false);
+			);
+			
+			set(layer[skin_title].html, get(scene[get(xml.scene)].title));
+			set(layer[skin_control_bar].visible, false);
+			set(layer[skin_scroll_window].visible, false);
+			for(set(i, 0), i LT hotspot.count, inc(i),
+				switch(hotspot[get(i)].visible);
+			);
+			set(autorotate.enabled, false);
+			set(skin_settings.show_photo_mode_flag, true);
+			set(layer[skin_photo_title].html, get(data[get(photo_name)].content));
+			set(curr_name, get(photo_name));
+			skin_showthumbs(false);
+			
+			set(h1, get(stageheight));
+			set(w1, get(stagewidth));
+			
+			set(skin_photo_w, get(layer[get(photo_name)].width));
+			set(skin_photo_h, get(layer[get(photo_name)].height));
+			
+			div(screen_ratio, w1, h1);
+			div(photo_ratio, skin_photo_w, skin_photo_h);
+			
+			if(screen_ratio GT photo_ratio,
+				mul(h1, max_photo_size);							
+				div(h1, get(skin_photo_h));
+				set(scale_h, get(h1));
+				if(scale_h GT 1,
+					set(scale_h, 1);
+				);
+				set(layer[get(photo_name)].scale, get(scale_h));
+			,
+				mul(w1, max_photo_size);							
+				div(w1, skin_photo_w);
+				set(scale_w, get(w1));
+				if(scale_w GT 1,
+					set(scale_w, 1);
+				);
+				set(layer[get(photo_name)].scale, get(scale_w));
+			);	
+
+			if(device.iphone, 
+				if(device.safariversion GE 7.0,
+					if(screen_ratio GT 1,
+						set(layer[skin_btn_close].y, 104);
+					,
+						set(layer[skin_btn_close].y, 24);
+					);
+				);
+			);
+			
+			set(layer[get(photo_name)].enabled, 'true');
+			set(layer[get(photo_name)].visible, true);
+			set(layer[skin_btn_close].parent, get(photo_name));
+			set(layer[skin_photo_title].parent, get(photo_name));
+			set(layer[skin_btn_fs_gallery].parent, get(photo_name));
+			set(layer[skin_photo_title].visible, true);
+			set(layer[skin_photo_title].x, 0);
+			set(skin_settings.skin_active_photo_layer, get(photo_name));			
+			switch_skin_cont_photo(true, tween(layer[get(photo_name)].alpha, 1, 0.15, easeInQuad));			
+		"
+		onloaded="
+			if(device.mobile,
+				set(scale, 2);
+			);
+		"
+	/>	
+
+	<!-- Текстовый хотспот, показывает предварительно загруженное фото -->
+	<style
+		name="skin_hs_info_signature"
+		hs_type="photo"
+		url="%SWFPATH%/plugins/textfield.swf"
+		children="false"
+		css="text-align:center; color:#ffffff; font-family:OpenSans, sans-serif; font-weight:regular; font-size:16px;padding: 3px 10px 5px 10px;"
+		vcenter="true"
+		visible="false" 
+		enabled="false"
+				
+		backgroundcolor="0x000000" backgroundalpha="0.5" roundedge="0" border="false"
+		borderwidth="0.71"
+		borderalpha="0.5"
+		bordercolor="0xA0A0A0"
+		handcursor="true" capture="false" 
+		
+		onover="
+			if(device.desktop, 
+				hide_hs_thumb(false);
+			);
+		"
+		onhover="
+			set(layer[skin_title].html, get(caption));
+			set(flag, get(skin_settings.show_photo_cap_flag));
+			if(flag,
+				showtext(get(caption), style1);
+			);
+		" 
+		onout="
+			delayedcall(0.5, 
+				set(layer[skin_title].html, get(scene[get(xml.scene)].title));
+			);
+		" 
+		onloaded="
+			set(hotspot[get(i)].backgroundcolor, get(color_0x));
+			set(hotspot[get(i)].backgroundalpha, get(skin_settings.skin_background_alpha));	
+			
+			if(device.mobile,
+				set(css, 'text-align:center; color:#ffffff; font-family:OpenSans, sans-serif; font-weight:regular; font-size:26px;padding: 5px 10px 5px;');
+			,
+				if(device.tablet,
+					set(css, 'text-align:center; color:#ffffff; font-family:OpenSans, sans-serif; font-weight:regular; font-size:16px; padding: 7px 10px 3px 10px;');
+				,
+					if(device.mac,
+						ifnot(device.firefox,
+							set(css, 'text-align:center; color:#ffffff; font-family:OpenSans, sans-serif; font-weight:regular; font-size:16px; padding: 7px 10px 3px 10px;');
+						);
+					);
+				);
+			);		
+		"
+		
+		onclick="
+			if(device.desktop, 
+				hide_hs_thumb(false);
+			);
+			set(layer[skin_title].html, get(scene[get(xml.scene)].title));
+			set(layer[skin_control_bar].visible, false);
+			set(layer[skin_scroll_window].visible, false);
+			for(set(i, 0), i LT hotspot.count, inc(i),
+				switch(hotspot[get(i)].visible);
+			);
+			set(autorotate.enabled, false);
+			set(skin_settings.show_photo_mode_flag, true);
+			set(layer[skin_photo_title].html, get(data[get(photo_name)].content));
+			set(curr_name, get(photo_name));
+			
+			skin_showthumbs(false);
+			
+			set(h1, get(stageheight));
+			set(w1, get(stagewidth));
+			
+			set(skin_photo_w, get(layer[get(photo_name)].width));
+			set(skin_photo_h, get(layer[get(photo_name)].height));
+			
+			div(screen_ratio, w1, h1);
+			div(photo_ratio, skin_photo_w, skin_photo_h);
+			
+			if(screen_ratio GT photo_ratio,
+				mul(h1, max_photo_size);							
+				div(h1, get(skin_photo_h));
+				set(scale_h, get(h1));
+				if(scale_h GT 1,
+					set(scale_h, 1);
+				);
+				set(layer[get(photo_name)].scale, get(scale_h));
+			,
+				mul(w1, max_photo_size);							
+				div(w1, skin_photo_w);
+				set(scale_w, get(w1));
+				if(scale_w GT 1,
+					set(scale_w, 1);
+				);
+				set(layer[get(photo_name)].scale, get(scale_w));
+			);	
+
+			if(device.iphone, 
+				if(device.safariversion GE 7.0,
+					if(screen_ratio GT 1,
+						set(layer[skin_btn_close].y, 104);
+					,
+						set(layer[skin_btn_close].y, 24);
+					);
+				);
+			);
+			
+			set(layer[get(photo_name)].enabled, 'true');
+			set(layer[get(photo_name)].visible, true);
+			set(layer[skin_btn_close].parent, get(photo_name));
+			set(layer[skin_photo_title].visible, true);
+			set(layer[skin_photo_title].parent, get(photo_name));
+			set(layer[skin_btn_fs_gallery].parent, get(photo_name));
+			set(layer[skin_photo_title].x, 0);
+			set(plugin[skin_gyro].friction, 1); 
+			set(skin_settings.skin_active_photo_layer, get(photo_name));		
+			
+			switch_skin_cont_photo(true, tween(layer[get(photo_name)].alpha, 1, 0.15, easeInQuad));
+		"			
+	/>
+	
+	<!-- Текстовый хотспот, показывает галерею -->
+	<style
+		name="skin_hs_gallery_signature"
+		hs_type="photo_gallery"
+		url="%SWFPATH%/plugins/textfield.swf"
+		children="true"
+		css="text-align:center; color:#ffffff; font-family:OpenSans, sans-serif; font-weight:regular; font-size:16px;padding: 3px 10px 5px 10px;"
+		vcenter="true"
+		visible="false" 
+		backgroundcolor="0x000000" backgroundalpha="0.5" roundedge="0" border="false"
+		borderwidth="0.71"
+		borderalpha="0.5"
+		bordercolor="0xA0A0A0"
+		handcursor="true" capture="false" 
+		enabled="false"
+		
+		onover="
+			stopall();
+			if(device.desktop, 
+				hide_hs_thumb(false);
+			);
+		"
+		onhover="
+			set(layer[skin_title].html, 'Фотогалерея'); 
+			set(flag, get(skin_settings.show_photo_cap_flag));
+			if(flag,
+				showtext('Фотогалерея', style1);
+			);
+		" 
+		onout="
+			delayedcall(0.5, 
+				set(layer[skin_title].html, get(scene[get(xml.scene)].title));
+			);
+		" 
+		onloaded="
+			if(device.mobile,
+				set(css, 'text-align:center; color:#ffffff; font-family:OpenSans, sans-serif; font-weight:regular; font-size:26px;padding: 5px 10px 5px;');
+			,
+				if(device.tablet,
+					set(css, 'text-align:center; color:#ffffff; font-family:OpenSans, sans-serif; font-weight:regular; font-size:16px; padding: 7px 10px 3px 10px;');
+				,
+					if(device.mac,
+						ifnot(device.firefox,
+							set(css, 'text-align:center; color:#ffffff; font-family:OpenSans, sans-serif; font-weight:regular; font-size:16px; padding: 7px 10px 3px 10px;');
+						);
+					);
+				);
+			);	
+		"
+		
+		onclick="
+			set(layer[skin_title].html, get(scene[get(xml.scene)].title));
+			set(layer[skin_control_bar].visible, false);
+			set(layer[skin_scroll_window].visible, false);
+			for(set(i, 0), i LT hotspot.count, inc(i),
+				switch(hotspot[get(i)].visible);
+			);
+			set(autorotate.enabled, false);
+			set(skin_settings.show_photo_mode_flag, true);			
+			skin_showthumbs(false);	
+			
+			show_gallery(get(list_start), get(list_finish));			
+		"			
+	/>
+	
+	<!-- 
+		Функции создания дочерних тачфилдов для текстовых хотспотов.
+		Эта херня нужна, чтобы поддерживать Windows Phone 8, в которой
+		не обрабатывается событие onclick для хотспотов типа textfield.
+		Хотспоты этого стиля будут назначаться дочерними для текстовых хотспотов.
+		(по умолчанию опция принятия дочерних элементов для хотспотов включена)
+		По сути это будет хотспот-картинка void.png с непрозрачностью 0,
+		расположенный поверх хотспота, имя которого ему будет указано в качестве родительского.
+		Этот хотспот будет сам масштабироваться и размещаться там, где находится родительский хотспот 
+		и перехватывать нажатия по нему, а потом вызывать метод onclick.
+	-->
+	
+	<data name="wp8_touchfield_gallery_onclick">
+		set(layer[skin_title].html, get(scene[get(xml.scene)].title));
+		set(layer[skin_control_bar].visible, false);
+		set(layer[skin_scroll_window].visible, false);
+		for(set(i, 0), i LT hotspot.count, inc(i),
+			switch(hotspot[get(i)].visible);
+		);
+		set(autorotate.enabled, false);
+		set(skin_settings.show_photo_mode_flag, true);			
+		skin_showthumbs(false);	
+		
+		show_gallery(get(hotspot[get(parent_hs)].list_start), get(hotspot[get(parent_hs)].list_finish));		
+	</data>
+	
+	<data name="wp8_touchfield_photo_onclick">
+		set(wp8_photo_name, get(hotspot[get(parent_hs)].photo_name));
+		set(layer[skin_title].html, get(scene[get(xml.scene)].title));
+		set(layer[skin_control_bar].visible, false);
+		set(layer[skin_scroll_window].visible, false);
+		set(curr_name, get(wp8_photo_name));
+		for(set(i, 0), i LT hotspot.count, inc(i),
+			switch(hotspot[get(i)].visible);
+		);
+		set(autorotate.enabled, false);
+		set(skin_settings.show_photo_mode_flag, true);
+		set(layer[skin_photo_title].html, get(data[get(wp8_photo_name)].content));
+		
+		skin_showthumbs(false);
+		
+		set(h1, get(stageheight));
+		set(w1, get(stagewidth));
+		
+		set(skin_photo_w, get(layer[get(wp8_photo_name)].width));
+		set(skin_photo_h, get(layer[get(wp8_photo_name)].height));
+		
+		div(screen_ratio, w1, h1);
+		div(photo_ratio, skin_photo_w, skin_photo_h);
+		
+		if(screen_ratio GT photo_ratio,
+			mul(h1, max_photo_size);							
+			div(h1, get(skin_photo_h));
+			set(scale_h, get(h1));
+			if(scale_h GT 1,
+				set(scale_h, 1);
+			);
+			set(layer[get(wp8_photo_name)].scale, get(scale_h));
+		,
+			mul(w1, max_photo_size);							
+			div(w1, skin_photo_w);
+			set(scale_w, get(w1));
+			if(scale_w GT 1,
+				set(scale_w, 1);
+			);
+			set(layer[get(wp8_photo_name)].scale, get(scale_w));
+		);	
+
+		if(device.iphone, 
+			if(device.safariversion GE 7.0,
+				if(screen_ratio GT 1,
+					set(layer[skin_btn_close].y, 104);
+				,
+					set(layer[skin_btn_close].y, 24);
+				);
+			);
+		);
+		
+		set(layer[get(wp8_photo_name)].enabled, 'true');
+		set(layer[get(wp8_photo_name)].visible, true);
+		set(layer[skin_btn_close].parent, get(wp8_photo_name));
+		set(layer[skin_photo_title].visible, true);
+		set(layer[skin_photo_title].parent, get(wp8_photo_name));
+		set(layer[skin_btn_fs_gallery].parent, get(wp8_photo_name));
+		set(layer[skin_photo_title].x, 0);
+		set(plugin[skin_gyro].friction, 1); 
+		set(skin_settings.skin_active_photo_layer, get(wp8_photo_name));		
+		
+		switch_skin_cont_photo(true, tween(layer[get(wp8_photo_name)].alpha, 1, 0.15, easeInQuad));
+	</data>
+	
+	<data name="wp8_touchfield_pano_onclick">
+		set(wp8_linkedscene, get(hotspot[get(parent_hs)].linkedscene));
+		if(wp8_linkedscene, 
+			tween(alpha,0,0.5, easeInOutQuad,
+				skin_showthumbs(false);
+				loadscene(get(wp8_linkedscene), null, MERGE, BLEND(1)); 
+			);
+		);
+	</data>
+	
+	<action name="add_wp8_touchfields">
+		sub(j, %1, 1);
+		if(j GE 0,
+			txtadd(new_hs_name, get(hotspot[get(j)].name), '_wp8_touchfield');
+			
+			addhotspot(get(new_hs_name));
+			
+			set(hotspot[get(new_hs_name)].parent_hs, get(hotspot[get(j)].name));
+			set(hotspot[get(new_hs_name)].url, '%SWFPATH%/skin/void.png');
+			set(hotspot[get(new_hs_name)].enabled, 'true');
+			set(hotspot[get(new_hs_name)].alpha, '0.0');
+			set(hotspot[get(new_hs_name)].align, 'lefttop');
+			set(hotspot[get(new_hs_name)].zorder, '4');
+			
+			set(hotspot[get(new_hs_name)].width, get(hotspot[get(j)].width));
+			set(hotspot[get(new_hs_name)].height, get(hotspot[get(j)].height));
+			
+			set(hotspot[get(new_hs_name)].ath, get(hotspot[get(j)].ath));
+			set(hotspot[get(new_hs_name)].atv, get(hotspot[get(j)].atv));
+
+			set(wp8_hs_type, get(hotspot[get(j)].hs_type));
+			if(wp8_hs_type == 'photo_gallery',
+				set(hotspot[get(new_hs_name)].onclick, get(data[wp8_touchfield_gallery_onclick].content));
+			);
+			if(wp8_hs_type == 'photo',
+				set(hotspot[get(new_hs_name)].onclick, get(data[wp8_touchfield_photo_onclick].content));
+			);
+			if(wp8_hs_type == 'pano',
+				set(hotspot[get(new_hs_name)].onclick, get(data[wp8_touchfield_pano_onclick].content));
+			);
+			
+			add_wp8_touchfields(get(j));
+		);
+	</action>
+	
+	<!-- Хотспот-картинка, показывает галерею -->	
+	<style
+		name="skin_hs_gallery_pic"
+		hs_type="photo_gallery"
+		alpha="0.75"
+		scale="1"
+		enabled="true" 			
+
+		visible="false"  
+		
+		onover="
+			stopall();
+			if(device.desktop, 
+				hide_hs_thumb(false);
+			);
+		"
+		
+		onhover="
+			set(layer[skin_title].html, 'Фотогалерея'); 
+			set(flag, get(skin_settings.show_photo_cap_flag));
+			if(flag,
+				showtext('Фотогалерея', style1);
+			);
+		" 
+		onout="
+			delayedcall(0.5, 
+				set(layer[skin_title].html, get(scene[get(xml.scene)].title));
+			);
+		"		
+		onclick="				
+			set(layer[skin_title].html, get(scene[get(xml.scene)].title));
+			set(layer[skin_control_bar].visible, false);
+			set(layer[skin_scroll_window].visible, false);
+			for(set(i, 0), i LT hotspot.count, inc(i),
+				switch(hotspot[get(i)].visible);
+			);
+			set(autorotate.enabled, false);
+		
+			set(skin_settings.show_photo_mode_flag, true);			
+			skin_showthumbs(false);	
+			
+			show_gallery(get(list_start), get(list_finish));			
+		"			
+	/>
+	
+	<!-- Legacy code. Функция рассчитывает длину текста в пикселях в зависимости от числа символов. -->
+	<action name="calc_text_width">
+		if(hotspot[%1].width == 160, 
+			
+			txtadd(tooltip_width_search, get(hotspot[%1].html),'_countstart');
+			indexoftxt(number_of_characters,get(tooltip_width_search), '_countstart',0);
+			mul(text_width, number_of_characters, 12);
+		
+			if(number_of_characters GE 9, sub(text_width, 12));
+			if(number_of_characters GE 12, sub(text_width, 12));
+			if(number_of_characters GE 15, sub(text_width, 12));
+			if(number_of_characters GE 18, sub(text_width, 12));
+			if(number_of_characters GE 21, sub(text_width, 12));
+			if(number_of_characters GE 24, sub(text_width, 10));
+			
+			copy(hotspot[%1].width, text_width);
+
+			delete(tooltip_width_search, number_of_characters, text_width);
+		);
+	</action>
+	
+	<action name="calc_text_width_mobile">
+		if(hotspot[%1].width == 240, 
+		
+			set(hotspot[%1].height, 100);
+		
+			txtadd(tooltip_width_search, get(hotspot[%1].html),'_countstart');
+			indexoftxt(number_of_characters,get(tooltip_width_search), '_countstart',0);
+			mul(text_width, number_of_characters, 40);
+			
+			if(number_of_characters GE 9, sub(text_width, 35));
+			if(number_of_characters GE 12, sub(text_width, 35));
+			if(number_of_characters GE 15, sub(text_width, 50));
+			if(number_of_characters GE 18, sub(text_width, 50));
+			if(number_of_characters GE 22, sub(text_width, 65));
+			if(number_of_characters GE 25, sub(text_width, 80));
+			
+			copy(hotspot[%1].width, text_width);
+			
+			delete(tooltip_width_search, number_of_characters, text_width);
+		);
+	</action>
+	
+</krpano>

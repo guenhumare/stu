@@ -1,0 +1,918 @@
+<krpano><!-- AP — default vtour skin: photo layer -->
+
+	<!-- 
+		Расширенный загрузчик занимается многопоточной загрузкой файлов фотографий после загрузки панорамы.
+		Используется в global.xml:<action name="loadingpercent_stoploading">
+		
+		Загружаемые фото должны иметь номерные имена, в порядке возрастания.		
+		
+		Максимально допустимое количество потоков — 5.
+		i1..i5 			— итераторы потоков загрузки картинок
+		shift1..shift5 	— смещения номеров фото в списке.
+		
+		pano_loading_percent_limit — доля панорамы в загружаемых данных,
+		photo_loading_percent_limit — доля одной фотографии в загружаемых данных.
+		photos_amount переопределяется в tour.xml
+		photos_weight, pano_weight — вес загружаемых фотографий вместе и вес загружаемой панорамы (второй слой), переопределяются в tour.xml
+	-->
+	<extended_loader
+		enabled_flag="false"
+		photos_flag="false"
+		pano_weight = "1"
+		photos_weight = "1"
+		photos_amount="0"
+		pano_loading_percent_limit="100"
+		photo_loading_percent_limit="0"
+		photos_loaded_amount="0"
+		
+		i1="0"
+		i2="0"
+		i3="0"
+		i4="0"
+		i5="0"
+
+		shift1="0"
+		shift2="0"
+		shift3="0"
+		shift4="0"
+		shift5="0"
+	/>
+	
+	<!-- 
+		Фото в галерее показываются строго по порядку номеров имён файлов.
+	-->
+	<gallery
+		start="0"
+		finish="0"
+		current_pic="0"
+	/>	
+	
+	<!-- 
+		Функция подготовки и запуска рекурсивной многопоточной загрузки фотографий.
+		В качестве аргумента получает количество загружаемых фото
+	-->
+	<action name="load_photos">
+		if(%1 LT 3,
+			set(ldr_cnt, 2);
+			,
+			if(%1 LT 8,	
+				set(ldr_cnt, 3);
+				,
+				if(%1 LT 10,	
+					set(ldr_cnt, 4);
+					,
+					set(ldr_cnt, 5);
+				);
+			);
+		);
+		
+		div(s1, %1, get(ldr_cnt));
+		mod(s2, %1, get(ldr_cnt));
+		
+		math.floor(s1);
+		
+		if(s2 == 0,
+			set(amount1, get(s1));
+			set(amount2, get(s1));
+			
+			dec(ldr_cnt);
+		,	
+			set(amount1, get(s1));
+			dec(ldr_cnt);
+			mul(s3, s1, get(ldr_cnt));
+			sub(amount2, %1, s3);
+		);
+		
+		set(extended_loader.shift2, get(s1));
+		mul(extended_loader.shift3, s1, 2);
+		mul(extended_loader.shift4, s1, 3);
+		mul(extended_loader.shift5, s1, 4);
+		
+		for(set(i,1), i LE ldr_cnt, inc(i),
+			txtadd(cmd_name, 'load_photos_recurrent(get(amount1), get(extended_loader.shift', get(i), '), ', 'i', get(i), ');');
+			delayedcall(0, get(cmd_name));
+		);
+		
+		txtadd(cmd_name, 'load_photos_recurrent(get(amount2), get(extended_loader.shift', get(i), '), ', 'i', get(i), ');');
+		delayedcall(0, get(cmd_name));	
+			
+	</action>
+	
+	<!--
+		load_photos_recurrent(get(amount1), get(extended_loader.shift1), 'i1');
+		load_photos_recurrent(get(amount1), get(extended_loader.shift2), 'i2');
+		load_photos_recurrent(get(amount1), get(extended_loader.shift3), 'i3');
+		load_photos_recurrent(get(amount1), get(extended_loader.shift4), 'i4');
+		load_photos_recurrent(get(amount2), get(extended_loader.shift5), 'i5');
+		trace(%1, ' ', %2, ' ', %3);
+	-->
+	
+	<!-- Загрузчик фотографий 
+		%1 — количество загружаемых фото в потоке,
+		%2 — Смещение,
+		%3 — имя итератора потока.
+		Фотографии загружаются от конца области на загрузку к её началу.
+	-->
+	
+	<action name="load_photos_recurrent">
+		
+		add(index, %1, %2);		
+		
+		txtadd(lname,'photo_', get(index));
+		txtadd(lpath, '%SWFPATH%/img/', get(index), '.jpg');
+		
+		addlayer(get(lname));
+		
+		set(layer[get(lname)].visible, 'false');
+		set(layer[get(lname)].keep, 'true');
+		set(layer[get(lname)].align, 'center');
+		set(layer[get(lname)].enabled, 'false');
+		set(layer[get(lname)].alpha, 0);
+		set(layer[get(lname)].x, 0);
+		set(layer[get(lname)].y, 0);
+		set(layer[get(lname)].scale, 1);
+		set(layer[get(lname)].url, get(lpath));
+		set(layer[get(lname)].parent, 'skin_cont_photo');
+		set(layer[get(lname)].handcursor, 'false');
+		
+		if(device.mobile,
+			set(layer[get(lname)].tick_limit, 15);
+			
+			set(layer[get(lname)].ondown, 
+				set(old_curr_photo_scale, get(layer[get(curr_name)].scale));
+							
+				set(complexcondition, true);
+				asyncloop(complexcondition,
+					inc(skin_settings.tick_counter);
+					copy(tck, skin_settings.tick_counter);
+					
+					if(pressed,
+						if(tck GE tick_limit,
+							set(complexcondition, false);
+						);
+					,
+						set(complexcondition, false);
+					);
+				,
+					if(tck GE tick_limit,
+						scroll_photo(true);
+					);
+				);
+			);
+			
+			set(layer[get(lname)].onup,
+				if(tck GE tick_limit,
+					scroll_photo(false);
+				,
+					switch_gallery_controls_visibility();
+				);
+				set(skin_settings.tick_counter, 0);
+			);
+		);
+		
+		set(layer[get(lname)].onloaded, 
+			add(pv, get(extended_loader.photo_loading_percent_limit));
+			add(extended_loader.photos_loaded_amount, 1);
+			
+			sub(extended_loader.%3, %1, 1);
+			
+			if(extended_loader.%3 GT 0,
+				load_photos_recurrent(get(extended_loader.%3), %2, %3);
+			);
+		);
+		
+	</action>
+	
+	<!-- 
+		Функция увеличивает фото при отображении на телефоне, если надо,
+		и возвращает всё на место, когда нажатия больше нет.
+		Имя фото уже хранится в глобальной переменной curr_name.
+		%1 == true, значит увеличиваем фото, иначе возвращаем всё на место.	
+	-->
+	<action name="scroll_photo">
+		if(%1,
+			switch_gallery_controls_visibility();
+			
+			tween(layer[get(curr_name)].scale, 1.0, 0.35, easeInOutQuad);
+			
+			sub(sup_x, layer[get(curr_name)].width, stagewidth);
+			sub(sup_y, layer[get(curr_name)].height, stageheight);
+			
+			mul(sup_x, 0.5);
+			mul(sup_y, 0.5);
+			
+			add(sup_x, 20);
+			add(sup_y, 20);
+			
+			mul(inf_x, sup_x, -1);
+			mul(inf_y, sup_y, -1);
+			
+			asyncloop(pressed, 
+				
+				div(mx, mouse.stagex, stagewidth);
+				div(my, mouse.stagey, stageheight);
+				
+				mul(mx, 1.5);
+				mul(my, 1.5);
+				
+				sub(mx, 0.75);
+				sub(my, 0.75);
+				
+				sub(px, stagewidth, layer[get(curr_name)].width);
+				sub(py, stageheight, layer[get(curr_name)].height);
+				
+				mul(px, mx);
+				mul(py, my);				
+				
+				if(px GT inf_x,
+					if(px LT sup_x,
+						copy(layer[get(curr_name)].x, px);
+					,
+						copy(layer[get(curr_name)].x, sup_x);
+					);
+				,
+					copy(layer[get(curr_name)].x, inf_x);
+				);
+				
+				if(py GT inf_y,
+					if(py LT sup_y,
+						copy(layer[get(curr_name)].y, py);
+					,
+						copy(layer[get(curr_name)].y, sup_y);
+					);
+				,
+					copy(layer[get(curr_name)].y, inf_y);
+				);
+			);			
+		,
+			tween(layer[get(curr_name)].scale, get(old_curr_photo_scale), 0.35, easeInOutQuad);
+			tween(layer[get(curr_name)].x, 0, 0.35, easeInOutQuad);
+			tween(layer[get(curr_name)].y, 0, 0.35, easeInOutQuad);
+			switch_gallery_controls_visibility();
+		);
+	</action>
+	
+	<!-- 
+		%1 — включить/выключить, 
+		%2 — donecall в tween 
+	-->
+	<action name="switch_skin_cont_photo">
+		if(%1,
+			set(control.usercontrol, 'off');
+			set(layer[skin_cont_photo].visible, true);
+			tween(layer[skin_cont_photo].alpha, 1, 0.25, easeOutQuad, %2);
+		,
+			set(plugin[skin_gyro].friction, 0.5); 
+			set(skin_settings.show_photo_mode_flag, false);
+			txtadd(donecall, 'set(layer[skin_cont_photo].visible, false); ', %2);
+			tween(layer[skin_cont_photo].alpha, 0, 0.15, , get(donecall));
+		);
+	</action>	
+	
+	<!--
+		Функция показа галереи (последовательности фото)
+	-->
+	<action name="show_gallery">
+		
+		set(gallery.start, %1);
+		set(gallery.finish, %2);
+		set(control.usercontrol, 'off');
+		
+		set(layer[skin_btn_prev_image].enabled, true);
+		set(layer[skin_btn_next_image].enabled, true);
+	
+		set(gallery.current_pic, get(gallery.start));
+		set(control.usercontrol, 'off');
+		set(layer[skin_photo_title].visible, true);
+		tween(layer[skin_cont_gallery].alpha, 1, 0.25, easeOutQuad);
+		
+		next_image(0);		
+	</action>
+	
+	<!-- 
+		Делаем широкие широкие чувствительные поля для кнопок вперёд-назад
+	-->
+	<action name="set_mobile_touchfields">
+		mul(layer[skin_btn_next_touchfield].width, layer[get(skin_settings.skin_active_photo_layer)].width, 0.3);
+		mul(layer[skin_btn_prev_touchfield].width, layer[get(skin_settings.skin_active_photo_layer)].width, 0.3);
+		
+		mul(layer[skin_btn_next_touchfield].width, layer[get(skin_settings.skin_active_photo_layer)].scale);
+		mul(layer[skin_btn_prev_touchfield].width, layer[get(skin_settings.skin_active_photo_layer)].scale);
+		
+		copy(layer[skin_btn_next_touchfield].height, stageheight);
+		copy(layer[skin_btn_prev_touchfield].height, stageheight);
+		
+		mul(xx, layer[skin_btn_next_touchfield].width, 0.5);
+		sub(xx, layer[skin_btn_next_image].x);
+		sub(xx, layer[skin_btn_next_image].x);
+		
+		copy(layer[skin_btn_prev_touchfield].x, xx);
+		mul(xx, -1);
+		copy(layer[skin_btn_next_touchfield].x, xx);	
+	</action>
+	
+	<!-- 
+		Функция отображения следующей фотки.
+		%1 — смещение по номерам фотографий. Используются 0, 1 или -1.
+	-->	
+	<action name="next_image">
+		txtadd(prev_name,'photo_', get(gallery.current_pic));
+		add(gallery.current_pic, %1);
+		
+		if(gallery.current_pic GT gallery.finish,
+			set(gallery.current_pic, get(gallery.start));
+		);
+		
+		if(gallery.current_pic LT gallery.start,
+			set(gallery.current_pic, get(gallery.finish));
+		);
+		
+		txtadd(curr_name,'photo_', get(gallery.current_pic));
+		
+		set(skin_settings.skin_active_photo_layer, get(curr_name));		
+		
+		set(h1, get(stageheight));
+		set(w1, get(stagewidth));
+		
+		set(skin_photo_w, get(layer[get(curr_name)].width));
+		set(skin_photo_h, get(layer[get(curr_name)].height));
+		
+		div(screen_ratio, w1, h1);
+		div(photo_ratio, skin_photo_w, skin_photo_h);
+		
+		if(screen_ratio GT photo_ratio,
+			mul(h1, max_photo_size);
+			div(h1, get(skin_photo_h));
+			
+			set(scale_h, get(h1));
+			if(scale_h GT 1,
+				set(scale_h, 1);
+			);
+			set(layer[get(curr_name)].scale, get(scale_h));
+		,
+			mul(w1, max_photo_size);							
+			div(w1, skin_photo_w);
+			set(scale_w, get(w1));
+			if(scale_w GT 1,
+				set(scale_w, 1);
+			);
+			set(layer[get(curr_name)].scale, get(scale_w));
+		);
+		
+		if(device.mobile,
+			set_mobile_touchfields();
+		);
+		
+		if(device.iphone, 
+			if(device.safariversion GE 7.0,
+				if(screen_ratio GT 1,
+					set(layer[skin_btn_close_gallery].y, 104);
+				,
+					set(layer[skin_btn_close_gallery].y, 24);
+				);
+			);
+		);
+		
+		set(layer[get(curr_name)].enabled, 'true');
+		set(layer[get(curr_name)].visible, true);
+		
+		tween(layer[get(curr_name)].alpha, 1, 0.35, easeInQuad);
+		
+		set(layer[skin_btn_close_gallery].parent, get(curr_name));
+		set(layer[skin_btn_next_image].parent, get(curr_name));
+		set(layer[skin_btn_prev_image].parent, get(curr_name));
+		set(layer[skin_photo_title].parent, get(curr_name));
+		set(layer[skin_btn_fs_gallery].parent, get(curr_name));
+		
+		set(layer[get(curr_name)].parent, 'skin_cont_gallery');		
+		
+		set(plugin[skin_gyro].friction, 1);		
+		
+		sub(amt, gallery.finish, gallery.start);
+		add(amt, 1);
+		sub(cur_index, gallery.current_pic, gallery.start);
+		add(cur_index, 1);
+		txtadd(nav, get(cur_index), '/', get(amt), ' | ', get(data[get(curr_name)].content));
+		set(layer[skin_photo_title].html, get(nav));
+		
+		math.abs(flag, %1);
+		if(flag,
+			tween(layer[get(prev_name)].alpha, 0, 0.35, easeInQuad,
+				set(layer[get(prev_name)].visible, false);
+				set(layer[get(prev_name)].enabled, false);
+			);
+		);		
+	</action>
+	
+	<!-- 
+		Функция, переключающая видимость кнопочек и подписей интерфейса галереи на телефонах.
+	-->
+	<action name="switch_gallery_controls_visibility">
+		if(gallery_controls_visible === null, 
+			set(gallery_controls_visible, false);
+		);
+		
+		switch(gallery_controls_visible, true, false);
+		
+		if(gallery_controls_visible,
+			tween(layer[skin_btn_close].alpha, 0, 0.15, easeInOutQuad);
+			tween(layer[skin_btn_close_gallery].alpha, 0, 0.15, easeInOutQuad);
+			tween(layer[skin_btn_next_image].alpha, 0, 0.15, easeInOutQuad);
+			tween(layer[skin_btn_prev_image].alpha, 0, 0.15, easeInOutQuad);
+			tween(layer[skin_btn_fs_gallery].alpha, 0, 0.15, easeInOutQuad);
+			tween(layer[skin_photo_title].alpha, 0, 0.15, easeInOutQuad);
+			
+			set(layer[skin_btn_close].visible, false);
+			set(layer[skin_btn_close_gallery].visible, false);
+			set(layer[skin_btn_next_image].visible, false);
+			set(layer[skin_btn_prev_image].visible, false);
+			set(layer[skin_btn_fs_gallery].visible, false);
+			set(layer[skin_photo_title].visible, false);
+		,
+			set(layer[skin_btn_close].visible, true);
+			set(layer[skin_btn_close_gallery].visible, true);
+			set(layer[skin_btn_next_image].visible, true);
+			set(layer[skin_btn_prev_image].visible, true);
+			set(layer[skin_btn_fs_gallery].visible, true);
+			set(layer[skin_photo_title].visible, true);
+			
+			tween(layer[skin_btn_close].alpha, 1, 0.15, easeInOutQuad);
+			tween(layer[skin_btn_close_gallery].alpha, 1, 0.15, easeInOutQuad);
+			tween(layer[skin_btn_next_image].alpha, 1, 0.15, easeInOutQuad);
+			tween(layer[skin_btn_prev_image].alpha, 1, 0.15, easeInOutQuad);
+			tween(layer[skin_btn_fs_gallery].alpha, 1, 0.15, easeInOutQuad);
+			tween(layer[skin_photo_title].alpha, 1, 0.15, easeInOutQuad);
+		);
+	</action>
+
+	<layer 
+		name="skin_cont_photo" 
+		visible="false" 
+		enabled="true"
+		alpha="0"
+		keep="true" 
+		type="container"
+
+		bgcolor="0x000000"
+		bgalpha="0.8"
+		align="center" 
+		width="100%"
+		height="100%"
+		x="0" y="0"
+	>
+		<layer
+			name="skin_btn_close"
+			url="skin_ap.png" 
+			crop="141|409|22|22" 
+			ondowncrop="163|409|22|22" 
+			align="righttop"
+			x="-2"
+			y="-24"
+			scale="1.0"
+			devices="desktop"
+			onclick="
+				tween(layer[get(parent)].alpha, 0, 0.15, easeOutQuad,
+					set(layer[get(parent)].visible, false);
+					set(layer[get(parent)].enabled, false);				
+					set(layer[skin_photo_title].visible, false);
+					
+				);
+				switch_skin_cont_photo(false);
+				set(layer[skin_control_bar].visible, true);
+				set(layer[skin_scroll_window].visible, true);
+				for(set(i, 0), i LT hotspot.count, inc(i),
+					set(hotspot[get(i)].visible, true);
+				);
+				set(autorotate.enabled, true);
+				set(control.usercontrol, 'all');
+			"
+		/>
+		
+		<layer
+			name="skin_btn_close"
+			url="skin_ap.png" 
+			crop="39|401|39|39" 
+			ondowncrop="78|401|39|39" 
+			align="righttop"
+			x="0"
+			y="-24"
+			scale="0.5"
+			devices="tablet"
+		>
+			<layer 
+				name="skin_btn_close_touchfield"
+				url="void.png" 
+				align="center"
+				x="0" y="0"
+				alpha="0.0"
+				width="60"
+				height="60"
+				zorder="4"
+				onclick="
+					set(parentname, get(layer[skin_btn_close].parent));
+					
+					tween(layer[get(parentname)].alpha, 0, 0.15, easeOutQuad,
+						set(layer[get(parentname)].visible, false);
+						set(layer[get(parentname)].enabled, false);
+						set(layer[skin_photo_title].visible, false);
+					);
+					switch_skin_cont_photo(false);					
+					
+					set(layer[skin_control_bar].visible, true);
+					set(layer[skin_scroll_window].visible, true);
+					for(set(i, 0), i LT hotspot.count, inc(i),
+						set(hotspot[get(i)].visible, true);
+					);
+					set(autorotate.enabled, true);
+					set(control.usercontrol, 'all');
+				"
+			/>
+		</layer>
+		
+		<layer
+			name="skin_btn_close"
+			url="skin_ap.png" 
+			crop="39|401|39|39" 
+			ondowncrop="78|401|39|39" 
+			align="righttop"
+			x="20"
+			y="20"
+			scale="0.8"
+			devices="mobile"
+		>
+			<layer 
+				name="skin_btn_close_touchfield"
+				url="void.png" 
+				align="center"
+				x="0" y="0"
+				alpha="0.0"
+				width="80"
+				height="80"
+				onclick="
+					set(parentname, get(layer[skin_btn_close].parent));
+					
+					tween(layer[get(parentname)].alpha, 0, 0.15, easeOutQuad,
+						set(layer[get(parentname)].visible, false);
+						set(layer[get(parentname)].enabled, false);
+						set(layer[skin_photo_title].visible, false);
+					);
+					switch_skin_cont_photo(false);
+					
+					set(layer[skin_control_bar].visible, true);
+					set(layer[skin_scroll_window].visible, true);
+					for(set(i, 0), i LT hotspot.count, inc(i),
+						set(hotspot[get(i)].visible, true);
+					);
+					set(autorotate.enabled, true);
+					set(control.usercontrol, 'all');
+				"
+			/>
+		</layer>
+		
+	</layer>
+	
+	<layer 
+		name="skin_cont_gallery" 
+		visible="true" 
+		enabled="true"
+		alpha="0"
+		keep="true" 
+		type="container"
+
+		bgcolor="0x000000"
+		bgalpha="0.8"
+		align="center" 
+		width="100%"
+		height="100%"
+		x="0" y="0"
+	>
+		<layer
+			name="skin_btn_close_gallery"
+			url="skin_ap.png" 
+			crop="141|409|22|22" 
+			ondowncrop="163|409|22|22" 
+			align="righttop"
+			x="-2"
+			y="-24"
+			scale="1"
+			devices="desktop"
+			onclick="
+				tween(layer[get(curr_name)].alpha, 0, 0.15, easeOutQuad,
+					set(layer[get(curr_name)].visible, false);
+					set(layer[get(curr_name)].enabled, false);
+					set(layer[skin_photo_title].visible, false);
+				);
+				
+				set(layer[skin_btn_prev_image].enabled, false);
+				set(layer[skin_btn_next_image].enabled, false);
+				
+				set(layer[skin_control_bar].visible, true);
+				set(layer[skin_scroll_window].visible, true);
+				for(set(i, 0), i LT hotspot.count, inc(i),
+					set(hotspot[get(i)].visible, true);
+				);
+				set(autorotate.enabled, true);
+				
+				set(control.usercontrol, 'all');
+				set(plugin[skin_gyro].friction, 0.5); 
+				set(skin_settings.show_photo_mode_flag, false);
+				tween(layer[skin_cont_gallery].alpha, 0, 0.15);
+			"
+		/>
+		
+		<layer
+			name="skin_btn_close_gallery"
+			url="skin_ap.png" 
+			crop="39|401|39|39" 
+			ondowncrop="78|401|39|39" 
+			align="righttop"
+			x="0"
+			y="-24"
+			scale="0.5"
+			devices="tablet"	
+		>
+			<layer 
+				name="skin_btn_close_gallery_touchfield"
+				url="void.png" 
+				align="center"
+				x="0" y="0"
+				alpha="0.0"
+				width="60"
+				height="60"
+				onclick="
+					tween(layer[get(curr_name)].alpha, 0, 0.15, easeOutQuad,
+						set(layer[get(curr_name)].visible, false);
+						set(layer[get(curr_name)].enabled, false);
+						set(layer[skin_photo_title].visible, false);
+					);
+					
+					set(layer[skin_btn_prev_image].enabled, false);
+					set(layer[skin_btn_next_image].enabled, false);
+					
+					set(layer[skin_control_bar].visible, true);
+					set(layer[skin_scroll_window].visible, true);
+					for(set(i, 0), i LT hotspot.count, inc(i),
+						set(hotspot[get(i)].visible, true);
+					);
+					set(autorotate.enabled, true);
+					
+					set(control.usercontrol, 'all');
+					set(plugin[skin_gyro].friction, 0.5); 
+					set(skin_settings.show_photo_mode_flag, false);
+					tween(layer[skin_cont_gallery].alpha, 0, 0.15);
+				"
+			/>
+		</layer>
+		
+		<layer
+			name="skin_btn_close_gallery"
+			url="skin_ap.png" 
+			crop="39|401|39|39" 
+			ondowncrop="78|401|39|39" 
+			align="righttop"
+			x="24"
+			y="24"
+			scale="0.8"
+			zorder="4"
+			devices="mobile"			
+		>
+			<layer 
+				name="skin_btn_close_gallery_touchfield"
+				url="void.png" 
+				align="center"
+				x="0" y="0"
+				alpha="0.0"
+				width="80"
+				height="80"
+				onclick="
+					tween(layer[get(curr_name)].alpha, 0, 0.15, easeOutQuad,
+						set(layer[get(curr_name)].visible, false);
+						set(layer[get(curr_name)].enabled, false);
+						set(layer[skin_photo_title].visible, false);
+					);
+					
+					set(layer[skin_btn_prev_image].enabled, false);
+					set(layer[skin_btn_next_image].enabled, false);
+					
+					set(layer[skin_control_bar].visible, true);
+					set(layer[skin_scroll_window].visible, true);
+					for(set(i, 0), i LT hotspot.count, inc(i),
+						set(hotspot[get(i)].visible, true);
+					);
+					set(autorotate.enabled, true);
+					
+					set(control.usercontrol, 'all');
+					set(plugin[skin_gyro].friction, 0.5); 
+					set(skin_settings.show_photo_mode_flag, false);
+					tween(layer[skin_cont_gallery].alpha, 0, 0.15);
+				"
+			/>
+		</layer>
+		
+		<layer
+			name="skin_btn_next_image"
+			url="skin_ap.png" 
+			crop="141|331|22|22" 
+			ondowncrop="163|331|22|22" 
+			align="right"
+			x="-30"
+			y="0"
+			enabled="false"
+			devices="desktop"
+			onclick="
+				next_image(1);
+			"
+		/>
+		
+		<layer
+			name="skin_btn_next_image"
+			url="skin_ap.png" 
+			crop="39|323|39|39" 
+			ondowncrop="78|323|39|39" 
+			align="right"
+			x="-30"
+			y="0"
+			enabled="false"
+			scale="0.5"
+			devices="tablet"
+		>
+			<layer 
+				name="skin_btn_next_touchfield"
+				url="void.png" 
+				align="center"
+				x="-2" y="0"
+				alpha="0.0"
+				width="60"
+				height="60"
+				onclick="
+					next_image(1);
+				"
+			/>
+		</layer>
+		
+		<layer
+			name="skin_btn_next_image"
+			url="skin_ap.png" 
+			crop="39|323|39|39" 
+			ondowncrop="78|323|39|39" 
+			align="right"
+			x="18"
+			y="0"
+			enabled="false"
+			scale="1"
+			devices="mobile"
+		>
+			<layer 
+				name="skin_btn_next_touchfield"
+				url="void.png" 
+				align="center"
+				x="0" y="0"
+				alpha="0.0"
+				width="80"
+				height="80"
+				onclick="
+					next_image(1);
+				"
+			/>
+		</layer>
+		
+		<layer
+			name="skin_btn_prev_image"
+			url="skin_ap.png" 
+			crop="141|370|22|22" 
+			ondowncrop="163|370|22|22" 
+			align="left"
+			x="-30"
+			y="0"
+			enabled="false"
+			devices="desktop"
+			onclick="
+				next_image(-1);
+			"
+		/>
+		
+		<layer
+			name="skin_btn_prev_image"
+			url="skin_ap.png" 
+			crop="39|362|39|39" 
+			ondowncrop="78|362|39|39" 
+			align="left"
+			x="-30"
+			y="0"
+			enabled="false"
+			scale="0.5"
+			devices="tablet"
+		>
+			<layer 
+				name="skin_btn_prev_touchfield"
+				url="void.png" 
+				align="center"
+				x="2" y="0"
+				alpha="0.0"
+				width="60"
+				height="60"
+				onclick="
+					next_image(-1);
+				"
+			/>
+		</layer>
+		
+		<layer
+			name="skin_btn_prev_image"
+			url="skin_ap.png" 
+			crop="39|362|39|39" 
+			ondowncrop="78|362|39|39" 
+			align="left"
+			x="18"
+			y="0"
+			enabled="false"
+			scale="1"
+			devices="mobile"
+		>
+			<layer 
+				name="skin_btn_prev_touchfield"
+				url="void.png" 
+				align="center"
+				alpha="0.0"
+				x="0" y="0"
+				width="80"
+				height="80"
+				onclick="
+					next_image(-1);
+				"
+			/>
+		</layer>
+		
+		<layer name="skin_btn_fs_gallery"     
+			url="skin_ap.png"
+			crop="141|128|22|22"
+			ondowncrop="163|128|22|22"
+			align="rightbottom"      
+			x="-28"  y="0"
+			onloaded="
+				if(fullscreen,
+					set(crop, '141|88|22|22');
+				);
+			"
+			
+			caption="Переключить в полноэкранный режим"
+			onclick="switch(fullscreen);"			
+			devices="desktop"
+		/>	
+		
+		<layer name="skin_btn_fs_gallery"     
+			url="skin_ap.png"
+			crop="39|119|39|39"
+			ondowncrop="78|119|39|39"
+			align="rightbottom"      
+			x="-30"  y="0"
+			scale="0.6"
+			devices="tablet"
+			onloaded="
+				if(fullscreen,
+					set(crop, '39|80|39|39');
+				);
+			"		
+		>
+			<layer 
+				name="skin_btn_fs_touchfield"
+				url="void.png" 
+				align="center"
+				x="0" y="0"
+				alpha="0.0"
+				width="60"
+				height="60"
+				onclick="switch(fullscreen);"
+			/>
+		</layer>
+
+		<layer name="skin_btn_fs_gallery"     
+			url="skin_ap.png"
+			crop="39|518|39|39"
+			ondowncrop="78|518|39|39"
+			align="rightbottom"      
+			x="20"  y="16"
+			scale="1"
+			zorder="4"
+			devices="mobile"
+			onloaded="
+				if(fullscreen,
+					set(crop, '39|479|39|39');
+				);
+			"
+		>
+			<layer 
+				name="skin_btn_fs_touchfield"
+				url="void.png" 
+				align="center"
+				x="0" y="0"
+				alpha="0.0"
+				width="80"
+				height="80"
+				onclick="switch(fullscreen);"
+			/>
+		</layer>
+		
+	</layer>
+	
+</krpano>

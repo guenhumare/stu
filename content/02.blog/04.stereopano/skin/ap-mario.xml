@@ -1,0 +1,107 @@
+﻿<krpano><!-- krpano 1.0.8.15 -->
+
+		<skin_settings fishflag="false"
+	               />
+
+	<control     
+         mousetype="drag2d"
+		 usercontrol="all"
+		 mousefriction="0.8"
+         mousefovchange="0.35"
+         fovspeed="1"        
+    />
+	
+	<cursors url="dragcur.png"
+         type="drag"
+         move="0|0|20|20"
+         drag="20|0|20|20"
+	/>
+	
+	<contextmenu 
+		fullscreen="true"
+		native="false"
+		versioninfo="true"
+        enterfs="Fullscreen (F11)"
+        exitfs="Exit Fullscreen (Esc)"
+	>
+		<item caption="smiletous.com" onclick="openurl('http://smiletous.com',_blank);" />
+	</contextmenu>
+	
+	<progress showload="none"
+          showwait="loopings()"
+          showreloads="false"
+          />
+
+	<!-- Skin Events -->
+	
+	<events onkeydown="
+						if(keycode == 122, 
+							switch(fullscreen); 
+							if(fullscreen, 
+								delayedcall(0, get(events[skin_events].onenterfullscreen));
+							); 
+							if(fullscreen != 'true', 
+								delayedcall(0, get(events[skin_events].onexitfullscreen));
+							); 
+						);
+						if(keycode == 107,
+							set(fov_moveforce, -0.25);
+						);
+						if(keycode == 187,
+							set(fov_moveforce, -0.25);
+						);
+						if(keycode == 109,
+							set(fov_moveforce, 0.25);
+						);
+						if(keycode == 189,
+							set(fov_moveforce, 0.25);
+						);"
+			onkeyup="	if(keycode == 107,
+							set(fov_moveforce, 0);
+						);
+						if(keycode == 187,
+							set(fov_moveforce, 0);
+						);
+						if(keycode == 109,
+							set(fov_moveforce, 0);
+						);
+						if(keycode == 189,
+							set(fov_moveforce, 0);
+						);"
+	/>
+	
+	
+	<events name="skin_events" devices="Flash"
+	        onloadcomplete="set(view.fovmax, 180);"
+			onviewchanged="	if(view.fov GT 130,
+								set(flag, get(skin_settings.fishflag));
+								ifnot(flag, 
+									set(view.fovmax, 190);
+									set(skin_settings.fishflag, true);
+									tween(view.fisheye, 0.35, 1);
+								);
+							);
+							if(view.fov LT 130,
+								set(flag, get(skin_settings.fishflag));
+								if(flag, 
+									set(view.fovmax, 140);
+									set(skin_settings.fishflag, false);
+									tween(view.fisheye, 0.0, 1)
+								);
+							);"
+			/>	
+	<!-- actions for view changing -->
+	<action name="view_normal">
+		tween(view.fovmax,       106.0, distance(179, 1.00), easeoutquad);
+		tween(view.architectural,  0.0, distance(1.0, 0.45), easeoutquad);
+		tween(view.fisheye,        0.0, distance(1.0, 0.45), easeoutquad, set(view.stereographic,false); set(view.pannini,false); set(display.flash10,on); );
+	</action>
+
+	<action name="view_fisheye">
+		tween(view.fovmax,      180, distance(179, 1.00), easeoutquad);
+		set(display.flash10,off);
+		tween(view.architectural, 0.0, distance(1.0, 0.30), easeoutquad);
+		tween(view.fisheye,       0.0 ,distance(1.0, 0.30), easeoutquad, set(view.stereographic,false); set(view.pannini,false); set(view.fovmax,179); tween(view.fisheye, 0.35, distance(1.0,1.25)); );
+	</action>
+
+</krpano>

@@ -1,0 +1,24 @@
+<krpano version="1.17">
+	
+	<include url="skin/ap-mario.xml" />
+	
+	<view hlookat="0" vlookat="0" maxpixelzoom="0.7" fovmax="150" limitview="auto" />
+
+	<preview url="p821.tiles/preview.jpg" />
+
+	<image type="CUBE" multires="true" tilesize="512" progressive="false">
+		<level tiledimagewidth="3183" tiledimageheight="3183">
+			<cube url="p821.tiles/mres_%s/l3/%v/l3_%s_%v_%h.jpg" />
+		</level>
+		<level tiledimagewidth="1536" tiledimageheight="1536">
+			<cube url="p821.tiles/mres_%s/l2/%v/l2_%s_%v_%h.jpg" />
+		</level>
+		<level tiledimagewidth="768" tiledimageheight="768">
+			<cube url="p821.tiles/mres_%s/l1/%v/l1_%s_%v_%h.jpg" />
+		</level>
+		<mobile>
+			<cube url="p821.tiles/mobile_%s.jpg" />
+		</mobile>
+	</image>
+
+</krpano>

@@ -1,0 +1,1083 @@
+<krpano><!-- AP — default vtour skin: skin layout -->	
+	<layer 
+		name="skin_scroll_window" 
+		type="container" 
+		keep="true" 
+		align="leftbottom"
+		width="100%" 
+		height="100%" 
+		x="0" y="40" 
+		y_shown="40" y_hidden="-2" 
+		maskchildren="true" 
+		onout="
+			delayedcall(0.35, 
+				set(layer[skin_title].html, get(scene[get(xml.scene)].title));
+			);
+		"
+	>
+				
+		<layer 	
+			name="skin_scroll_layer" 
+			type="container" 
+			align="leftbottom" 
+			width="100%" height="100%" 
+			x="0" y="-100%"
+		>
+			
+				<!-- Название панорамы только для смартфонной версии интерфейса -->
+			<layer 
+				name="skin_title" 
+				url="%SWFPATH%/plugins/textfield.swf" 
+				align="lefttop" 
+				edge="leftbottom"
+				width="95%" 
+				height="32" 
+				autoheight="true" 
+				x="30" y="0" 
+				zorder="4" 
+				enabled="false" 
+				background="false" 
+				border="false" 
+				css="text-align:left; color:#ffffff; font-family:OpenSans, sans-serif; font-size:28px;" 
+				textshadow="1" 
+				visible="true" 
+				devices="Mobile"
+			/>
+			<layer 
+				name="skin_scroll_container" 
+				type="container" 
+				bgcolor="0x000000" 
+				bgalpha="0.75" 
+				align="lefttop" 
+				width="100%" 
+				height="100%" 
+				x="0" y="1" 
+				maskchildren="true"
+				onout="
+					delayedcall(0.67, 
+						set(w, get(stagewidth));
+						mul(w, 0.5);						
+						delayedcall(1, layer[skin_thumbs].setcenter(get(w), 0));
+						set(layer[skin_thumbs].onhover_autoscrolling, true);
+						skin_showthumbs(false);
+					);
+				"
+				>
+					
+					<layer 
+						name="skin_thumbs_scrollleft"  
+						url="skin_ap.png" 
+						crop="39|2|39|39"
+						ondowncrop="78|2|39|39"
+						align="lefttop"  
+						edge="left"  
+						x="26" y="170" 
+						scale="1.2" 
+						zorder="4" 
+						alpha="1.0" 
+						ondown="asyncloop(pressed, layer[skin_thumbs].scrollby(+2,0));" 
+						visible="false"
+						devices="windows+mobile"
+					>
+						<layer 
+							name="skin_btn_left_touchfield"
+							url="void.png" 
+							align="center"
+							x="12" y="0"
+							alpha="0.0"
+							width="124"
+							height="344"
+							ondown="asyncloop(pressed, layer[skin_thumbs].scrollby(+2,0));" 
+						/>
+					</layer>
+					<layer 
+						name="skin_thumbs_scrollright" 
+						url="skin_ap.png" 
+						crop="39|41|39|39" 
+						ondowncrop="78|41|39|39" 
+						align="righttop" 
+						edge="right"
+						x="26" y="170" 
+						scale="1.2" 
+						zorder="4" 
+						alpha="1.0" 
+						ondown="asyncloop(pressed, layer[skin_thumbs].scrollby(-2,0));" 
+						visible="false" 
+						devices="windows+mobile"
+					>
+						<layer 
+							name="skin_btn_right_touchfield"
+							url="void.png" 
+							align="center"
+							x="-12" y="0"
+							alpha="0.0"
+							width="124"
+							height="344"
+							ondown="asyncloop(pressed, layer[skin_thumbs].scrollby(-2,0));" 
+						/>
+					</layer>	
+					<layer 
+						name="skin_thumbs" 
+						handcursor="false" 
+						state="closed" 
+						url="%SWFPATH%/plugins/scrollarea.swf" 
+						alturl="%SWFPATH%/plugins/scrollarea.js"
+						onhover_autoscrolling="true"
+						direction="h" 
+						visible="false" 
+						align="top" 
+						width="100%" 
+						height="100" 
+						zorder="2"
+						onloaded="skin_updatescroll();"
+						onscroll="skin_updatethumbscroll();"
+					/>
+
+			</layer>
+		</layer>		
+	</layer>
+
+	<layer name="skin_control_bar" keep="true" type="container" bgcolor="0x000000" bgalpha="0.75" align="leftbottom" width="100%" height="40" x="0" y="0" y_shown="20" y_hidden="-42" zorder="3">
+		
+		<layer 
+			name="skin_thumbs_scrollindicator" 
+			type="container" 
+			bgcolor="0xFFFFFF" 
+			bgalpha="0.25" 
+			align="lefttop" 
+			width="100" 
+			y="-2" 
+			height="2" 
+			zorder="4"
+			visible="false" 
+			enabled="false" 
+		/>
+		
+		<layer name="skin_title"     
+			url="%SWFPATH%/plugins/textfield.swf" 
+			align="leftbottom" 
+			autoheight="true" 
+			alpha="1"
+			x="180" y="7" 
+			enabled="false" 
+			background="false" 
+			border="false" 
+			css="text-align:left; color:#ffffff; font-family:OpenSans, sans-serif; font-size:16px;" 
+			visible="true"
+			devices="!Mobile"
+			onloaded="
+				ifnot(device.desktop,
+					set(y, 7);
+				);
+			"
+		/>
+		
+		<!-- Этот слой должен быть в photo.xml, но оттуда он не отображается. -->
+		<layer 	
+			name="skin_photo_title"     
+			url="%SWFPATH%/plugins/textfield.swf" 
+			align="leftbottom" 
+			width="95%" 
+			height="32" 
+			autoheight="true" 
+			html=""
+			alpha="1"
+			x="0" y="-24" 
+			enabled="false" 
+			background="false" 
+			border="false" 
+			css="text-align:left; color:#ffffff; font-family:OpenSans, sans-serif; font-size:16px;" 
+			visible="true"
+			devices="desktop|tablet"
+			onloaded="
+				if(device.mobile,
+					set(css, 'text-align:left; color:#ffffff; font-family:OpenSans, sans-serif; font-weight:regular; font-size:26px;');
+					set(y, -44);
+				);
+			"
+		/>
+		
+		<layer 	
+			name="skin_photo_title"     
+			url="%SWFPATH%/plugins/textfield.swf" 
+			align="lefttop" 
+			height="32" 
+			autoheight="true" 
+			html=""
+			alpha="1"
+			x="0" y="0" 
+			enabled="false" 
+			background="true"
+			backgroundalpha="0.5"
+			border="false" 
+			css="text-align:left; color:#ffffff; font-family:OpenSans, sans-serif; font-size:28px; padding: 8px 8px 6px;" 
+			visible="true"
+			devices="mobile"
+		/>
+		
+		<!-- Указатель числа панорам и номера данной. -->
+		<layer 	name="skin_panocounter"     
+			url="%SWFPATH%/plugins/textfield.swf" 
+			align="leftbottom"
+			width="46" 
+			autoheight="true"  
+			
+			html="-/-"
+			alpha="1"
+			x="86" y="7" 
+			
+			enabled="false" 
+			background="false" 
+			border="false" 
+			css="text-align:center; color:#ffffff; font-family:OpenSans, sans-serif; font-size:16px;" 
+			visible="true"
+		/>
+		
+		<!-- Кнопка вызова ленты эскизов -->
+		<layer name="skin_btn_thumbs" 
+			url="skin_ap.png" 
+			crop="39|158|39|39"	
+			ondowncrop="78|158|39|39"	
+			align="left" 
+			x="16" y="0" 
+			scale="0.6"				
+			onclick="skin_showthumbs();" 
+			devices="tablet|mobile"
+		/>
+		
+		<!--	
+			tick_counter — это дурацкая переменная, которая отсчитывает вызовы событий onhover. В документации написано, что вызовы осуществляются со скорость 15 штук в секунду
+			tick_limit — это дурацкая переменная, с помощью которой задаётся временная задержка, после отсчёта которой будут вызваны полезные события onhover, а именно подсказки. Она прописывается индивидуально для каждого элемента интерфейса.
+			Счётчик обнуляется на событии onover.
+			После первого вызова полезных событий в onhover, задержка увеличивается втрое.
+		-->
+		
+		<layer name="skin_btn_thumbs" 
+			url="skin_ap.png" 
+			crop="141|166|22|22" 
+			ondowncrop="163|166|22|22" 
+			align="left" 
+			x="16" y="1"
+			tick_limit="5"
+			onover="
+				set(skin_settings.tick_counter, 0);
+			"			
+			onout="
+				set(tck, get(skin_settings.tick_counter));
+				if(tck GE tick_limit,
+					set(tick_limit, 30);
+				);				
+			"
+			onhover="
+				inc(skin_settings.tick_counter);
+				set(tck, get(skin_settings.tick_counter));
+				if(tck GE tick_limit,
+					showtext('Список панорам', style1);
+				);
+			"			
+			onclick="
+						delayedcall(0, layer[skin_thumbs].setcenter(0, 0));
+						skin_showthumbs();"			
+			devices="desktop"
+		/>
+		
+		<!-- Кнопка перехода на предыдущую панораму -->
+		<layer name="skin_btn_prev"   
+			url="skin_ap.png" 
+			crop="141|9|22|22"
+			ondowncrop="163|9|22|22"
+			align="left" 
+			x="52" y="0"
+			tick_limit="5"
+			onover="
+				set(skin_settings.tick_counter, 0);
+			"			
+			onout="
+				set(tck, get(skin_settings.tick_counter));
+				if(tck GE tick_limit,
+					set(tick_limit, 30);
+				);				
+			"
+			onhover="
+				inc(skin_settings.tick_counter);
+				set(tck, get(skin_settings.tick_counter));
+				if(tck GE tick_limit,
+					showtext(get(skin_settings.prev_pano_name), style1);
+				);
+			"
+			
+			onclick="
+				sub(idx, scene[get(xml.scene)].index, 1);
+				txtadd(layer[skin_thumbborder].parent, 'skin_thumb_', get(idx));
+				
+				skin_showthumbs(false);
+				delayedcall(0.25, skin_nextscene(-1););
+			"
+			devices="desktop"		
+		/>
+		
+		<!-- Кнопка перехода на следующую панораму -->
+		<layer name="skin_btn_next"   
+			url="skin_ap.png" 
+			crop="141|50|22|22" 
+			ondowncrop="163|50|22|22" 
+			align="left" 
+			x="146" y="0" 
+			tick_limit="5"
+			onover="
+				set(skin_settings.tick_counter, 0);
+			"			
+			onout="
+				set(tck, get(skin_settings.tick_counter));
+				if(tck GE tick_limit,
+					set(tick_limit, 30);
+				);				
+			"
+			onhover="
+				inc(skin_settings.tick_counter);
+				set(tck, get(skin_settings.tick_counter));
+				if(tck GE tick_limit,
+					showtext(get(skin_settings.next_pano_name), style1);
+				);
+			"
+			onclick="
+				add(idx, scene[get(xml.scene)].index, 1);
+				txtadd(layer[skin_thumbborder].parent, 'skin_thumb_', get(idx));
+				
+				skin_showthumbs(false);
+				delayedcall(0.25, skin_nextscene(+1););
+			"
+			devices="desktop"			
+		/>
+		
+		<layer name="skin_btn_prev"   
+			url="skin_ap.png" 
+			crop="39|2|39|39"
+			ondowncrop="78|2|39|39"
+			align="left" 
+			x="52" y="0"
+			scale="0.5"
+			onhover="showtext('Предыдущая панорама', style1);"
+			onclick="
+				sub(idx, scene[get(xml.scene)].index, 1);
+				txtadd(layer[skin_thumbborder].parent, 'skin_thumb_', get(idx));
+				
+				skin_showthumbs(false);
+				delayedcall(0.25, skin_nextscene(-1););
+			"
+			devices="tablet|mobile"
+		
+		/>
+		
+		<layer name="skin_btn_next"   
+			url="skin_ap.png" 
+			crop="39|41|39|39" 
+			ondowncrop="78|41|39|39" 
+			align="left" 
+			x="146" y="0" 
+			scale="0.5"
+			onhover="showtext('Следующая панорама', style1);"
+			onclick="
+				add(idx, scene[get(xml.scene)].index, 1);
+				txtadd(layer[skin_thumbborder].parent, 'skin_thumb_', get(idx));
+				
+				skin_showthumbs(false);
+				delayedcall(0.25, skin_nextscene(+1););
+			"
+			devices="tablet|mobile"			
+		/>
+		
+		<!-- Переключатель гироскопа. -->
+		<layer name="skin_btn_gyro"   
+			url="skin_ap.png" 
+			crop="1|275|48|48"  
+			align="right"      
+			x="54"  y="1"
+			scale="0.5"	
+			zorder="10"
+			zorder2="10"
+			alpha="0.35"
+			onclick="
+				switch(plugin[skin_gyro].enabled); 
+				set(layer[get(name)].crop, '96|275|48|48'); 
+				skin_btn_gyro_animate(get(plugin[skin_gyro].enabled));
+				set(skin_settings.auto_enable_gyro_flag, false);
+			"
+			visible="false" 
+			devices="tablet|mobile" 
+		/>
+		
+		<!-- Кнопка включения сценарного обзора -->
+		<layer name="skin_btn_view" 
+		
+			url="%SWFPATH%/plugins/textfield.swf"
+			children="false"
+			css="text-align:center; color:#ffffff; font-family:OpenSans, sans-serif; font-weight:regular; font-size:16px;"
+			vcenter="true"
+					
+			backgroundcolor="0x000000" backgroundalpha="0.0" border="false"
+			handcursor="true" capture="false" 
+			autowidth="true"
+			height="50"
+			html="[u]О[/u]бзор"
+			width="130"
+			visible="false"
+			
+			x="80" y="-2" 	
+			align="right"      
+			scale="0.5"
+			onclick="
+				skin_showthumbs(false); 
+				set(events[skin_events].onviewchange, ''); 
+				set(events[loadingpercent].onxmlcomplete, '');
+				set(layer[skin_title].alpha, 0);
+				
+				loadpano(get(skin_settings.tour_walkthrough_xml), null, MERGE, BLEND(1));
+			"
+			onloaded="
+				ifnot(device.desktop,
+					copy(usegyro, skin_settings.gyro);
+					if(usegyro,
+						set(width, 158);						
+						
+						if(device.tablet,
+							set(x, 120);
+							set(y, 0);
+						);
+						if(device.mobile,
+							set(x, 222);
+							set(height, 80);
+							set(y, -6);
+						);
+					,
+						set(x, 38);
+					);	
+				);
+				if(device.mac,
+					set(x, 156);
+				);
+				
+				set(flag, get(skin_settings.skin_btn_view_visibility_flag));
+				if(flag != null,
+					if(flag, 
+						set(visible, true);
+					);
+				);
+			"
+		/>
+		
+		<!-- Кнопка отображения текстового описания -->
+		<layer name="skin_btn_desc" 			
+			url="skin_ap.png" 
+			crop="141|448|22|22" 
+			ondowncrop="163|448|22|22" 
+			visible="false"
+			align="right"      
+			x="50"  y="0"	
+			tick_limit="5"		
+			
+			onover="
+				set(skin_settings.tick_counter, 0);
+			"	
+			
+			onout="
+				set(tck, get(skin_settings.tick_counter));
+				if(tck GE tick_limit,
+					set(tick_limit, 30);
+				);				
+			"
+			
+			onhover="
+				inc(skin_settings.tick_counter);
+				set(tck, get(skin_settings.tick_counter));
+				if(tck GE tick_limit,
+					showtext('Описание', style1);
+				);
+			"
+			
+			onclick="
+				set(layer[scrolltextwindow].visible, true);
+				set(scrolltextwindow.viewfov, get(view.fov));
+				
+				for(set(i, 0), i LT hotspot.count, inc(i),
+					set(hotspot[get(i)].enabled, false);
+				);
+			"
+			onloaded="
+				set(flag, get(skin_settings.skin_btn_desc_visibility_flag));
+				if(flag != null,
+					if(flag,
+						ifnot(device.mobile,
+							set(visible, true);
+						);
+					);
+				);
+				ifnot(device.desktop,
+					copy(usegyro, skin_settings.gyro);
+					set(y, 1.5);
+					if(usegyro, 
+						set(x, 96);
+						,
+						set(x, 50);
+					);	
+				);
+				if(device.mac,
+					set(x, 132);
+				);
+			"
+			devices="desktop"
+		/>
+		
+		<!-- js(openPopup('Описание', get(skin_settings.descr_url), 75%, 75%, 'iframe')); -->
+		<layer name="skin_btn_desc" 			
+			url="skin_ap.png" 
+			crop="39|440|39|39" 
+			ondowncrop="78|440|39|39" 
+			visible="false"
+			align="right"      
+			x="50"  y="0"	
+			scale="0.6"
+			
+			onclick="
+				set(layer[scrolltextwindow].visible, true);
+			"
+			onloaded="
+				set(flag, get(skin_settings.skin_btn_desc_visibility_flag));
+				if(flag != null,
+					if(flag,
+						ifnot(device.mobile,
+							set(visible, true);
+						);
+					);
+				);
+				ifnot(device.desktop,
+					copy(usegyro, skin_settings.gyro);
+					set(y, 1.5);
+					if(usegyro, 
+						set(x, 96);
+						,
+						set(x, 50);
+					);	
+				);
+				if(device.mac,
+					set(x, 132);
+				);
+			"
+			devices="tablet"
+		/>
+		
+		<!-- Кнопка приближения (только для Mac) -->
+		<layer name="skin_btn_in"     
+			url="skin_ap.png" 
+			crop="141|244|22|22"		
+			ondowncrop="163|244|22|22"		
+			align="right"      
+			x="94"  y="0"			
+			ondown="set(fov_moveforce,-0.25);" 
+			onup="set(fov_moveforce,0);"
+			tick_limit="5"
+			onover="
+				set(skin_settings.tick_counter, 0);
+			"			
+			onout="
+				set(tck, get(skin_settings.tick_counter));
+				if(tck GE tick_limit,
+					set(tick_limit, 30);
+				);				
+			"
+			onhover="
+				inc(skin_settings.tick_counter);
+				set(tck, get(skin_settings.tick_counter));
+				if(tck GE tick_limit,
+					showtext('Приблизить', style1);
+				);
+			"
+			devices="mac"
+		/>
+		
+		<!-- Кнопка отдаления (только для Mac) -->
+		<layer name="skin_btn_ou"     
+			url="skin_ap.png" 
+			crop="141|205|22|22"
+			ondowncrop="163|205|22|22"
+			align="right"
+			x="56" y="1"
+			tick_limit="5"
+			onover="
+				set(skin_settings.tick_counter, 0);
+			"			
+			onout="
+				set(tck, get(skin_settings.tick_counter));
+				if(tck GE tick_limit,
+					set(tick_limit, 30);
+				);				
+			"
+			onhover="
+				inc(skin_settings.tick_counter);
+				set(tck, get(skin_settings.tick_counter));
+				if(tck GE tick_limit,
+					showtext('Отдалить', style1);
+				);
+			"
+			ondown="set(fov_moveforce,+0.25);" 
+			onup="set(fov_moveforce,0);"
+			devices="mac"
+		/>
+		
+		<!-- Кнопка переключения экранного режима -->
+		<layer name="skin_btn_fs"     
+			url="skin_ap.png"
+			crop="141|128|22|22"
+			ondowncrop="163|128|22|22"
+			align="right"      
+			x="16"  y="0"
+			tick_limit="5"
+			onover="
+				set(skin_settings.tick_counter, 0);
+			"			
+			onout="
+				set(tck, get(skin_settings.tick_counter));
+				if(tck GE tick_limit,
+					set(tick_limit, 30);
+				);				
+			"
+			onhover="
+				inc(skin_settings.tick_counter);
+				set(tck, get(skin_settings.tick_counter));
+				if(tck GE tick_limit,
+					showtext(get(caption), style1);
+				);
+			"
+			
+			onloaded="
+				if(fullscreen,
+					set(crop, '141|88|22|22');
+				);
+			"
+			
+			caption="Переключить в полноэкранный режим"
+			onclick="switch(fullscreen);"			
+			devices="desktop"
+		/>	
+
+		<layer name="skin_btn_fs"     
+			url="skin_ap.png"
+			crop="39|119|39|39"
+			ondowncrop="78|119|39|39"
+			align="right"      
+			x="16"  y="0"
+			scale="0.6"
+			
+			onloaded="
+				if(fullscreen,
+					set(crop, '39|80|39|39');
+				);
+			"
+			
+			onclick="switch(fullscreen);"			
+			devices="tablet|mobile"
+		/>			
+	
+	</layer>
+	
+	<layer name="skin_thumbborder" scale="0.5" keep="true" url="vtourskin_thumbborder.png" visible="false" enabled="false" align="lefttop" ox="-1" oy="-1" />
+	
+	<!-- Пока выставлен флаг, рекурсивно гоняет анимацию кнопки -->
+	<action name="skin_btn_gyro_animate">
+		switch(layer[skin_btn_gyro].crop, '96|275|48|48', '48|275|48|48');
+		if(%1, 
+			delayedcall(gyro_animate, 1.25, skin_btn_gyro_animate(true));
+			,
+			stopdelayedcall(gyro_animate);
+			set(layer[skin_btn_gyro].crop, '0|275|48|48'); 
+		);
+	</action>
+	
+	<!-- Изменения в коде этой функции могут привести к непредсказуемому поведению вызова loadscene -->
+	<action name="skin_startup">		
+		skin_onresize();
+		skin_updatescroll();
+		
+		txtadd(color_0x, '0x', get(skin_settings.skin_background_color));
+			
+		set(layer[loadingpercent_text].backgroundcolor, get(color_0x));	
+		set(layer[loadingpercent_text].backgroundalpha, get(skin_settings.skin_background_alpha));	
+		
+		for(set(i, 0), i LT hotspot.count, inc(i),
+			set(hotspot[get(i)].backgroundcolor, get(color_0x));
+			set(hotspot[get(i)].backgroundalpha, get(skin_settings.skin_background_alpha));	
+		);
+		
+		set(layer[skin_scroll_container].bgcolor, get(color_0x));	
+		set(layer[skin_control_bar].bgcolor, get(color_0x));
+		
+		if(device.mobile,
+			set(layer[skin_photo_title].backgroundcolor, get(color_0x));
+		);
+		
+		set(layer[skin_scroll_container].bgalpha, get(skin_settings.skin_background_alpha));	
+		set(layer[skin_control_bar].bgalpha, get(skin_settings.skin_background_alpha));	
+		
+		set(textstyle[style1].backgroundcolor, get(color_0x));
+		set(textstyle[style1].alpha, get(skin_settings.skin_background_alpha));
+		txtadd(textstyle[style1].textcolor, '0x', get(skin_settings.skin_text_color));		
+	
+	
+		copy(usegyro, skin_settings.gyro);
+		if(isdesktop, set(usegyro, false));
+		if(isflash, set(usegyro, false));
+		if(usegyro, copy(plugin[skin_gyro].url, plugin[skin_gyro].html5_url); );
+
+		if(skin_settings.bingmaps == true,
+			set(layer[skin_btn_map].visible, true);
+			copy(layer[skin_map].key, skin_settings.bingmaps_key);
+			if(isflash, 
+				copy(layer[skin_map].url, layer[skin_map].flash_url);
+			, 
+				copy(layer[skin_map].url, layer[skin_map].html5_url);
+			);
+		);
+	</action>
+
+	<!-- Добавление эскизов в ленту -->
+	<action name="skin_addthumbs">
+		copy(thumbwidth, skin_settings.thumbswidth);
+		copy(thumbheight, skin_settings.thumbsheight);
+		copy(thumbpadding, skin_settings.thumbspadding);
+		copy(thumbcrop, skin_settings.thumbscrop);
+
+		if(device.mobile,
+			mul(thumbwidth, 1.5);
+			mul(thumbheight,1.5);
+			mul(thumbpadding, 1.5);
+		);
+
+		add(thumbxoffset, thumbwidth, thumbpadding);
+		mul(thumbxcenter, thumbxoffset, 0.5);
+		mul(thumbbarwidth, thumbxoffset, scene.count);
+		add(thumbbarwidth, thumbpadding);
+		add(thumbbarheight, thumbpadding, thumbheight);
+		add(thumbbarheight, thumbpadding);
+		
+		if(device.mobile, 
+			set(layer[skin_thumbs].height, 344);
+			if(device.windows,
+				sub(layer[skin_thumbs].height, 29);
+			);
+		,
+			copy(layer[skin_thumbs].height, thumbbarheight);
+			sub(layer[skin_thumbs].height, 18);
+		);
+		copy(layer[skin_thumbs].width, thumbbarwidth);
+
+		for(set(i,0), i LT scene.count, inc(i),
+			txtadd(thumbname,'skin_thumb_',get(i));
+			addlayer(get(thumbname));
+			copy(layer[get(thumbname)].url, scene[get(i)].thumburl);
+			set(layer[get(thumbname)].keep, true);
+			set(layer[get(thumbname)].parent, 'skin_thumbs');
+			set(layer[get(thumbname)].align, lefttop);
+			copy(layer[get(thumbname)].crop, thumbcrop);
+			copy(layer[get(thumbname)].width, thumbwidth);
+			copy(layer[get(thumbname)].height, thumbheight);
+			mul(thumbx, i, thumbxoffset);
+			add(thumbx, thumbpadding);
+			copy(layer[get(thumbname)].x, thumbx);
+			copy(layer[get(thumbname)].y, thumbpadding);
+			add(scene[get(i)].thumbx, thumbx, thumbxcenter);
+			copy(scene[get(i)].thumby, thumbpadding);
+			set(layer[get(thumbname)].linkedscene, get(scene[get(i)].name) );			
+			set(layer[get(thumbname)].onclick, 
+				copy(shown_flag, scene[get(linkedscene)].shown);
+				if(shown_flag === null,
+					set(scene[get(linkedscene)].shown, true);
+					
+					copy(i, scene[get(linkedscene)].index);
+					txtadd(thumb_caption,'skin_thumb_caption', get(i));
+					txtadd(layer[get(thumb_caption)].html, get(layer[get(thumb_caption)].html), ' [b]✓[/b]');
+				);
+				copy(layer[skin_thumbborder].parent, name); 
+				delayedcall(0.35, 
+					skin_showthumbs(false,
+						loadscene(get(linkedscene), null, MERGE, BLEND(0.5)); 
+					);
+				);
+			);
+			set(layer[get(thumbname)].onover, set(layer[skin_title].html, get(scene[get(linkedscene)].title)));	
+			
+			set(layer[get(thumbname)].ondown, set(layer[skin_thumbs].onhover_autoscrolling, false));
+			
+			txtadd(thumb_caption,'skin_thumb_caption',get(i));
+			addlayer(get(thumb_caption));
+			set(layer[get(thumb_caption)].keep, true);
+			set(layer[get(thumb_caption)].visible, false);
+			set(layer[get(thumb_caption)].url, '%SWFPATH%/plugins/textfield.swf');
+			set(layer[get(thumb_caption)].parent, get(thumbname));
+			set(layer[get(thumb_caption)].html, get(scene[get(i)].title));			
+			set(layer[get(thumb_caption)].align, 'leftbottom');			
+			set(layer[get(thumb_caption)].background, 'true');					
+			set(layer[get(thumb_caption)].autoheight, 'true');					
+			set(layer[get(thumb_caption)].backgroundcolor, get(color_0x));			
+			set(layer[get(thumb_caption)].backgroundalpha, '0.35');				
+			set(layer[get(thumb_caption)].border, 'false');					
+			set(layer[get(thumb_caption)].x, '0');			
+			set(layer[get(thumb_caption)].y, '0');			
+			set(layer[get(thumb_caption)].width, '222');
+			
+			set(layer[get(thumb_caption)].css, 'text-align:left; color:#ffffff; font-family:OpenSans, sans-serif; font-size:16px; text-indent:14;padding: 6px 8px 6px;');
+			
+			if(device.mobile,
+				set(layer[get(thumb_caption)].css, 'text-align:left; color:#ffffff; font-family:OpenSans, sans-serif; font-size:26px; text-indent:14;padding: 6px 8px 6px;');
+				
+				set(layer[get(thumb_caption)].width, '342');
+			);
+
+			if(device.desktop,
+				txtadd(hs_thumb_caption,'hotspot_thumb',get(i));
+				addlayer(get(hs_thumb_caption));
+				set(layer[get(hs_thumb_caption)].keep, true);
+				set(layer[get(hs_thumb_caption)].parent, 'hs_thumb_container');
+				set(layer[get(hs_thumb_caption)].align, 'left');	
+				set(layer[get(hs_thumb_caption)].x, '10');			
+				set(layer[get(hs_thumb_caption)].y, '0');
+				set(layer[get(hs_thumb_caption)].alpha, '0');
+				set(layer[get(hs_thumb_caption)].width, '250');				
+				set(layer[get(hs_thumb_caption)].height, '160');
+				copy(layer[get(hs_thumb_caption)].url, scene[get(i)].thumburl);
+			);
+		);
+	</action>
+	
+	<action name="skin_updatethumbscroll">
+		copy(padding,skin_settings.thumbs_padding);
+		if(device.mobile, mul(padding,2));
+		
+		if(loverflow GT 0, set(layer[skin_thumbs_scrollleft].visible,true),  set(layer[skin_thumbs_scrollleft].visible,false) );
+		if(roverflow GT 0, set(layer[skin_thumbs_scrollright].visible,true), set(layer[skin_thumbs_scrollright].visible,false) );
+		
+		if(woverflow GT 0,
+			sub(iw,pixelwidth,woverflow);
+			div(pw,iw,pixelwidth);
+			div(px,loverflow,woverflow);
+			mul(pw,iw);
+			copy(layer[skin_thumbs_scrollindicator].width,pw);
+			sub(iw,pw);
+			sub(iw,padding);
+			sub(iw,padding);
+			mul(px,iw);
+			add(px,padding);
+			copy(layer[skin_thumbs_scrollindicator].x,px);
+		  );
+		
+	</action>
+
+	<!-- Ванильный функционал добавления точек на карту -->
+	<action name="skin_addmapspots">
+		for(set(i,0), i LT scene.count, inc(i),
+			if(scene[get(i)].lat,
+				txtadd(spotname, 'spot', get(i));
+				txtadd(spotevent, 'activatespot(',get(spotname),'); loadscene(', get(scene[get(i)].name), ',null,MERGE,BLEND(1)); skin_updatescroll(); delayedcall(0.5,skin_showmap(false));');
+				copy(scene[get(i)].mapspotname, spotname);
+				addspot(get(spotname), get(scene[get(i)].lat), get(scene[get(i)].lng), get(scene[get(i)].heading), false, get(spotevent));
+			  );
+		  );
+		activatespot(spot0);
+		zoomToSpotsExtent();
+	</action>
+
+	<!-- Ванильный функционал -->
+	<action name="skin_onresize">
+		mul(mh, stageheight, -1);
+		if(layer[skin_thumbs].state == 'opened', 
+			add(mh, layer[skin_thumbs].height);
+			if(device.mobile,
+				ifnot(device.windows,
+					sub(mh, 29);
+				);
+			);
+		);
+		if(layer[skin_map].state == 'opened', 
+			sub(hh,stageheight,20); 
+			sub(hh,layer[skin_control_bar].height); 
+			sub(hh,32); 
+			copy(layer[skin_map].height, hh); 
+			add(mh,hh); 
+		);
+		set(layer[skin_scroll_layer].y, get(mh));
+	</action>
+
+	<!-- Ванильный функционал -->
+	<action name="skin_updatescroll">
+		if(layer[skin_thumbs].loaded,
+			set(cursceneindex, 0);
+			if(xml.scene, copy(cursceneindex, scene[get(xml.scene)].index));
+			layer[skin_thumbs].setcenter(get(scene[get(cursceneindex)].thumbx), get(scene[get(cursceneindex)].thumby));
+		  );
+	</action>
+	
+	<!-- Ванильный функционал -->
+	<action name="skin_update_scene_infos">
+		set(layer[skin_title].html, get(scene[get(xml.scene)].title));
+		delayedcall(0.25, tween(layer[skin_title].alpha, 1, 0.25));
+
+		if(scene[get(xml.scene)].index GT 0,
+			set(layer[skin_btn_prev].enabled, true);
+			set(layer[skin_btn_prev].alpha, 1.0);
+		  ,
+			set(layer[skin_btn_prev].enabled, false);
+			set(layer[skin_btn_prev].alpha, 0.3);
+		  );
+
+		sub(lastsceneindex, scene.count, 1);
+		if(scene[get(xml.scene)].index LT lastsceneindex,
+			set(layer[skin_btn_next].enabled, true);
+			set(layer[skin_btn_next].alpha, 1.0);
+		  ,
+			set(layer[skin_btn_next].enabled, false);
+			set(layer[skin_btn_next].alpha, 0.3);
+		  );
+
+		txtadd(layer[skin_thumbborder].parent, 'skin_thumb_', get(scene[get(xml.scene)].index));
+		set(layer[skin_thumbborder].visible, true);
+
+		if(scene[get(xml.scene)].mapspotname,
+			layer[skin_map].activatespot(get(scene[get(xml.scene)].mapspotname));
+			layer[skin_map].pantospot(get(scene[get(xml.scene)].mapspotname));
+		  );
+	</action>
+
+	<!-- Ванильный функционал -->
+	<action name="skin_nextscene">
+		add(newsceneindex, scene[get(xml.scene)].index, %1);
+		if(newsceneindex GE 0,
+			if(newsceneindex LT scene.count,
+				if(device.iphone,
+					set(layer[skin_title].y, 0);
+				);
+				txtadd(layer[skin_thumbborder].parent, 'skin_thumb_', get(scene[get(xml.scene)].index));
+				layer[skin_thumbs].scrolltocenter(get(scene[get(newsceneindex)].thumbx), get(scene[get(newsceneindex)].thumby));
+				loadscene(get(newsceneindex), null, MERGE, BLEND(0.5));
+			  );
+		  );
+	</action>
+
+	<!-- Ванильный функционал -->
+	<action name="skin_buttonglow">
+		if(%1 != null,
+			set(layer[skin_buttonglow].parent, %1);
+			set(layer[skin_buttonglow].visible, true);
+			tween(layer[skin_buttonglow].alpha, 0.7, 0.07);
+		  ,
+			tween(layer[skin_buttonglow].alpha, 0.0, 0.1, default, set(layer[skin_buttonglow].parent, null); set(layer[skin_buttonglow].visible, false); );
+		  );
+	</action>
+
+	<!-- Ванильный функционал -->
+	<action name="skin_hideskin">
+		if(layer[skin_map].state != 'hidden', skin_showmap(false); wait(0.4); );
+		if(layer[skin_thumbs].state != 'hidden', skin_showthumbs(false); wait(0.25); );
+
+		tween(layer[skin_scroll_window].y, get(layer[skin_scroll_window].y_hidden), 0.5, easeOutQuint);
+		tween(layer[skin_control_bar].y, get(layer[skin_control_bar].y_hidden), 0.5, easeOutQuint);
+
+		set(layer[skin_btn_show].visible,true);
+		tween(layer[skin_btn_show].alpha, 1, 0.25, easeOutQuint);
+	</action>
+
+	<!-- Ванильный функционал -->
+	<action name="skin_showskin">
+		tween(layer[skin_scroll_window].y, get(layer[skin_scroll_window].y_shown), 0.5, easeOutQuint);
+		tween(layer[skin_control_bar].y, get(layer[skin_control_bar].y_shown), 0.5, easeOutQuint);
+
+		set(layer[skin_btn_show].visible,false);
+		tween(layer[skin_btn_show].alpha,0,0);
+	</action>
+
+	<!-- Функция отображения эскизов -->
+	<action name="skin_showthumbs">
+		if(%1 == null, 
+			if(layer[skin_thumbs].state == 'closed', 
+				set(show,true);
+			, 
+				set(show,false);
+			); 
+		, 
+			set(show, %1); 
+		);
+		mul(mh, layer[skin_scroll_layer].pixelheight, -1);
+		
+		if(layer[skin_scroll_layer].y == -100%, copy(layer[skin_scroll_layer].y,mh));
+		
+		if(device.iphone,
+			if(device.safari,
+				sub(mh, 29);
+			);
+		);		
+		
+		if(show,
+			if(layer[skin_thumbs].state == 'closed', 
+				set(layer[skin_thumbs].state, 'opened');
+				add(mh, layer[skin_thumbs].height);
+				
+				tween(layer[skin_scroll_layer].y, get(mh), 0.25, easeInOutQuad,
+					if(device.iphone,
+						set(layer[skin_title].alpha, 0);
+						set(layer[skin_title].y, 0);
+					);
+				);
+				set(layer[skin_thumbs].visible, true);
+				set(layer[skin_thumbs_scrollindicator].visible, true);
+
+				for(set(i,0), i LT scene.count, inc(i),
+					txtadd(thumb_caption,'skin_thumb_caption',get(i));
+					set(layer[get(thumb_caption)].visible, true);
+				);
+		
+				tween(layer[skin_map].alpha, 0.0, 0.25, default, set(layer[skin_map].visible,false));
+			);
+		,
+			if(layer[skin_thumbs].state == 'opened', 
+				set(layer[skin_thumbs].state, 'closed');
+				set(layer[skin_thumbs_scrollindicator].visible, false);
+				
+				tween(layer[skin_scroll_layer].y, get(mh), 0.25, easeInOutQuad, 
+					delayedcall(0.1, %2);
+					if(device.iphone,
+						if(%2 == null,
+							set(layer[skin_title].y, -30);
+							delayedcall(0.1, tween(layer[skin_title].alpha, 1, 0.1););
+						,
+							set(layer[skin_title].alpha, 0);
+						);
+					);
+				);
+			);
+		);
+	</action>
+
+	<!-- Ванильный функционал -->
+	<action name="skin_showmap">
+		if(%1 == null, if(layer[skin_map].state == 'hidden', set(show,true), set(show,false)); , set(show,%1); );
+		mul(mh, layer[skin_scroll_layer].pixelheight, -1);
+		if(layer[skin_scroll_layer].y == -100%, copy(layer[skin_scroll_layer].y,mh));
+		if(show,
+			tween(layer[skin_logo].alpha, 0.0, 0.25, default, set(layer[skin_logo].visible,false));
+			tween(layer[skin_thumbs].alpha, 0.0, 0.25, default, set(layer[skin_thumbs].visible,false));
+			set(layer[skin_map].visible, true);
+			tween(layer[skin_map].alpha, 1.0, 0.25);
+			set(layer[skin_map].state, 'opened');
+			sub(hh,stageheight,20);
+			sub(hh,layer[skin_control_bar].height);
+			sub(hh,32);
+			add(mh,hh);
+			copy(layer[skin_map].height, hh);
+			tween(layer[skin_scroll_layer].y, get(mh), 0.5, easeOutQuint);
+		  ,
+			set(layer[skin_map].state, 'hidden');
+			set(layer[skin_logo].visible, true); tween(layer[skin_logo].alpha, 1.0, 0.25);
+			tween(layer[skin_scroll_layer].y, get(mh), 0.5, easeOutQuint, 
+				set(layer[skin_map].visible,false) 
+			);
+		  );
+	</action>
+</krpano>
