@@ -20,8 +20,8 @@ html, hmtl a {
 }
 
 body{
-	background:#fff;
-	color:#4a5666;
+	background:#FFFFFF;
+	color:#323A45;
 	font-weight:300;
 	font-size:16px;
 	font-family: 'Open Sans', sans-serif;
@@ -30,7 +30,7 @@ body{
 
 
 a{
-	color:#4a5666;
+	color:#323A45;
 	font-weight: 600;
 	text-decoration: none;
 	cursor: pointer;
@@ -237,7 +237,7 @@ h4,
 h5,
 h6{
 	margin:0 0 20px 0;
-	color:#4a5666;
+	color:#323A45;
 	font-weight:300;
 	font-family: 'Open Sans', sans-serif;
 	line-height:1.5em;
@@ -267,10 +267,9 @@ h6{
 	font-size:16px;
 }
 
-h2 a{
-	font-weight:200;
+h2 a {
+	font-weight:300;
 }
-
 
 /* ==================================================
    Margin Bottom Sets
@@ -341,7 +340,7 @@ header {
 header #logo a {
 	color: #FFFFFF;
 	font-size: 28px;
-	font-weight: 400;
+	font-weight: 600;
 	text-transform: uppercase;
 	line-height: 68px;
 	letter-spacing: -0.6px;
@@ -624,21 +623,13 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 ================================================== */
 
 #slider {
-	margin:0;
+	margin-top: 18px;	
 }
 
 .fullwidthbanner-container{
 	width: 100%;
 	position: relative;
 	max-height: 700px;
-	overflow: hidden;
-}
-
-.smallbanner-container{
-	width: 100%;
-	margin-top: 104px;
-	position: relative;
-	max-height: 500px;
 	overflow: hidden;
 }
 
@@ -807,10 +798,10 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 	color: #FFFFFF;
 	text-shadow: none;
 	font-weight: 300;
-	font-size: 30px;
+	font-size: 40px;
 	line-height: 40px;
-	padding: 10px 15px 10px;
-	margin-left:100px;
+	padding: 15px 15px 15px;
+	margin-left:150px;
 	border-width: 0px;
 	border-style: none;
 	white-space:nowrap;
@@ -824,10 +815,10 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 	color: #FFFFFF;
 	text-shadow: none;
 	font-weight: 300;
-	font-size: 24px;
+	font-size: 30px;
 	line-height: 30px;
-	padding: 8px 12px 8px;
-	margin-left:100px;
+	padding: 15px 15px 15px;
+	margin-left:150px;
 	border-width: 0px;
 	border-style: none;
 	white-space:nowrap;
@@ -874,10 +865,10 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 	color: #FFFFFF;
 	text-shadow: none;
 	font-weight: 200;
-	font-size: 24px;
+	font-size: 30px;
 	line-height: 30px;
-	padding: 8px 12px 8px;
-	margin-left:100px;
+	padding: 15px 15px 15px;
+	margin-left:150px;
 	border-width: 0px;
 	border-style: none;
 	white-space:nowrap;
@@ -888,7 +879,7 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 
 .tp-caption.custom_text_link_small a {
 	color:#F97E76;	
-	font-weight: 400;
+	font-weight: 200;
 }
 
 .tp-caption.custom_text_link_small a:hover {
