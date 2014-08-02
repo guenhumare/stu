@@ -32,6 +32,8 @@
 
 :services-box
 
+<div id="shadow"></div>
+
 <div id="content">
     <!-- Start Section Portfolio Projects -->
     <section id="portfolio" class="container">
@@ -63,37 +65,59 @@ endforeach
         </div>
 		
 		<div class="span12">
-				<center><h2><a href="/tours/gallery">Полная галерея</a></h2></center>
-			</div>
+				<center style="margin-left:-60px;"><h2><a href="/tours/gallery" target="_blank">Посмотреть всю галерею</a></h2></center>
+		</div>
 		
 		:tours-calc
-		
-		<div class="container">
-			<div class="span10" style="background-color: #f7f8f9; padding:20px; margin-top:50px; margin-bottom:50px; width:auto;">
-				<div class="span5" style="margin-right:20px;">
-					<h2>@header4</h2>
-					<h3>@row1</h3>
-				</div>
-				<div class="span4" style="width:340px; margin-right:20px;">
-					<h3>Заказжите пробную панораму</h3>
-					<form id="contact-form" class="contact-form" action="/app/feedback.php" >
-						<p>
-							<input id="contact_name" type="text" placeholder="Имя" value="" name="name" />
-						</p>
-						<p>
-							<input id="contact_tel" type="text" placeholder="Контактный телефон" value="" name="telephone" />
-						</p>
-						<p class="contact-submit">
-							<a id="contact-submit" class="submit" href="#">Отправить</a>
-						</p>
-
-						<div id="response"></div>
-					</form>
-				</div>
-			</div>
-		</div>
     </section>
     <!-- End Section Portfolio Projects -->
+</div>
+
+<section id="clients" style="margin:20px 0 30px 0">
+	<div class="container">
+	<h4>Наши клиенты:</h4>
+    	<div class="row">
+        	<div class="span2"><img src="@logo1"/></div>
+        	<div class="span2"><img src="@logo2"/></div>
+        	<div class="span2"><img src="@logo3"/></div>
+        	<div class="span2"><img src="@logo4"/></div>
+        	<div class="span2"><img src="@logo5"/></div>
+        	<div class="span2"><img src="@logo6"/></div>
+       </div>
+    </div>   
+</section>
+
+<div id="submitform">
+	<a title="Close" class="fancybox-item fancybox-close" onclick="HideSubmitForm('submitform');" href="javascript:void(0);"><i class="font-icon-remove"></i></a>
+	<h3><b>Заказать точный расчет<b></h3>
+	<form id="contact-form" class="contact-form" action="/app/feedback.php">
+		<p>
+			<input id="contact_name" type="text" placeholder="Имя" value="" name="name" />
+		</p>
+		<p>
+			<input id="contact_email" type="text" placeholder="E-mail" value="" name="email" />
+		</p>
+		<p>
+			<input id="contact_tel" type="text" placeholder="Контактный телефон" value="" name="telephone" />
+		</p>
+		<p>
+			<select id="contact_way" name="way">
+				<option value="" disabled selected>Предпочтительный способ связи</option>
+				<option value="email">Связаться по e-mail</option>
+				<option value="telephone">Связаться по телефону</option>
+			</select>
+		</p>
+		<p>
+			<textarea id="contact_message"
+					  placeholder="Опишите детально ваш проект, и мы обязательно свяжемся с вами"
+					  name="message" rows="3" cols="20"></textarea>
+		</p>
+		<p class="contact-submit"">
+			<a id="contact-submit" class="submit" href="#">Отправить</a>
+		</p>
+
+		<div id="response"></div>
+	</form>
 </div>
 
 :twitter-feed
@@ -113,8 +137,8 @@ endforeach
 <script type="text/javascript">
     function panoPrice(count) {
         if (count <= 9)  return 2500;
-        if (count <= 19) return 2000;
-		if (count >= 20) return 1800;
+        if (count <= 19) return 2250;
+		if (count >= 20) return 2000;
         return 2000;
     }
 
@@ -180,6 +204,30 @@ endforeach
 
         recalculate();
     });
+	
+	function ShowSubmitForm(sform)
+	{
+		// hide background
+		if(document.getElementById('shadow')!=null) {
+			document.getElementById('shadow').style.display="block";
+		}
+			
+		if(document.getElementById(sform)!=null) {
+			document.getElementById(sform).style.display="block";
+		}
+	}
+	
+	function HideSubmitForm(sform)
+	{	
+		
+		if(document.getElementById('shadow')!=null) {
+			document.getElementById('shadow').style.display="none";
+		}
+			
+		if(document.getElementById(sform)!=null) {
+			document.getElementById(sform).style.display="none";
+		}
+	}
 </script>
 
 </body>
