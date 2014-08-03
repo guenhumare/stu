@@ -1467,14 +1467,17 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 #contact-form .submit {
     background: #323A45;
     color: #FFFFFF;
+	
 	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
-    border-radius: 2px;
+	   -moz-border-radius: 2px;
+            border-radius: 2px;
+			
     cursor: pointer;
     display: inline-block;
     font-size: 18px;
     font-weight: 500;
-    padding: 10px 40px;
+    padding: 10px 20px;
+	margin-right:20px;
     text-align: center;
     vertical-align: middle;
     width: auto;
@@ -1498,12 +1501,48 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 	margin-bottom: 10px;	
 }
 
-#submitform{
+/* ==================================================
+   Air Forms
+================================================== */
+
+#air-submit-form{
 	position:fixed;
 	top:75px;
 	left:50%;
+	top:50%;
 	width:400px;
-	margin-left:-230px;
+	margin-left:-200px;
+	margin-top:-319px;
+	padding:20px 40px;
+	text-align:left;
+	background:#ffffff;
+	z-index:10000;
+	display:none;
+}
+
+#air-calc-form{
+	position:fixed;
+	top:75px;
+	left:50%;
+	top:50%;
+	width:620px;
+	margin-left:-350px;
+	margin-top:-226px;
+	padding:20px 40px;
+	text-align:left;
+	background:#ffffff;
+	z-index:10000;
+	display:none;
+}
+
+#air-freepano-form{
+	position:fixed;
+	top:75px;
+	left:50%;
+	top:50%;
+	width:460px;
+	margin-left:-270px;
+	margin-top:-226px;
 	padding:20px 40px;
 	text-align:left;
 	background:#ffffff;
@@ -1521,6 +1560,40 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 	height:100%;
 	z-index:9999;
 	display:none;
+}
+
+.airform-close {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+	z-index: 9000;
+	background-image: none;
+	background-color: #26292E;
+	
+	opacity: 0.5;
+	
+	-webkit-transition: background 0.1s linear 0s, opacity 0.1s linear 0s;	
+	   -moz-transition: background 0.1s linear 0s, opacity 0.1s linear 0s;
+		 -o-transition: background 0.1s linear 0s, opacity 0.1s linear 0s;
+		    transition: background 0.1s linear 0s, opacity 0.1s linear 0s;
+}
+
+.airform-close i {
+	left: 50%;
+	top: 50%;
+	margin: -11px 0 0 -11px;
+	font-size: 22px;
+	line-height: 1em;
+	position: absolute;
+	color: #FFFFFF;
+}
+
+.airform-close:hover {
+	opacity: 1;
+	background-color:#F97E76;
 }
 
 /* ==================================================
@@ -3091,7 +3164,7 @@ footer.footer-widgets .flickr-list ul li a:hover i {
     color: #606060;
     font-size: 16px;
     height: auto;
-    padding: 5px;
+    padding: 15px;
 
     resize: none;
     width: 100%;
@@ -3157,7 +3230,7 @@ footer.footer-widgets .flickr-list ul li a:hover i {
     display: inline-block;
     font-size: 18px;
     font-weight: 500;
-    padding: 10px 40px;
+    padding: 10px 20px;
     text-align: center;
     vertical-align: middle;
     width: auto;

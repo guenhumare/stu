@@ -1,54 +1,49 @@
 <!-- Tour Calculator -->
-<section id="tour-calc">
-	<div class="container">
-		<div class="row margin-50" style="margin-top: 30px; background-color: #f7f8f9;">
-			<div class="span6" style="padding:40px; width:auto;">
-				<h3><b>Примерный расчет стоимости тура</b></h3>
-				<form id="calculator" onsubmit="return false;">
-					<div class="row">
-						<div class="span4">
-							<p class="input-row"><b>Количество панорам:&#42;</b></p>
-							<p class="input-row">Скидка 10% при заказе от 10 до 20 панорам</p>
-							<p class="input-row">Скидка 20% при заказе от 20 панорам</p>
-							<div style="font-size: small; margin-top: 20px">
-								<sup>*</sup> Обычно равно количеству помещений, комнат или точек обзора в открытом пространстве.
-							</div>
+<section id="tour-calc">	
+	<div class="row margin-50" style="margin-top: 80px; background-color: #f7f8f9;">
+		<div class="span6" style="padding:40px; width:auto; margin:0;">
+			<h3><b>Примерный расчет стоимости тура</b></h3>
+			<form id="calculator" onsubmit="return false;">
+				<div class="row">
+					<div class="span4">
+						<p class="input-row"><b>Количество панорам:&#42;</b></p>
+						<p class="input-row">Скидка 10% при заказе от 10 до 20 панорам</p>
+						<p class="input-row">Скидка 20% при заказе от 20 панорам</p>
+						<div style="font-size: small; margin-top: 20px">
+							<sup>*</sup> Обычно равно количеству помещений, комнат или точек обзора в открытом пространстве.
 						</div>
-						<div class="span2">
-							<input id="tourcalc-pano-count" type="text" value="5" name="tourcalc-pano-count">
-							<div id="tourcalc-pano-count-error" class="validation-error">Укажите количество</div>
-						</div>
-						
 					</div>
-					<div id="tourcalc-results" class="row" style="margin-top: 15px">
-						<div class="span4 sum-line"><p><b>Сумма:</b></p></div>
-						<div class="span2 sum-line"><b><span id="tourcalc-sum">&mdash;</span> р.</b></div>
+					<div class="span2">
+						<input id="tourcalc-pano-count" type="text" value="1" name="tourcalc-pano-count">
+						<div id="tourcalc-pano-count-error" class="validation-error">Укажите количество</div>
 					</div>
-					<p id="contact-form" class="contact-submit" style="margin-top:35px;">
-						<span id="submit-more" class="submit" onclick="ShowSubmitForm('submitform');">Заказать точный расчет</span>
-					</p>
-				</form>
-			</div>
-			<div class="span5" style="padding:40px; width:auto; margin:0;">
-				
-				<div class="span4" style="width:340px; margin-right:20px;">
-					<h3 style="width:100%;"><b>Заказжите бесплатную пробную панораму!</b></h3>
-					<p class="input-row" style="width:100%;">Мы выполним съёмку и передадим результат на следующий день.</p>
-					<form id="contact-form" class="contact-form" action="/app/feedback.php" >
-						<p>
-							<input id="contact_name" type="text" placeholder="Имя" value="" name="name" style="width:100%;"/>
-						</p>
-						<p>
-							<input id="contact_tel" type="text" placeholder="Контактный телефон" value="" name="telephone" style="width:100%;"/>
-						</p>
-						<p class="contact-submit">
-							<a id="contact-submit" class="submit" href="#">Отправить</a>
-						</p>
-
-						<div id="response"></div>
-					</form>
+					
 				</div>
-			</div>
+				<div id="tourcalc-results" class="row" style="margin-top: 15px">
+					<div class="span4 sum-line"><p><b>Сумма:</b></p></div>
+					<div class="span2 sum-line"><b><span id="tourcalc-sum">&mdash;</span> р.</b></div>
+				</div>
+				<p id="contact-form" class="contact-submit" style="margin-top:35px;">
+					<span id="submit-more" class="submit" onclick="ShowSubmitForm();">Заказать точный расчет</span>
+				</p>
+			</form>
+		</div>			
+		<div class="span4" style="padding:40px;">
+			<h3 style="width:100%;"><b>Заказжите бесплатную пробную панораму!</b></h3>
+			<p class="input-row" style="width:100%;">Мы выполним съёмку и передадим результат на следующий день.</p>
+			<form id="contact-form" class="contact-form" action="/app/feedback.php" >
+				<p>
+					<input id="contact_name" type="text" placeholder="Имя" value="" name="name" style="width:100%;"/>
+				</p>
+				<p>
+					<input id="contact_tel" type="text" placeholder="Контактный телефон" value="" name="telephone" style="width:100%;"/>
+				</p>
+				<p class="contact-submit">
+					<a id="contact-submit" class="submit" href="#">Отправить</a>
+				</p>
+
+				<div id="response"></div>
+			</form>
 		</div>
-	</div>
+	</div>	
 </section>

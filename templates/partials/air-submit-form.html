@@ -1,0 +1,34 @@
+<section id="tour-calc">
+	<div id="air-submit-form">
+		<a title="Close" class="airform-close" onclick="HideSubmitForm();" href="javascript:void(0);"><i class="font-icon-remove"></i></a>
+		<h3><b>Закажите точный расчет<b></h3>
+		<form id="contact-form" class="contact-form" action="/app/feedback.php">
+			<p>
+				<input id="contact_name" type="text" placeholder="Ваше имя" value="" name="name" />
+			</p>
+			<p>
+				<input id="contact_email" type="text" placeholder="Адрес электронной почты" value="" name="email" />
+			</p>
+			<p>
+				<input id="contact_tel" type="text" placeholder="Контактный телефон" value="" name="telephone" />
+			</p>
+			<p>
+				<select id="contact_way" name="way">
+					<option value="" disabled selected>Предпочтительный способ связи</option>
+					<option value="email">Связаться по e-mail</option>
+					<option value="telephone">Связаться по телефону</option>
+				</select>
+			</p>
+			<p>
+				<textarea id="contact_message"
+						  placeholder="Опишите ваш проект, и мы обязательно свяжемся с вами"
+						  name="message" rows="3" cols="20"></textarea>
+			</p>
+			<p class="contact-submit"">
+				<a id="contact-submit" class="submit" href="#">Отправить</a>
+			</p>
+
+			<div id="response"></div>
+		</form>
+	</div>
+</section>

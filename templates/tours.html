@@ -33,7 +33,6 @@
 :services-box
 
 <div id="shadow"></div>
-
 <div id="content">
     <!-- Start Section Portfolio Projects -->
     <section id="portfolio" class="container">
@@ -73,6 +72,8 @@ endforeach
     <!-- End Section Portfolio Projects -->
 </div>
 
+:air-submit-form
+
 <section id="clients" style="margin:20px 0 30px 0">
 	<div class="container">
 	<h4>Наши клиенты:</h4>
@@ -87,39 +88,6 @@ endforeach
     </div>   
 </section>
 
-<div id="submitform">
-	<a title="Close" class="fancybox-item fancybox-close" onclick="HideSubmitForm('submitform');" href="javascript:void(0);"><i class="font-icon-remove"></i></a>
-	<h3><b>Заказать точный расчет<b></h3>
-	<form id="contact-form" class="contact-form" action="/app/feedback.php">
-		<p>
-			<input id="contact_name" type="text" placeholder="Имя" value="" name="name" />
-		</p>
-		<p>
-			<input id="contact_email" type="text" placeholder="E-mail" value="" name="email" />
-		</p>
-		<p>
-			<input id="contact_tel" type="text" placeholder="Контактный телефон" value="" name="telephone" />
-		</p>
-		<p>
-			<select id="contact_way" name="way">
-				<option value="" disabled selected>Предпочтительный способ связи</option>
-				<option value="email">Связаться по e-mail</option>
-				<option value="telephone">Связаться по телефону</option>
-			</select>
-		</p>
-		<p>
-			<textarea id="contact_message"
-					  placeholder="Опишите детально ваш проект, и мы обязательно свяжемся с вами"
-					  name="message" rows="3" cols="20"></textarea>
-		</p>
-		<p class="contact-submit"">
-			<a id="contact-submit" class="submit" href="#">Отправить</a>
-		</p>
-
-		<div id="response"></div>
-	</form>
-</div>
-
 :twitter-feed
 
 :credits
@@ -133,102 +101,6 @@ endforeach
 :jivosite
 
 :js
-
-<script type="text/javascript">
-    function panoPrice(count) {
-        if (count <= 9)  return 2500;
-        if (count <= 19) return 2250;
-		if (count >= 20) return 2000;
-        return 2000;
-    }
-
-    function tourPrice(count) {
-        var price = 1500;
-        if (count > 5) {
-            var magic = ~~((count - 5) / 5) + 1;
-            price += 1000 * magic;
-        }
-
-        return 0;
-    }
-
-    function recalculate() {
-        var panoCount = parseInt(jQuery('#tourcalc-pano-count').val());
-        var photoCountText = (jQuery('#tourcalc-photo-count').val() || '');
-        var photoCount = parseInt(photoCountText);
-        var isCarPano = (jQuery('#tourcalc-is-car').val() === 'true');
-
-        var sumSpan = jQuery('#tourcalc-sum');
-        sumSpan.text('\u2014');
-
-        var panoCountError = jQuery('#tourcalc-pano-count-error');
-        if (isNaN(panoCount) || panoCount <= 0) {
-            panoCountError.show();
-            return;
-        } else {
-            panoCountError.hide();
-        }
-
-        var photoCountError = jQuery('#tourcalc-photo-count-error');
-        if (photoCountText.trim() === '') {
-            photoCountError.hide();
-            photoCount = 0;
-        } else if (isNaN(photoCount) || photoCount < 0) {
-            photoCountError.show();
-            return;
-        } else {
-            photoCountError.hide();
-        }
-
-        var singlePanoPrice = panoPrice(panoCount);
-        var tourWorkPrice = tourPrice(panoCount);
-        var sum = (panoCount * singlePanoPrice) + (photoCount * 500) + tourWorkPrice;
-
-        if (isCarPano) sum *= 2;
-
-        sumSpan.text(sum);
-        sumSpan.digits();
-    }
-
-    jQuery(document).ready(function() {
-        var panoCount = jQuery('#tourcalc-pano-count');
-        panoCount.keyup(recalculate);
-        jQuery('#tourcalc-photo-count').keyup(recalculate);
-        jQuery('#tourcalc-is-car').change(recalculate);
-        jQuery('#tourcalc-is-anaglyph').change(recalculate);
-
-        var params = getQueryParameters();
-        if (typeof params.count !== 'undefined') {
-            panoCount.val(params.count);
-        }
-
-        recalculate();
-    });
-	
-	function ShowSubmitForm(sform)
-	{
-		// hide background
-		if(document.getElementById('shadow')!=null) {
-			document.getElementById('shadow').style.display="block";
-		}
-			
-		if(document.getElementById(sform)!=null) {
-			document.getElementById(sform).style.display="block";
-		}
-	}
-	
-	function HideSubmitForm(sform)
-	{	
-		
-		if(document.getElementById('shadow')!=null) {
-			document.getElementById('shadow').style.display="none";
-		}
-			
-		if(document.getElementById(sform)!=null) {
-			document.getElementById(sform).style.display="none";
-		}
-	}
-</script>
 
 </body>
 </html>
