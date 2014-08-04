@@ -1,8 +1,0 @@
-title: Smile to us! Фотография, виртуальные туры, 3D-фото. 
--
-og-url:http://www.smiletous.com/
--
-og-image:http://www.smiletous.com/public/img/slider-images/image-01.jpg
--
-content:
--
