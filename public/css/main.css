@@ -1395,21 +1395,27 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 	padding: 0;	
 }
 
-#contact-form {
+#contact-form, 
+#contact-form2 {
 	margin-bottom: 0;	
 }
 
-#contact-form p {
+#contact-form p,
+#contact-form2 p {
 	margin-bottom: 30px;	
 }
 
-#contact-form p:first-child {
+#contact-form p:first-child, 
+#contact-form2 p:first-child {
 	margin-top: 26px;	
 }
 
-#contact-form input,
-#contact-form textarea,
-#contact-form select {
+#contact-form input, 
+#contact-form2 input,
+#contact-form textarea, 
+#contact-form2 textarea,
+#contact-form select, 
+#contact-form2 select {
     border: 1px solid #E9F0F4;
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
@@ -1434,29 +1440,35 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 		    transition: border 0.15s ease-in-out 0s, color 0.15s ease-in-out 0s;
 }
 
-#contact-form select {
+#contact-form select, 
+#contact-form2 select {
     width: 100%;
     padding: 10px 15px;
 }
 
-#contact-form option[selected]{
+#contact-form option[selected], 
+#contact-form2 option[selected] {
     background:#ff0000;
 }
 
 #contact-form input:focus,
-#contact-form textarea:focus {
+#contact-form textarea:focus, 
+#contact-form2 input:focus,
+#contact-form2 textarea:focus{
 	border-color: #D0DBE2;
 	color: #323A45;
 }
 
-#contact-form input {
+#contact-form input, 
+#contact-form2 input {
     width: 100%;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
 
-#contact-form textarea {
+#contact-form textarea, 
+#contact-form2 textarea{
     width: 100%;
 	resize: vertical;
 	-webkit-box-sizing: border-box;
@@ -1464,7 +1476,8 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 	box-sizing: border-box;
 }
 
-#contact-form .submit {
+#contact-form .submit, 
+#contact-form2 .submit{
     background: #323A45;
     color: #FFFFFF;
 	
@@ -1488,17 +1501,17 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 		    transition: background 0.15s ease-in-out 0s;
 }
 
-#contact-form .submit:hover {
+#contact-form .submit:hover, 
+#contact-form2 .submit:hover{
     background: #F97E76;
 }
 
-#response {
-	margin-top: 20px;
+.response {
 	color: #323A45;
-}
-
-#response p {
-	margin-bottom: 10px;	
+	display:inline-block;
+	margin-bottom:26px; 
+	vertical-align:middle;
+	font-weight:300;
 }
 
 /* ==================================================
@@ -1510,9 +1523,9 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 	top:75px;
 	left:50%;
 	top:50%;
-	width:400px;
-	margin-left:-200px;
-	margin-top:-319px;
+	width:450px;
+	margin-left:-225px;
+	margin-top:-336px;
 	padding:20px 40px;
 	text-align:left;
 	background:#ffffff;
@@ -1528,7 +1541,7 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 	width:620px;
 	margin-left:-350px;
 	margin-top:-226px;
-	padding:20px 40px;
+	padding:20px 0px 20px 40px;
 	text-align:left;
 	background:#ffffff;
 	z-index:10000;
@@ -1540,8 +1553,8 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 	top:75px;
 	left:50%;
 	top:50%;
-	width:460px;
-	margin-left:-270px;
+	width:400px;
+	margin-left:-200px;
 	margin-top:-226px;
 	padding:20px 40px;
 	text-align:left;
@@ -3230,7 +3243,8 @@ footer.footer-widgets .flickr-list ul li a:hover i {
     display: inline-block;
     font-size: 18px;
     font-weight: 500;
-    padding: 10px 20px;
+    padding: 10px 15px;
+	margin-right:20px;
     text-align: center;
     vertical-align: middle;
     width: auto;

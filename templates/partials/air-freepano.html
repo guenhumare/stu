@@ -1,20 +1,19 @@
 <section id="air-freepano">
 	<div id="air-freepano-form">
 		<a title="Close" class="airform-close" onclick="HideAirFreePanoForm();" href="javascript:void(0);"><i class="font-icon-remove"></i></a>
-		<h3 style="width:100%;"><b>Заказжите бесплатную пробную панораму!</b></h3>
+		<h3 style="width:100%;"><b>Заказ пробной съёмки</b></h3>
 		<p class="input-row" style="width:100%; font-weight:300;">Мы выполним съёмку и передадим результат на следующий день.</p>
-		<form id="contact-form" class="contact-form" action="/app/feedback.php" >
+		<form id="contact-form2" class="contact-form" action="@root_path/app/submit-cold.php" >
 			<p>
-				<input id="contact_name" type="text" placeholder="Ваше имя" value="" name="name" style="width:100%;"/>
+				<input id="contact_name2" type="text" placeholder="Ваше имя" value="" name="name" style="width:100%;"/>
 			</p>
 			<p>
-				<input id="contact_tel" type="text" placeholder="Контактный телефон" value="" name="telephone" style="width:100%;"/>
+				<input id="contact_tel2" type="text" placeholder="Контактный телефон" value="" name="telephone" style="width:100%;"/>
 			</p>
-			<p class="contact-submit">
-				<a id="contact-submit" class="submit" href="#">Отправить</a>
+			<p class="contact-submit submit" id="contact-submit2">
+				Отправить
 			</p>
-
-			<div id="response"></div>
+			<div id="response2" class="response"></div>
 		</form>
 	</div>
 </section>

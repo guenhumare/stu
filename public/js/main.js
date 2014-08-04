@@ -392,7 +392,7 @@ ANUBIS.contactForm = function(){
 		
 		$.ajax({
 			type: "POST",
-			url: "/app/feedback.php",
+			url: "/app/submit-hot.php",
 			data: fields,
 			success: function () {
 				$('#contact-form input').val('');
@@ -400,6 +400,31 @@ ANUBIS.contactForm = function(){
 			},
 			complete: function (response) {
 				$('#response').empty().html(response.responseText);
+			}
+		});
+
+		return false;
+	});
+}
+
+ANUBIS.contactForm2 = function(){
+	$("#contact-submit2").on('click',function() {
+		$contact_form2 = $('#contact-form2');
+		$('#response2').text('Отправляем...')
+		
+		var fields = $contact_form2.serialize();
+
+		
+		$.ajax({
+			type: "POST",
+			url: "/app/submit-cold.php",
+			data: fields,
+			success: function () {
+				$('#contact-form2 input').val('');
+				$('#contact-form2 textarea').val('');
+			},
+			complete: function (response) {
+				$('#response2').empty().html(response.responseText);
 			}
 		});
 
@@ -721,6 +746,7 @@ $(document).ready(function(){
 	ANUBIS.flickr();
 	ANUBIS.twitter();
 	ANUBIS.contactForm();
+	ANUBIS.contactForm2();
 	ANUBIS.scrollToTop();
 	ANUBIS.changeOpacity();
 });
