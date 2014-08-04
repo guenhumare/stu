@@ -1477,7 +1477,8 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 }
 
 #contact-form .submit, 
-#contact-form2 .submit{
+#contact-form2 .submit,
+#no-form .submit {
     background: #323A45;
     color: #FFFFFF;
 	
@@ -1502,7 +1503,8 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 }
 
 #contact-form .submit:hover, 
-#contact-form2 .submit:hover{
+#contact-form2 .submit:hover,
+#no-form .submit:hover{
     background: #F97E76;
 }
 
