@@ -1,6 +1,6 @@
 <!-- Tour Calculator -->
-<section id="tour-calc">	
-	<div class="row margin-50" style="margin-top: 80px; background-color: #f7f8f9;">
+<section id="tour-calc">
+	<div class="container" style="margin-top: 80px; background-color: #f7f8f9;">
 		<div class="span6" style="padding:40px 0px 40px 40px; margin:0; margin-right:20px;">
 			<h3><b>Примерный расчет стоимости тура</b></h3>
 			<form id="calculator" onsubmit="return false;">
@@ -17,7 +17,7 @@
 						<input id="tourcalc-pano-count" type="text" value="1" name="tourcalc-pano-count">
 						<div id="tourcalc-pano-count-error" class="validation-error">Укажите количество</div>
 					</div>
-					
+
 				</div>
 				<div id="tourcalc-results" class="row" style="margin-top: 15px">
 					<div class="span4 sum-line"><p><b>Сумма:</b></p></div>
@@ -27,16 +27,16 @@
 					<span id="submit-more" class="submit" onclick="ShowSubmitForm();">Заказать точный расчет</span>
 				</p>
 			</form>
-		</div>			
+		</div>
 		<div class="span4" style="padding:40px 0px 40px 20px; margin-left:60px;">
 			<h3 style="width:100%;"><b>Закажите бесплатную панораму!</b></h3>
-			<p class="input-row" style="width:100%; font-size:18px;">Пробная съёмка это простая возможность оценить необходимость в большом туре.</p>
-			<p class="input-row" style="width:100%; font-size:18px;">Мы выполним работу и передадим результат на следующий день.</p>
+			<p class="input-row" style="width:100%; font-size:18px;">Пробная съёмка одной панорамы — это простая возможность оценить качество нашей работы, а также определиться, нужен ли вам виртуальный тур.</p>
+			<p class="input-row" style="width:100%; font-size:18px;">Мы выполним работу и отдадим результат уже на следующий день.</p>
 			<form id="contact-form2" class="contact-form" action="@root_path/app/submit-cold.php" >
 				<p class="contact-submit" style="margin-top:35px;">
 					<span id="submit-more" class="submit" onclick="ShowAirFreePanoForm();">Заказать пробную съёмку</span>
 				</p>
 			</form>
 		</div>
-	</div>	
+	</div>
 </section>
