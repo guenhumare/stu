@@ -12,6 +12,10 @@ if(phpversion() < 5) {
   # include any php files which sit in the app folder
   foreach(Helpers::rglob('./app/**.inc.php') as $include) include_once $include;
 
+	
+	error_reporting(~E_ALL);
+
+  
   # start the app
   new Stacey($_GET);
   
