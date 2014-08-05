@@ -659,7 +659,7 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 
 .tp-bullets.simplebullets.round .bullet {
 	background-image: none;
-	background-color: #323A45;
+	background-color: #FFFFFF;
 	width: 10px;
 	height: 10px;
 	
@@ -670,7 +670,7 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 	   -moz-border-radius: 999px;
 			border-radius: 999px;
 	
-	opacity: 0.6;
+	opacity: 0.8;
 	filter: alpha(opacity=60);
 	
 	-webkit-transition: all 0.15s ease-in-out 0s;	
