@@ -4,6 +4,9 @@
 <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
 <!--[if (IE 9)]><html class="no-js ie9" lang="en"><![endif]-->
 <!--[if gt IE 8]><!--> <html lang="en-US"> <!--<![endif]-->
+
+:js
+
 <head>
 
 <!-- Meta Tags -->
@@ -43,13 +46,13 @@
 		foreach $swf do
 			<div class="row margin-40">
 				<div class="span12">
-					<section id="pano" style="height: 600px; width: 100%">
+					<section id="pano" style="height: 600px; width: 100%; cursor: url('@url/../skin/grab.png') 10 10, grab;">
 <script>
     embedpano({
         swf: "@url",
         xml: "@url.xml",
         target: "pano",
-        html5: "prefer",
+        html5: "only",
         passQueryParameters: true,
         onready: function (krpano) {
             var inFullScreen = false, delay = 200;
@@ -93,6 +96,14 @@
 		var krpano = document.getElementById("krpanoSWFObject");
 		krpano.call("if(started, delayedcall(0.5, set(autorotate.enabled, true)));");
 	}
+	
+	jQuery("#pano").mousedown(function() {
+		jQuery("#pano").css("cursor", "url('@url/../skin/grabbing.png') 10 10, grabbing");
+			
+	});
+	jQuery("#pano").mouseup(function() {
+		jQuery("#pano").css("cursor", "url('@url/../skin/grab.png') 10 10, grab");
+	});
 
    /*function openPopup(title, linktourl, w, h, type) {
         jQuery.fancybox.open({
@@ -161,8 +172,6 @@
 :analytics
 
 :jivosite
-
-:js
 
 </body>
 </html>
