@@ -12,7 +12,7 @@ $message = "
 Message:
 Это заявка на пробную съёмку.";
 
-$targetMail = "alexey.pushkariov@gmail.com";
+$targetMail = "guenhumare@gmail.com;mail@smiletous.com";
 $headerFields = array(
   "From: contact_form@smiletous.com",
   "MIME-Version: 1.0",
