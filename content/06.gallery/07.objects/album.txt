@@ -1,8 +1,8 @@
 title:Объекты
 -
-og-url:http://www.smiletous.com/gallery/objects
+og-url:http://www.amp.photo/gallery/objects
 -
-og-image:http://www.smiletous.com/content/06.gallery/07.objects/thumb.jpg
+og-image:http://www.amp.photo/content/06.gallery/07.objects/thumb.jpg
 -
 seo-keywords:предметное фото, предметный фотограф, предметная фотосъемка, каталожное фото, фотограф картин, фотограф техники 
 -

@@ -1,8 +1,8 @@
 title:Спорт
 -
-og-url:http://www.smiletous.com/gallery/sports
+og-url:http://www.amp.photo/gallery/sports
 -
-og-image:http://www.smiletous.com/content/06.gallery/03.sports/thumb.jpg
+og-image:http://www.amp.photo/content/06.gallery/03.sports/thumb.jpg
 -
 seo-keywords:фотосъемка спорта, спортивная съемка, спортивный фотограф, фотосъемка футбола, фотограф спортивных мероприятий, профессиональный фотограф.
 -

@@ -2,7 +2,7 @@ seo-keywords: виртуальный тур, заказать виртуальн
 -
 title: Съёмка стереопанорамы
 -
-og-url:http://www.smiletous.com/blog/stereopano
+og-url:http://www.amp.photo/blog/stereopano
 -
 og-image:
 -

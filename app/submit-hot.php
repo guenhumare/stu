@@ -27,9 +27,9 @@ E-mail: $email
 Message:
 $message";
 
-$targetMail = "guenhumare@gmail.com;mail@smiletous.com";
+$targetMail = "guenhumare@gmail.com;mail@amp.photo";
 $headerFields = array(
-  "From: contact_form@smiletous.com",
+  "From: contact_form@amp.photo",
   "MIME-Version: 1.0",
   "Content-Type: text/html;charset=utf-8");
 

@@ -1,5 +1,5 @@
 <?php
-$subject = "Новое сообщение контактной формы smiletous.com";
+$subject = "Новое сообщение контактной формы amp.photo";
 
 $name = check_input($_POST['name'], "Вы не ввели свое имя");
 $email = check_input($_POST['email']);
@@ -27,9 +27,9 @@ E-mail: $email
 Message:
 $message";
 
-$targetMail = "guenhumare@gmail.com;mail@smiletous.com";
+$targetMail = "guenhumare@gmail.com;mail@amp.photo";
 $headerFields = array(
-  "From: contact_form@smiletous.com",
+  "From: contact_form@amp.photo",
   "MIME-Version: 1.0",
   "Content-Type: text/html;charset=utf-8");
 

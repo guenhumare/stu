@@ -5,9 +5,9 @@ ExpiresDefault "access plus 7 days"
 
 RewriteEngine on
 
-# www.smiletous.com is our main name
-RewriteCond %{HTTP_HOST} ^smiletous\.com$ [NC]
-RewriteRule ^(.*)$ http://www.smiletous.com/$1 [R=301,L]
+# www.amp.photo is our main name
+RewriteCond %{HTTP_HOST} ^amp\.photo$ [NC]
+RewriteRule ^(.*)$ http://www.amp.photo/$1 [R=301,L]
 
 # Some hosts require a rewritebase rule, if so, uncomment the RewriteBase line below. If you are running from a subdirectory, your rewritebase should match the name of the path to where stacey is stored.
 # ie. if in a folder named 'stacey', RewriteBase /stacey

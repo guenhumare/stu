@@ -1,8 +1,8 @@
 title: Ресторан Марио в Жуковке
 -
-og-url:http://www.smiletous.com/tours/mario/
+og-url:http://www.amp.photo/tours/mario/
 -
-og-image:http://www.smiletous.com/content/04.tours/02000.mario/thumb.jpg
+og-image:http://www.amp.photo/content/04.tours/02000.mario/thumb.jpg
 -
 seo-keywords:виртуальный тур, виртуальные туры, 3d панорама, создание и разработка виртуальных туров, создание 3d панорам, виртуальные сферические круговые панорамы, 3d туры, 3д панорама, виртуальный тур цена, виртуальный тур заказать, виртуальный тур кафе, виртуальный тур ресторана, виртуальный тур по ресторану
 -

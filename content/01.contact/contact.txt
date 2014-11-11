@@ -2,13 +2,13 @@ title: Контакты
 -
 seo-keywords: виртуальный тур, виртуальные туры, 3d панорама, создание и разработка виртуальных туров, создание 3d панорам, виртуальные сферические круговые панорамы, 3d туры, 3д панорама, виртуальный тур цена, виртуальный тур заказать
 -
-og-url:http://www.smiletous.com/contact/
+og-url:http://www.amp.photo/contact/
 -
 og-image:
 -
 content: 
 -
-email: mail@smiletous.com
+email: mail@amp.photo
 -
 phone1: +7(926)102-07-92
 -

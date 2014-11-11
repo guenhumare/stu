@@ -1,8 +1,8 @@
 title:Съемка для каталогов
 -
-og-url:http://www.smiletous.com/gallery/looks
+og-url:http://www.amp.photo/gallery/looks
 -
-og-image:http://www.smiletous.com/content/06.gallery/06.looks/thumb.jpg
+og-image:http://www.amp.photo/content/06.gallery/06.looks/thumb.jpg
 -
 seo-keywords:фото одежды, каталожный фотограф, съемка для каталогов, фотограф одежды и аксессуаров, предметный фотограф 
 -

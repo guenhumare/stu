@@ -1,8 +1,8 @@
 title: Квартира в поселке таун-хаусов «Дубровка»
 -
-og-url:http://www.smiletous.com/tours/d7/
+og-url:http://www.amp.photo/tours/d7/
 -
-og-image:http://www.smiletous.com/content/04.tours/01800.d7/thumb.jpg
+og-image:http://www.amp.photo/content/04.tours/01800.d7/thumb.jpg
 -
 seo-keywords:виртуальный тур, виртуальные туры, 3d панорама, создание и разработка виртуальных туров, создание 3d панорам, виртуальные сферические круговые панорамы, 3d туры, 3д панорама, виртуальный тур цена, виртуальный тур заказать, виртуальный тур таун-хауса, виртуальный тур квартиры
 -

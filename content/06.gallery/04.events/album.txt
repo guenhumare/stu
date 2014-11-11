@@ -1,8 +1,8 @@
 title:События
 -
-og-url:http://www.smiletous.com/gallery/events
+og-url:http://www.amp.photo/gallery/events
 -
-og-image:http://www.smiletous.com/content/06.gallery/04.events/thumb.jpg
+og-image:http://www.amp.photo/content/06.gallery/04.events/thumb.jpg
 -
 seo-keywords:репортажный фотограф, фото репортажа, профессиональный репортажный фотограф, фото событий, фотограф на день рождения, фотограф на праздник, фотограф на выставку, фотограф на мероприятие
 -

@@ -1,8 +1,8 @@
 title: 3D-фото
 -
-og-url:http://www.smiletous.com/3d/
+og-url:http://www.amp.photo/3d/
 -
-og-image:http://www.smiletous.com/content/05.3d/010.gold/thumb.jpg
+og-image:http://www.amp.photo/content/05.3d/010.gold/thumb.jpg
 -
 seo-keywords: виртуальный тур, виртуальные туры, 3d фото, 3d фото, 3d фотографии, трехмерная съемка товаров, объемная фотография, объемное фото, 3d фото 360, фото 360, vr-фото
 -
@@ -42,15 +42,15 @@ row1:Мы знаем, как показать вашим клиентам пре
 
 Все созданные объекты полностью поддерживаются устройствами на платформах iOS, Android, Windows Phone. А для защиты от воровства на все кадры модели могут быть наложены водяные знаки.
 -
-logo1:http://smiletous.com/public/img/clients/3d-logo/velosklad.jpg
+logo1:http://amp.photo/public/img/clients/3d-logo/velosklad.jpg
 -
-logo2:http://smiletous.com/public/img/clients/3d-logo/gevorgian.jpg
+logo2:http://amp.photo/public/img/clients/3d-logo/gevorgian.jpg
 -
-logo3:http://smiletous.com/public/img/clients/3d-logo/cd.jpg
+logo3:http://amp.photo/public/img/clients/3d-logo/cd.jpg
 -
-logo4:http://smiletous.com/public/img/clients/3d-logo/mm.jpg
+logo4:http://amp.photo/public/img/clients/3d-logo/mm.jpg
 -
-logo5:http://smiletous.com/public/img/clients/3d-logo/romanoff.jpg
+logo5:http://amp.photo/public/img/clients/3d-logo/romanoff.jpg
 -
-logo6:http://smiletous.com/public/img/clients/3d-logo/avangard.jpg
+logo6:http://amp.photo/public/img/clients/3d-logo/avangard.jpg
 -

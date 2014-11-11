@@ -1,8 +1,8 @@
 title: Интерьеры
 -
-og-url:http://www.smiletous.com/gallery/interiors
+og-url:http://www.amp.photo/gallery/interiors
 -
-og-image:http://www.smiletous.com/content/06.gallery/05.interiors/thumb.jpg
+og-image:http://www.amp.photo/content/06.gallery/05.interiors/thumb.jpg
 -
 seo-keywords:фото интерьеров, интерьерный фотограф, фото помещений, интерьерная фотография, заказать интерьерное фото, фото архитектуры, архитектурный фотограф
 -

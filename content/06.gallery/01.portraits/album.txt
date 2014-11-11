@@ -1,8 +1,8 @@
 title:Люди
 -
-og-url:http://www.smiletous.com/gallery/portraits
+og-url:http://www.amp.photo/gallery/portraits
 -
-og-image:http://www.smiletous.com/content/06.gallery/01.portraits/thumb.jpg
+og-image:http://www.amp.photo/content/06.gallery/01.portraits/thumb.jpg
 -
 seo-keywords:портретное фото, фотограф, фотосъемка людей, профессиональный фотограф, студийная съемка.
 -

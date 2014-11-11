@@ -1,8 +1,8 @@
 title: Корпоративная съемка
 -
-og-url:http://www.smiletous.com/gallery/corporate
+og-url:http://www.amp.photo/gallery/corporate
 -
-og-image:http://www.smiletous.com/content/06.gallery/01.corporate/thumb.jpg
+og-image:http://www.amp.photo/content/06.gallery/01.corporate/thumb.jpg
 -
 seo-keywords:портретное фото, фотограф, фотосъемка людей, корпоративное фото, корпоративная съемка, деловой портрет, деловое фото, фото бизнеса, фото производства, фото офиса, профессиональный фотограф, студийная съемка.
 -

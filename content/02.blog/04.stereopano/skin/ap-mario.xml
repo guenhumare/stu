@@ -24,7 +24,7 @@
         enterfs="Fullscreen (F11)"
         exitfs="Exit Fullscreen (Esc)"
 	>
-		<item caption="smiletous.com" onclick="openurl('http://smiletous.com',_blank);" />
+		<item caption="amp.photo" onclick="openurl('http://amp.photo',_blank);" />
 	</contextmenu>
 	
 	<progress showload="none"
