@@ -1,3 +1,4 @@
+@@ -1,110 +0,0 @@
 <!DOCTYPE html>
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
@@ -9,7 +10,7 @@
 <!-- Meta Tags -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-<title>@title</title>   
+<title>@title</title>
 
 :meta
 
@@ -47,24 +48,24 @@
             <div id="portfolio-projects">
                 <ul id="projects">
 
-foreach $children[0:6] do                
+foreach $children[0:6] do
                     <li class="item-project span4 design">
                         <h5>
                             <a href="@url" target="_blank">@title</a>
                             <span class="arrow-port"></span>
                         </h5>
-                        
+
                         <a class="hover-wrap fancybox" href="@url" data-fancybox-group="gallery" title="@title">
                             <img src="@thumb" alt="@title" />
                             <div class="overlay"></div>
                             <i class="font-icon-plus"></i>
                         </a>
-                    </li>          
+                    </li>
 endforeach
                 </ul>
             </div>
         </div>
-		
+
 		<div class="span12">
 				<center style="margin-left:-60px; ">
 				 <h3><a style="font-weight: 300" href="http://smiletous.com/tours/gallery">Посмотреть больше</a><h3></center></div>
@@ -91,7 +92,7 @@ endforeach
 					<div class="span2"><img src="@logo5"/></div>
 					<div class="span2"><img src="@logo6"/></div>
 			   </div>
-			</div>   
+			</div>
 		</section>
 
 :twitter-feed
