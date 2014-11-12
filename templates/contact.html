@@ -9,7 +9,7 @@
 <!-- Meta Tags -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-<title>@title</title>   
+<title>@title</title>
 
 :meta
 
@@ -43,7 +43,7 @@
             </div>
         </div>
         <!-- End Title Page -->
-		
+
         <div class="row margin-50">
 			<!-- Contact Details -->
             <div class="span3">
@@ -54,15 +54,16 @@
                         <li><a href="mailto:@email">@email</a></li>
                         <li>@phone1</li>
                         <li>@phone2</li>
-                        <li>skype: <a href="skype:@phone3?call">@phone3</a></li>
-                        <li><h4>QR-код электронной визитки</h4></li>
-                        <li><img src="http://www.amp.photo/public/img/QR-Code.png" alt="Vcard"></li>
+                        <div class="contact-details">
+                          <li><h4>QR-код электронной визитки</h4></li>
+                          <li><img src="http://www.amp.photo/public/img/QR-Code.png" alt="Vcard"></li>
+                        </div>
                     </ul>
                 </div>
             </div>
             <!-- End Contact Details -->
-			<!-- <div class="span1"></div> -->
             <div class="span9">
+              <div class="contact-details">
                 <h4>Связаться с нами</h4>
                 <form id="contact-form" class="contact-form" action="/app/feedback.php">
                     <p class="contact-name">
@@ -80,12 +81,13 @@
                     <p class="contact-submit">
                         <a id="contact-submit" class="submit" href="#">Отправить</a>
                     </p>
-                    
+
                     <div id="response"></div>
                 </form>
+              </div>
             </div>
-           
-            
+
+
         </div>
         <!-- End Contact Form -->
 	</div>

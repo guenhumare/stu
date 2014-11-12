@@ -14,5 +14,3 @@ phone1: +7(926)102-07-92
 -
 phone2: +7(926)184-92-64
 -
-phone3: smiletous.studio
--
