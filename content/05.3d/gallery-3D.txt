@@ -1,4 +1,4 @@
-title: 3D-фото
+﻿title: 3D-фото
 -
 og-url:http://www.amp.photo/3d/
 -
@@ -52,4 +52,4 @@ logo4:http://amp.photo/public/img/clients/3d-logo/mm.jpg
 -
 logo5:http://amp.photo/public/img/clients/3d-logo/romanoff.jpg
 -
-logo6:http://amp.photo/public/img/clients/tours-logo/avangard.jpg
+logo6:http://amp.photo/public/img/clients/3d-logo/avangard.jpg
